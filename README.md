@@ -195,8 +195,10 @@ This project is currently **not licensed**. You are free to use or adapt the cod
 ---
 
 ## Author
- [GOD-DEBANG](https://github.com/GOD-DEBANG)
- [CosmicRick](https://github.com/CosmicRick)
+ [GOD-DEBANG](https://github.com/GOD-DEBANG)<br>
+ [CosmicRick](https://github.com/CosmicRick)<br>
+ [Sayandip Naskar](https://github.com/Sayandip6)<br>
+ [Sourish-Mallick](https://github.com/Sourish-Mallick)
 
 
 
