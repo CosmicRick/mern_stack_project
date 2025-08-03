@@ -196,6 +196,7 @@ This project is currently **not licensed**. You are free to use or adapt the cod
 
 ## Author
  [GOD-DEBANG](https://github.com/GOD-DEBANG)
+ [CosmicRick](https://github.com/CosmicRick)
 
 
 
