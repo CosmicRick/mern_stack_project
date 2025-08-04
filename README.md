@@ -1,140 +1,238 @@
-# JobPortal
+# 🚀 MERN Stack Job Portal
 
-A robust, enterprise-grade job portal backend engineered with Node.js, Express, and MongoDB. This repository offers a highly scalable, secure, and extensible API for comprehensive management of job postings, applications, user profiles, and company data—making it an ideal foundation for modern recruitment platforms, dynamic job search engines, or sophisticated internal hiring systems.
-
----
-
-## Table of Contents
-
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [API Highlights](#api-highlights)
-- [Contributing](#contributing)
-- [License](#license)
-- [Author](#author)
+A full-stack, enterprise-grade job portal application built with the MERN stack (MongoDB, Express.js, React, Node.js). This comprehensive platform provides a complete solution for job posting, application management, user authentication, and company profiles with both a robust backend API and a modern React frontend.
 
 ---
 
-## Features
+## 📋 Table of Contents
 
-### User Management
-- **Authentication & Authorization:** Secure user registration, login, logout, and JWT-based session management with role-based (user/admin) access control.
-- **Profile Management:** Complete user profile management including contact details, social links (LinkedIn, GitHub, portfolio), education, experience, and skillsets.
-- **Resume Handling & AI Analysis:** Upload and manage resumes, with integrated AI-powered analysis for generating personalized tags and career recommendations.
-- **Application Dashboard:** View and manage job applications, including status tracking (Applied, Interviewing, Offered, Rejected).
-
-### Job & Application Management
-- **Job Posting & Management:** Create, update, delete, and manage job postings with detailed attributes (title, description, location, salary, type, experience level, tags, deadlines, and status).
-- **Advanced Job Search:** Search and filter jobs by multiple criteria including title, tags, company, job type, and more.
-- **Job Application Workflow:** Users can apply for jobs with resumes and cover letters; admins/HR can update and oversee application statuses.
-- **Comprehensive Application Tracking:** Support for tracking all applications, both by individual users and via an administrative overview.
-
-### Company Management
-- **Company Profiles:** Register, update, and delete company profiles with details such as name, description, logo, website, industry, and employee directory.
-- **Company Directory & Search:** Browse and search companies by name or industry, with support for advanced filtering.
-- **Company Analytics:** Real-time statistics on jobs posted and employee metrics per company.
-
-### Artificial Intelligence & Automation
-- **AI-Powered Job Search:** Intelligent job recommendations and contextual search using external AI APIs.
-- **AI Resume Analyzer:** Automated resume parsing to generate smart tags and suggest optimal roles to users.
-- **AI Company Discovery:** Discover and recommend companies based on user intent or search keywords.
-
-### Platform-Wide Enhancements
-- **Data Analytics:** Track applicant counts, job statistics, company metrics, and platform-wide analytics.
-- **RESTful API Design:** All functionalities are exposed via clean, well-documented REST endpoints.
-- **Extensible Architecture:** Modular codebase with clear separation of concerns (models, controllers, routes, middleware, utilities), enabling easy maintenance and scalability.
+- [✨ Features](#features)
+- [🛠️ Tech Stack](#tech-stack)
+- [📁 Project Structure](#project-structure)
+- [🚀 Getting Started](#getting-started)
+- [🔗 API Documentation](#api-documentation)
+- [💻 Frontend Features](#frontend-features)
+- [🤝 Contributing](#contributing)
+- [📄 License](#license)
+- [👥 Authors](#authors)
 
 ---
 
-## Tech Stack
+## ✨ Features
 
-- **Backend:** Node.js, Express.js
-- **Database:** MongoDB (with Mongoose ODM)
-- **Authentication:** JWT, bcrypt
-- **Middleware/Utilities:** dotenv, cookie-parser, cors, axios (for AI integrations)
+### 🔐 User Management & Authentication
+- **Secure Authentication:** JWT-based authentication with registration, login, and logout
+- **Role-Based Access Control:** User and admin roles with appropriate permissions
+- **Profile Management:** Complete user profiles with personal details, education, experience, and skills
+- **Resume Upload & Analysis:** AI-powered resume parsing and analysis for personalized recommendations
+- **Application Dashboard:** Track job applications with status updates (Applied, Interviewing, Offered, Rejected)
+
+### 💼 Job Management System
+- **Job Creation & Management:** Full CRUD operations for job postings with detailed attributes
+- **Advanced Search & Filtering:** Search jobs by title, company, location, type, and tags
+- **Smart Job Recommendations:** AI-powered job matching based on user profiles
+- **Application Tracking:** Complete workflow for job applications with status management
+- **Job Analytics:** Statistics and insights for job postings and applications
+
+### 🏢 Company Management
+- **Company Profiles:** Comprehensive company registration and profile management
+- **Company Directory:** Browse and search companies by name, industry, and size
+- **Employee Management:** Track company employees and job postings
+- **Company Analytics:** Real-time statistics on job postings and applications
+
+### 🤖 AI-Powered Features
+- **Intelligent Job Search:** AI-enhanced job recommendations and contextual search
+- **Resume Analysis:** Automated resume parsing for skill extraction and job matching
+- **Company Discovery:** AI-powered company recommendations based on user preferences
+- **Smart Application Matching:** Intelligent matching between candidates and job requirements
+
+### 📊 Analytics & Reporting
+- **Dashboard Analytics:** Real-time insights on applications, jobs, and user engagement
+- **Performance Metrics:** Track platform usage, success rates, and user behavior
+- **Admin Panel:** Comprehensive admin dashboard for platform management
 
 ---
 
-## Getting Started
+## 🛠️ Tech Stack
 
-### Prerequisites
+### Backend Technologies
+- **Runtime:** Node.js (v14+)
+- **Framework:** Express.js
+- **Database:** MongoDB with Mongoose ODM
+- **Authentication:** JSON Web Tokens (JWT) + bcrypt
+- **Middleware:** CORS, cookie-parser, dotenv
+- **AI Integration:** Axios for external AI APIs
 
-- **Node.js** >= 14.x
-- **MongoDB** (local or cloud instance)
-- **npm**
+### Frontend Technologies
+- **Framework:** React 18+ with Hooks
+- **Build Tool:** Vite (ultra-fast development)
+- **Routing:** React Router DOM
+- **HTTP Client:** Axios
+- **Styling:** Modern CSS3 with responsive design
+- **Development:** Hot Module Replacement (HMR)
 
-### Installation
+### Development Tools
+- **Version Control:** Git & GitHub
+- **Package Manager:** npm
+- **Code Organization:** Modular architecture with clear separation of concerns
+- **Environment:** Development and production configurations
 
-1. **Clone the repository:**
+---
+
+## 📁 Project Structure
+
+```
+mern_stack_project/
+│
+├── 📂 backend/                     # Node.js + Express API
+│   ├── 📂 models/                  # Database schemas
+│   │   ├── user.model.js           # User schema with authentication
+│   │   ├── job.model.js            # Job posting schema
+│   │   ├── company.model.js        # Company profile schema
+│   │   └── application.model.js    # Job application schema
+│   │
+│   ├── 📂 conroller/              # Business logic controllers
+│   │   ├── user.controller.js      # User management & auth
+│   │   ├── job.controller.js       # Job CRUD operations
+│   │   ├── application.controller.js # Application workflow
+│   │   └── company.controller.js   # Company management
+│   │
+│   ├── 📂 routes/                  # API route definitions
+│   │   ├── user.rout.js           # User & auth routes
+│   │   ├── job.rout.js            # Job management routes
+│   │   ├── company.rout.js        # Company routes
+│   │   └── application.rout.js    # Application routes
+│   │
+│   ├── 📂 middleware/              # Custom middleware
+│   │   └── isAuthenticated.js      # JWT authentication middleware
+│   │
+│   ├── 📂 utils/                   # Utility functions
+│   │   └── db.js                   # Database connection
+│   │
+│   ├── index.js                    # Server entry point
+│   └── package.json                # Backend dependencies
+│
+├── 📂 frontend/                    # React.js Application
+│   ├── 📂 public/                  # Static assets
+│   │   └── favicon.svg             # App favicon
+│   │
+│   ├── 📂 src/                     # React source code
+│   │   ├── 📂 components/          # Reusable UI components
+│   │   │   ├── Header.jsx          # Navigation header
+│   │   │   └── Footer.jsx          # App footer
+│   │   │
+│   │   ├── 📂 pages/               # Page components
+│   │   │   └── Home.jsx            # Homepage component
+│   │   │
+│   │   ├── 📂 services/            # API integration
+│   │   │   └── api.js              # HTTP client & API calls
+│   │   │
+│   │   ├── 📂 utils/               # Helper functions
+│   │   │   └── helpers.js          # Utility functions
+│   │   │
+│   │   ├── 📂 hooks/               # Custom React hooks
+│   │   ├── 📂 context/             # React context providers
+│   │   │
+│   │   ├── App.jsx                 # Main application component
+│   │   ├── App.css                 # App-specific styles
+│   │   ├── main.jsx                # React DOM entry point
+│   │   └── index.css               # Global styles
+│   │
+│   ├── index.html                  # HTML template
+│   ├── vite.config.js             # Vite configuration
+│   ├── package.json               # Frontend dependencies
+│   └── README.md                   # Frontend documentation
+│
+├── 📂 assets/                      # Project assets
+│   └── 📂 logo/                    # Logo files
+│
+├── .env                           # Environment variables
+└── README.md                      # Project documentation
+```
+
+---
+
+## 🚀 Getting Started
+
+### 📋 Prerequisites
+
+- **Node.js** (v14 or higher)
+- **MongoDB** (local installation or MongoDB Atlas)
+- **npm** or **yarn** package manager
+- **Git** for version control
+
+### ⚡ Quick Setup
+
+1. **📥 Clone the repository:**
    ```bash
-   git clone https://github.com/GOD-DEBANG/jobportal.git
-   cd jobportal/backend
+   git clone https://github.com/CosmicRick/mern_stack_project.git
+   cd mern_stack_project
    ```
 
-2. **Install dependencies:**
+### 🔧 Backend Setup
+
+2. **📂 Navigate to backend directory:**
+   ```bash
+   cd backend
+   ```
+
+3. **📦 Install dependencies:**
    ```bash
    npm install
    ```
 
-3. **Configure environment variables:**
-
-   Create a `.env` file in `backend/` with the following settings:
-   ```
-   PORT=3000
-   MONGO_URI=your_mongo_connection_string
-   SECRET_KEY=your_jwt_secret
+4. **⚙️ Configure environment variables:**
+   
+   Create a `.env` file in the `backend/` directory:
+   ```env
+   PORT=8000
+   MONGO_URI=your_mongodb_connection_string
+   SECRET_KEY=your_jwt_secret_key
    NODE_ENV=development
-   AI_JOB_SEARCH_API=your_ai_api_endpoint     # (optional: for AI job search)
-   AI_COMPANY_SEARCH_URL=your_ai_company_search_endpoint # (optional: for AI company search)
-   AI_API_KEY=your_ai_api_key                # (optional: for AI integrations)
+   
+   # Optional AI Integration
+   AI_JOB_SEARCH_API=your_ai_api_endpoint
+   AI_COMPANY_SEARCH_URL=your_ai_company_search_endpoint
+   AI_API_KEY=your_ai_api_key
    ```
 
-4. **Launch the server:**
+5. **🚀 Start the backend server:**
    ```bash
    npm start
    ```
-   The backend service will be available at [http://localhost:3000](http://localhost:3000).
+   Backend will run on **http://localhost:8000**
 
----
+### 🎨 Frontend Setup
 
-## Project Structure
+6. **📂 Navigate to frontend directory:**
+   ```bash
+   cd ../frontend
+   ```
 
+7. **📦 Install frontend dependencies:**
+   ```bash
+   npm install
+   ```
+
+8. **🚀 Start the development server:**
+   ```bash
+   npm run dev
+   ```
+   Frontend will run on **http://localhost:3000**
+
+### 🎯 Quick Start Commands
+
+```bash
+# Start both servers concurrently (from project root)
+npm run dev:all          # If you have concurrently setup
+
+# Or start them separately:
+# Terminal 1 - Backend
+cd backend && npm start
+
+# Terminal 2 - Frontend  
+cd frontend && npm run dev
 ```
-backend/
-│
-├── models/
-│   ├── user.model.js
-│   ├── job.model.js
-│   ├── company.model.js
-│   └── application.model.js
-│
-├── controller/
-│   ├── user.controller.js
-│   ├── job.controller.js
-│   ├── application.controller.js
-│   └── company.controller.js
-│
-├── routes/
-│   ├── user.rout.js
-│   ├── job.rout.js
-│   ├── company.rout.js
-│   └── application.rout.js
-│
-├── utils/
-│   └── db.js
-│
-├── middleware/
-│   └── (auth and other middlewares)
-│
-├── index.js
-└── ...
-```
-
----
-
-## API Highlights
 
 ### User Endpoints
 
@@ -190,15 +288,90 @@ Contributions are highly encouraged! To get involved, please fork this repositor
 
 ## License
 
-This project is currently **not licensed**. You are free to use or adapt the codebase as needed. For further information, please contact the repository owner.
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+### 📜 What this means:
+- ✅ **Commercial use** - Use this project for commercial purposes
+- ✅ **Modification** - Modify and adapt the code
+- ✅ **Distribution** - Distribute original or modified versions
+- ✅ **Private use** - Use for personal/private projects
+- ❗ **Attribution required** - Give credit to original authors
 
 ---
 
-## Author
- [GOD-DEBANG](https://github.com/GOD-DEBANG)<br>
- [CosmicRick](https://github.com/CosmicRick)<br>
- [Sayandip Naskar](https://github.com/Sayandip6)<br>
- [Sourish-Mallick](https://github.com/Sourish-Mallick)
+## 👥 Authors & Contributors
+
+### 🏗️ Core Development Team
+
+<table>
+<tr>
+<td align="center">
+<a href="https://github.com/GOD-DEBANG">
+<img src="https://github.com/GOD-DEBANG.png" width="100px;" alt="GOD-DEBANG"/><br/>
+<sub><b>GOD-DEBANG</b></sub></a><br/>
+<sub>Full-Stack Developer</sub>
+</td>
+<td align="center">
+<a href="https://github.com/CosmicRick">
+<img src="https://github.com/CosmicRick.png" width="100px;" alt="CosmicRick"/><br/>
+<sub><b>CosmicRick</b></sub></a><br/>
+<sub>Full-Stack Developer</sub>
+</td>
+<td align="center">
+<a href="https://github.com/Sayandip6">
+<img src="https://github.com/Sayandip6.png" width="100px;" alt="Sayandip Naskar"/><br/>
+<sub><b>Sayandip Naskar</b></sub></a><br/>
+<sub>Full-Stack Developer</sub>
+</td>
+<td align="center">
+<a href="https://github.com/Sourish-Mallick">
+<img src="https://github.com/Sourish-Mallick.png" width="100px;" alt="Sourish Mallick"/><br/>
+<sub><b>Sourish Mallick</b></sub></a><br/>
+<sub>Full-Stack Developer</sub>
+</td>
+</tr>
+</table>
+
+### 🤝 How to Become a Contributor
+
+We welcome contributions! Check out our [Contributing Guidelines](#contributing) above to get started.
+
+---
+
+## 📞 Support & Contact
+
+- **📧 Email:** [supradiproy737@gmail.com](mailto:supradiproy737@gmail.com)
+- **🐛 Issues:** [GitHub Issues](https://github.com/CosmicRick/mern_stack_project/issues)
+- **💬 Discussions:** [GitHub Discussions](https://github.com/CosmicRick/mern_stack_project/discussions)
+- **📱 Social:** Follow us for updates and announcements
+
+---
+
+## 🙏 Acknowledgments
+
+- **React Team** for the amazing React library
+- **MongoDB** for the robust database solution
+- **Express.js** for the web framework
+- **Vite** for the lightning-fast build tool
+- **Open Source Community** for inspiration and tools
+
+---
+
+<div align="center">
+
+### ⭐ Show Your Support
+
+If this project helped you, please consider giving it a **⭐ star** on GitHub!
+
+**Made with ❤️ by the MERN Stack Team**
+
+[⬆ Back to Top](#-mern-stack-job-portal)
+
+</div>
 
 
 
