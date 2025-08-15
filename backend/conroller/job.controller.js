@@ -1,4 +1,5 @@
 import { Job } from '../models/job.model.js';
+import cloudinary from '../config/cloudinary.js';
 import axios from 'axios';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -12,6 +13,17 @@ export const postJob = async (req, res) => {
             return res.status(400).json({ message: "Missing required fields", success: false });
         }
 
+        // Upload images if provided
+        let imageUrls = [];
+        if (req.files && req.files.length > 0) {
+            for (const file of req.files) {
+                const uploadResult = await cloudinary.uploader.upload(file.path, {
+                    folder: "job_portal/jobs"
+                });
+                imageUrls.push(uploadResult.secure_url);
+            }
+        }
+
         const newJob = new Job({
             title,
             description,
@@ -22,6 +34,7 @@ export const postJob = async (req, res) => {
             company: companyId,
             experienceLevel,
             tags,
+            images: imageUrls, // store uploaded image URLs
             postedBy: req.user?._id || null
         });
 
@@ -29,19 +42,19 @@ export const postJob = async (req, res) => {
         return res.status(201).json({ message: "Job posted successfully", success: true, job: newJob });
 
     } catch (error) {
-        console.error(" Error posting job:", error);
+        console.error("Error posting job:", error);
         return res.status(500).json({ message: "Internal server error", success: false });
     }
 };
 
 // Get all jobs with optional filters
-export const getAllJobs= async (req, res) => {
+export const getAllJobs = async (req, res) => {
     try {
         const filters = req.query || {};
         const jobs = await Job.find(filters).populate('company postedBy', 'name email');
         return res.status(200).json({ success: true, jobs });
     } catch (error) {
-        console.error(" Error fetching jobs:", error);
+        console.error("Error fetching jobs:", error);
         return res.status(500).json({ message: "Internal server error", success: false });
     }
 };
@@ -53,7 +66,7 @@ export const getJobById = async (req, res) => {
         if (!job) return res.status(404).json({ message: "Job not found", success: false });
         return res.status(200).json({ success: true, job });
     } catch (error) {
-        console.error(" Error fetching job:", error);
+        console.error("Error fetching job:", error);
         return res.status(500).json({ message: "Internal server error", success: false });
     }
 };
@@ -65,7 +78,7 @@ export const updateJob = async (req, res) => {
         if (!updatedJob) return res.status(404).json({ message: "Job not found", success: false });
         return res.status(200).json({ message: "Job updated successfully", success: true, job: updatedJob });
     } catch (error) {
-        console.error(" Error updating job:", error);
+        console.error("Error updating job:", error);
         return res.status(500).json({ message: "Internal server error", success: false });
     }
 };
@@ -77,7 +90,7 @@ export const deleteJob = async (req, res) => {
         if (!deletedJob) return res.status(404).json({ message: "Job not found", success: false });
         return res.status(200).json({ message: "Job deleted successfully", success: true });
     } catch (error) {
-        console.error(" Error deleting job:", error);
+        console.error("Error deleting job:", error);
         return res.status(500).json({ message: "Internal server error", success: false });
     }
 };
@@ -95,7 +108,7 @@ export const searchJobs = async (req, res) => {
 
         return res.status(200).json({ success: true, jobs });
     } catch (error) {
-        console.error(" Error searching jobs:", error);
+        console.error("Error searching jobs:", error);
         return res.status(500).json({ message: "Internal server error", success: false });
     }
 };
@@ -117,7 +130,7 @@ export const smartJobSearch = async (req, res) => {
         const results = response.data.jobs || [];
         return res.status(200).json({ success: true, results });
     } catch (error) {
-        console.error(" AI search error:", error.response?.data || error.message);
+        console.error("AI search error:", error.response?.data || error.message);
         return res.status(500).json({ message: "AI search failed", success: false });
     }
 };
