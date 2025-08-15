@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Signup.css'; // optional, or use App.css styles
+import { Link } from 'react-router-dom'
 
 const Signup = ({ onSignup }) => {
   const [formData, setFormData] = useState({
@@ -80,7 +80,7 @@ const Signup = ({ onSignup }) => {
       </form>
 
       <p className="read-the-docs">
-        Already have an account? <a href="#">Login</a>
+        Already have an account? <a href="/Login.jsx">Login</a>
       </p>
     </div>
   );

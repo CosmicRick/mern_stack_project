@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Login.css'; // optional if you want separate styles for Login
+import { Link } from 'react-router-dom'
 
 const Login = ({ onLogin }) => {
   const [formData, setFormData] = useState({
@@ -50,7 +50,7 @@ const Login = ({ onLogin }) => {
       </form>
 
       <p className="read-the-docs">
-        Don’t have an account? <a href="#">Sign up</a>
+        Don’t have an account? <a href="/Signup.jsx">Sign up</a>
       </p>
     </div>
   );
