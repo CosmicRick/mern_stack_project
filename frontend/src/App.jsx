@@ -1,9 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import Login from './components/auth/Login'
-import Signup from './components/auth/Signup'
-s
-
+import Login from './components/auth/Login.jsx'
+import Signup from './components/auth/Signup.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,8 +10,11 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Job Portal</h1>
-        <h1>Login</h1>
-        <h1>Signup</h1>
+
+        {/* Rendering components */}
+        <Login />
+        <Signup />
+
         <p>Welcome to the Job Portal Application</p>
         <div className="card">
           <button onClick={() => setCount((count) => count + 1)}>
