@@ -11,6 +11,10 @@ const jobSchema = new mongoose.Schema({
         required: true,
         minlength: 20
     },
+    images: [{
+        type: String, // Stores image URLs
+        trim: true
+    }],
     location: {
         type: String,
         required: true
@@ -54,7 +58,12 @@ const jobSchema = new mongoose.Schema({
     postedAt: {
         type: Date,
         default: Date.now
-    }
+    },
+    images: [{
+    type: String, // URL of uploaded image
+    trim: true
+}]
+
 });
 
 export const Job = mongoose.model('Job', jobSchema);

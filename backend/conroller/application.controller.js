@@ -86,3 +86,12 @@ export const smartJobSearch = async (req, res) => {
     return res.status(500).json({ message: "AI job search failed", success: false });
   }
 };
+
+export const existingApplication = await Application.findOne({ user: userId, job: jobId });
+if (existingApplication) {
+  return res.status(400).json({
+    message: "You have already applied for this job",
+    success: false
+  });
+};
+

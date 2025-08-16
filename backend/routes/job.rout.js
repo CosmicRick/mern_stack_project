@@ -7,14 +7,21 @@ import {
   deleteJob,
   searchJobs,
   smartJobSearch
-} from '../conroller/job.controller.js';
+} from '../conroller/job.controller.js'; 
 
 import { isAuthenticated, isAdmin } from '../middleware/isAuthenticated.js';
+import upload from '../middlewares/multer.js'; //  multer for file uploads
 
 const router = express.Router();
 
-//  POST a job (Admin only)
-router.post('/post', isAuthenticated, isAdmin, postJob);
+//  POST a job (Admin only) with image uploads
+router.post(
+  '/post',
+  isAuthenticated,
+  isAdmin,
+  upload.array('images', 5), //  handles up to 5 images from form-data
+  postJob
+);
 
 //  GET all jobs (Public, with filters)
 router.get('/all', getAllJobs);
@@ -35,4 +42,3 @@ router.get('/search/keyword', searchJobs);
 router.post('/smart-search', isAuthenticated, smartJobSearch);
 
 export default router;
-
