@@ -7,30 +7,22 @@ import Home from './pages/Home';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Job Portal</h1>
-        <h1>Login</h1>
-        <h1>Signup</h1>
-        <p>Welcome to the Job Portal Application</p>
-        <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </button>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test HMR
-          </p>
-        </div>
-        <p className="read-the-docs">
-          Click on the Job Portal logo to learn more
-        </p>
-      </header>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        {/* other routes */}
-      </Routes>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <nav className="navbar">
+            <h1>Job Portal</h1>
+            
+          </nav>
+
+          {/* Routes */}
+          <Routes>
+            <Route path="/" element={<Login />} /> {/* Default page */}
+            <Route path="/signup" element={<Signup />} />
+          </Routes>
+        </header>
+      </div>
+    </Router>
   )
 }
 

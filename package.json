@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "framer": "^2.4.1",
+    "lucide-react": "^0.539.0",
+    "motion": "^12.23.12"
+  }
+}

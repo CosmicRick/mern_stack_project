@@ -29,3 +29,11 @@ export const truncateText = (text, maxLength) => {
 export const formatSalary = (min, max, currency = '$') => {
   return `${currency}${min.toLocaleString()} - ${currency}${max.toLocaleString()}`;
 };
+
+ //Validation Functions
+    export const validateEmail = (email) => {
+      if (!email.trim()) return 'Email is required';
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) return 'Invalid email format';
+      return ''; 
+    };
