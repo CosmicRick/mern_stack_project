@@ -1,12 +1,11 @@
-import React from 'react';
-import navbar from '../components/navbar/navnbar';
-import './navbar.css'; // this file exists in pages/
+import react from "react";
+import Navbar from "../components/navigation/Navbar";
+const App = () => {
+  return (
+    <div className="nav-container">
+      <Navbar />
+    </div>
+  );
+};
 
-const Home = () => (
-  <div>
-    <navbar />
-    <h2>Home</h2>
-  </div>
-);
-
-export default Home;
+export default App;
