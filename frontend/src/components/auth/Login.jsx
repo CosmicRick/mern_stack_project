@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = ({ onLogin }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -17,7 +19,18 @@ const Login = ({ onLogin }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Login Data:', formData);
-    if (onLogin) onLogin(formData); // pass data to parent if needed
+
+    if (formData.email && formData.password) {
+      if (onLogin) onLogin(formData);
+
+      // ✅ Save login state in localStorage (keeps user logged in)
+      localStorage.setItem('isLoggedIn', 'true');
+
+      // ✅ Redirect to Home
+      navigate('/home');
+    } else {
+      alert('Invalid login');
+    }
   };
 
   return (
@@ -50,7 +63,7 @@ const Login = ({ onLogin }) => {
       </form>
 
       <p className="read-the-docs">
-        Don’t have an account? <a href="/Signup.jsx">Sign up</a>
+        Don’t have an account? <Link to="/signup">Sign up</Link>
       </p>
     </div>
   );

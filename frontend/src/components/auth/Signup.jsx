@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = ({ onSignup }) => {
   const [formData, setFormData] = useState({
@@ -8,6 +8,8 @@ const Signup = ({ onSignup }) => {
     password: '',
     confirmPassword: ''
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -25,7 +27,14 @@ const Signup = ({ onSignup }) => {
     }
 
     console.log('Signup Data:', formData);
-    if (onSignup) onSignup(formData); // pass data to parent if needed
+
+    if (onSignup) onSignup(formData);
+
+    // ✅ Save user to localStorage (basic mock, real apps call API here)
+    localStorage.setItem('isLoggedIn', 'true');
+
+    // ✅ Redirect to Home after signup
+    navigate('/home');
   };
 
   return (
@@ -80,7 +89,7 @@ const Signup = ({ onSignup }) => {
       </form>
 
       <p className="read-the-docs">
-        Already have an account? <a href="/Login.jsx">Login</a>
+        Already have an account? <Link to="/login">Login</Link>
       </p>
     </div>
   );

@@ -2,14 +2,13 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import connectDB from './utils/db.js'; // Make sure this file exists and exports connectDB
-import userRoutes from './routes/user.rout.js'; // Import user routes
-import jobRoutes from './routes/job.rout.js'; // Import job routes
-import applicationRoutes from './routes/application.rout.js'; // Import application routes
-import companyroutes from './routes/company.rout.js'; // Import company routes
-import axios from 'axios'; // Import axios for AI API calls
+import connectDB from './utils/db.js'; 
+import userRoutes from './routes/user.rout.js'; 
+import jobRoutes from './routes/job.rout.js'; 
+import applicationRoutes from './routes/application.rout.js'; 
+import companyroutes from './routes/company.rout.js'; 
 
-dotenv.config(); //  No need to pass an empty object
+dotenv.config(); 
 
 const app = express();
 
@@ -40,6 +39,7 @@ app.get("/", (req, res) => {
 
 //  Connect DB before starting server
 const PORT = process.env.PORT || 8000;
+connectDB();
 const startServer = async () => {
     try {
         await connectDB(); //  Wait until DB connects
