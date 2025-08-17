@@ -7,13 +7,19 @@ import userRoutes from './routes/user.rout.js';
 import jobRoutes from './routes/job.rout.js'; 
 import applicationRoutes from './routes/application.rout.js'; 
 import companyroutes from './routes/company.rout.js'; 
+import mongoose from 'mongoose';
+const authRoutes = require('./routes/auth.rout.js'); // Import auth routes
 
 dotenv.config(); 
+
+
 
 const app = express();
 
 // 🔌 Middleware
 app.use(express.json());
+app.use(cors());
+app.use('/api/auth', authRoutes); 
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
@@ -38,19 +44,9 @@ app.get("/", (req, res) => {
 });
 
 //  Connect DB before starting server
-const PORT = process.env.PORT || 8000;
-connectDB();
-const startServer = async () => {
-    try {
-        await connectDB(); //  Wait until DB connects
-        app.listen(PORT, () => {
-            console.log(` Server is running on port ${PORT}`);
-        });
-    } catch (error) {
-        console.error(" Failed to start server:", error);
-        process.exit(1);
-    }
-};
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => app.listen(5000,()=> console.log("Server is running on port 5000")))
+    .catch((err) => console.log(err));
 app.use('/api/users', userRoutes); // Use user routes
 app.use('/api/jobs', jobRoutes);
 app.use('/api/application',applicationRoutes);

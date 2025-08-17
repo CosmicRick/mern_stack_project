@@ -26,7 +26,7 @@ const Navbar = ({ theme, setTheme }) => {
             <a href="#">Jobs</a>
           </li>
           <li>
-            <a href="#">About Us</a>
+            <a href="about">About Us</a>
           </li>
           <li>
             <a href="#">Contact Us</a>

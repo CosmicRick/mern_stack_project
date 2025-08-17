@@ -10,6 +10,7 @@ const App = () => {
   return (
     <div className={`nav-container ${theme}`}>
       <Navbar theme={theme} setTheme={setTheme} />
+      
     </div>
   );
 };
