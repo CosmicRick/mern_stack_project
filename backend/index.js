@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const corsOptions = {
-    origin: 'http://localhost:5173', //  Replace with frontend URL in production
+    origin: '*', //  Replace with frontend URL in production
     credentials: true,
 };
 app.use(cors(corsOptions));
@@ -31,9 +31,15 @@ app.get("/home", (req, res) => {
         success: true
     });
 });
+app.get("/", (req, res) => {
+    return res.status(200).json({
+        message: "My name is supradip",
+        success: true
+    });
+});
 
 //  Connect DB before starting server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 const startServer = async () => {
     try {
         await connectDB(); //  Wait until DB connects
@@ -46,5 +52,7 @@ const startServer = async () => {
     }
 };
 app.use('/api/users', userRoutes); // Use user routes
-
+app.use('/api/jobs', jobRoutes);
+app.use('/api/application',applicationRoutes);
+app.use('/api/company',companyroutes);
 startServer();

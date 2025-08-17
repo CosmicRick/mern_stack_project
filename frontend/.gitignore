@@ -37,3 +37,84 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# ----- Added (unused / local artifacts) -----
+
+# Env & secrets (catch all; comment out if you commit sample env)
+.env
+.env.*
+
+# Logs
+logs
+*.log
+pnpm-debug.log*
+lerna-debug.log*
+*.pid
+*.pid.lock
+
+# Caches & build tool outputs
+.cache
+.parcel-cache
+.next
+.vercel
+.eslintcache
+.stylelintcache
+.sass-cache
+turbo
+storybook-static
+.storybook-out
+nyc_output
+coverage-final.json
+
+# Test outputs / reports
+junit.xml
+test-results.xml
+jest-html-reporters-
+playwright-report
+playwright/.cache
+
+# Temporary / scratch
+tmp
+temp
+*.tmp
+*.swp
+*.orig
+
+# OS files
+Thumbs.db
+ehthumbs.db
+$RECYCLE.BIN/
+Desktop.ini
+
+# Design / source assets (keep if you want them versioned)
+design/
+*.psd
+*.ai
+*.sketch
+*.xd
+
+# Local databases
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# Generated maps (keep if needed for prod debugging)
+*.css.map
+*.js.map
+
+# Coverage artifacts (extra)
+lcov-report
+.lcov
+
+# Misc tooling
+*.tgz
+*.tsbuildinfo
+
+# IDE / workspace
+*.code-workspace
+
+# Lockfiles you might intentionally exclude (uncomment only if desired)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
