@@ -10,7 +10,7 @@ import {
   analyzeResume
 } from '../conroller/user.controller.js'; 
 
-import { isAuthenticated } from '../middleware/isAuthenticated.js';
+import authMiddleware from "../middleware/isAuthenticated.js";
 
 const router = express.Router();
 

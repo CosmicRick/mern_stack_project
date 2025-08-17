@@ -10,7 +10,7 @@ import {
     aiEnhancedCompanySearch
 } from '../conroller/company.controller.js';
 
-import { isAuthenticated } from '../middleware/isAuthenticated.js';
+import authMiddleware from '../middleware/isAuthenticated.js';
 
 const router = express.Router();
 
@@ -20,7 +20,7 @@ const router = express.Router();
  */
 
 // Create new company (Private)
-router.post('/create', isAuthenticated, createCompany);
+router.post('/create', authMiddleware, createCompany);
 
 // Get all companies (Public)
 router.get('/all', getAllCompanies);
@@ -38,9 +38,9 @@ router.get('/smart-search/ai', aiEnhancedCompanySearch);
 router.get('/:companyId', getCompany);
 
 // Update company (Private)
-router.put('/:companyId', isAuthenticated, updateCompany);
+router.put('/:companyId', authMiddleware, updateCompany);
 
 // Delete company (Private)
-router.delete('/:companyId', isAuthenticated, deleteCompany);
+router.delete('/:companyId', authMiddleware, deleteCompany);
 
 export default router;
