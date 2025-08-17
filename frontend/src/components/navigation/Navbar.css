@@ -10,7 +10,6 @@
   left: 0;
   right: 0;
 }
-
 .nav-container {
   width: 100vw;
   min-height: 200vh;
@@ -25,7 +24,7 @@
 }
 .navbar {
   width: 100vw;
-  height: 11vh;
+  height: 10.5vh;
   display: flex;
   border-bottom-left-radius: 24px;
   border-bottom-right-radius: 24px;
@@ -54,6 +53,7 @@
   width: 170px;
   cursor: pointer;
   display: block;
+  margin-top: -40px;
 }
 
 .navbar ul {
@@ -63,6 +63,7 @@
   align-items: center;
   gap: 0.5rem;
   margin: 0;
+  margin-top: -50px;
   padding-left: 90px;
   font-size: medium;
 }
@@ -161,6 +162,17 @@ input[type="search"] {
   background: #fff;
   color: rgb(75, 8, 114);
 }
+.navbar .user-icon {
+  position: fixed;
+  right: 45px;
+  top: 30px;
+  font-size: 34px;
+  color: #04260c;
+  cursor: pointer;
+}
+.light .navbar .user-icon {
+  color: #d8dbd8fd;
+}
 /* Tablet */
 @media (max-width: 992px) {
   .navbar {
@@ -185,7 +197,6 @@ input[type="search"] {
     padding: 0 10px;
     margin-bottom: -10px;
   }
-
 }
 
 /* Mobile */
@@ -197,7 +208,7 @@ input[type="search"] {
     gap: 0.75rem;
     padding: 1rem;
     width: 100%;
-    height: 40vh;
+    height: 45vh;
   }
 
   .logo {
@@ -218,7 +229,7 @@ input[type="search"] {
 
   .search-box {
     display: flex;
-    width: 50%;
+    width: 51%;
     margin-top: 0.5rem;
     padding: 6px 15px;
     margin-left: 110px;
@@ -236,10 +247,21 @@ input[type="search"] {
     width: 20px;
     height: 20px;
     cursor: pointer;
-    margin-left: -90px;
+    margin-left: -100px;
   }
   .search-box input {
     width: 100%;
     font-size: 16px;
+  }
+  .navbar .user-icon {
+    position: fixed;
+    right: 335px;
+    top: 30px;
+    font-size: 34px;
+    color: #04260c;
+    cursor: pointer;
+  }
+  .light .navbar .user-icon {
+    color: #d8dbd8fd;
   }
 }
