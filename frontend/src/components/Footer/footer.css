@@ -1,7 +1,7 @@
 /* Footer Styles */
 .main-footer {
-  background: #222;
-  color: #fff;
+  background: #b1fcae;
+  color: #0f0d0d;
   padding: 40px 0 0 0;
   position: fixed;
   left: 0;
@@ -10,6 +10,13 @@
   width: 100%;
   z-index: 100;
   box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.1);
+}
+.light .main-footer{
+  background: #526e48;
+  color: #ffffff;
+}
+.light .main-footer h4{
+  color: #83f778;
 }
 
 
@@ -33,7 +40,7 @@
 .main-footer h4 {
   font-size: 1.2rem;
   margin-bottom: 15px;
-  color: #ffd700;
+  color: #006aff;
 }
 
 .main-footer ul {
@@ -47,13 +54,17 @@
 }
 
 .footer-bottom {
-  background: #111;
-  color: #bbb;
+  background: #b1fcae;
+  color: #000000;
   text-align: center;
   padding: 15px 0;
   margin-top: -10px;
   font-size: 0.95rem;
-  border-top: 1px solid #333;
+
+}
+.light .footer-bottom {
+  background: #526e48;
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {
@@ -71,6 +82,6 @@
 
 body {
   margin: 0;
-  padding-bottom: 120px; /* Prevent content from being hidden behind the footer */
+  padding-bottom: 100px; /* Prevent content from being hidden behind the footer */
   box-sizing: border-box;
 }
