@@ -2,6 +2,7 @@ import { Import } from 'lucide-react'
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 import './Navbar.css'
 import logo_day from '../assets/logo-day.png';
 import logo_night from '../assets/logo-night.png';
@@ -16,7 +17,7 @@ const Navbar = ({ theme, setTheme }) => {
   return (
     <>
       <div className='navbar'>
-        <img src={theme === 'light' ? logo_day : logo_night} alt="Logo" className='logo' />
+        <img src={theme === 'light' ? logo_night : logo_day} alt="Logo" className='logo' />
         <ul>
           <li>
             <a href="home">Home</a>
@@ -34,7 +35,7 @@ const Navbar = ({ theme, setTheme }) => {
             <input type="text" placeholder='Search...' className='search-input' />
             <img src={theme === 'light' ? search_b_light : search_w_dark} alt="Search" className='search-icon' />
           </div>
-          <img onClick={() => { toggle_mode() }} src={theme === 'light' ? night : day} alt="" className='day-mode-icon' />
+          <img onClick={() => { toggle_mode() }} src={theme === 'light' ? day : night} alt="" className='day-mode-icon' />
         </ul>
       </div>
     </>
