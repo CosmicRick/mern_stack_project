@@ -1,7 +1,7 @@
-import { Import } from 'lucide-react'
+import { Import, LogIn } from 'lucide-react'
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import {faCircleUser } from '@fortawesome/free-solid-svg-icons';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import './Navbar.css'
 import logo_day from '../assets/logo-day.png';
@@ -37,6 +37,7 @@ const Navbar = ({ theme, setTheme }) => {
           </div>
           <img onClick={() => { toggle_mode() }} src={theme === 'light' ? day : night} alt="" className='day-mode-icon' />
         </ul>
+        <FontAwesomeIcon icon={faCircleUser} className='user-icon' onClick={() => { window.location.href = '/login'; }} />
       </div>
     </>
   )
