@@ -17,7 +17,7 @@ const Navbar = ({ theme, setTheme }) => {
   return (
     <>
       <div className='navbar'>
-        <img src={theme === 'light' ? logo_night : logo_day} alt="Logo" className='logo' />
+        <img src={theme === 'light' ? logo_day : logo_night} alt="Logo" className='logo' />
         <ul>
           <li>
             <a href="home">Home</a>
@@ -33,7 +33,7 @@ const Navbar = ({ theme, setTheme }) => {
           </li>
           <div className='search-box'>
             <input type="text" placeholder='Search...' className='search-input' />
-            <img src={theme === 'light' ? search_b_light : search_w_dark} alt="Search" className='search-icon' />
+            <img src={theme === 'light' ? search_w_dark : search_b_light} alt="Search" className='search-icon' />
           </div>
           <img onClick={() => { toggle_mode() }} src={theme === 'light' ? day : night} alt="" className='day-mode-icon' />
         </ul>

@@ -1,0 +1,110 @@
+.searchbar-container {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 8px 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  width: fit-content;
+  margin: 2rem auto 0; /* remove huge negative offset so it's clickable */
+  gap: 4px;
+  position: relative;
+  z-index: 20;
+  margin: -33rem auto;
+}
+.searchbar-container .search-input {
+  padding: 0.5rem;
+  margin-right: 2px;
+  width: 200px;
+  height: auto;
+}
+.light .searchbar-container {
+  background-color: #2c2b2b;
+  border: 1px solid #0c0c0c;
+}
+.searchbar-container input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #064109;
+  border-right: 1px solid black;
+}
+.light .searchbar-container input {
+  border-right: 1px solid #ffffff;
+  color: white;
+}
+.searchbar-container input::placeholder {
+  color: black;
+  padding-left: 0.5rem;
+  border-right: 1px solid #00000000;
+  font-size: medium;
+  font-family: sans-serif;
+}
+.light .searchbar-container input::placeholder {
+  color: white;
+  padding-left: 0.5rem;
+  border-right: 1px solid #00000000;
+  font-size: medium;
+  font-family: sans-serif;
+}
+
+.selectbar {
+  outline: none;
+  border: 1px solid #00000000;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-family: sans-serif;
+  background-color: transparent;
+  appearance: none;
+  cursor: pointer;
+  border-right: 1px solid #000;
+}
+.selectbar option {
+  background-color: #fff;
+  color: #000;
+  border: none;
+}
+
+.light .selectbar {
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: white;
+  font-family: sans-serif;
+  background-color: transparent;
+  border-right: 1px solid #fffdfd;
+}
+.light .selectbar option {
+  background-color: #383636;
+  color: #ffffff;
+  border-radius: 6px;
+}
+
+.searchbar-button {
+  background-color: #2ca48f;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 8px;
+  transition: background-color 0.2s;
+}
+.searchbar-button:hover {
+  background-color: #248a78;
+}
+.light .searchbar-button {
+  background-color: #047036;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 8px;
+}

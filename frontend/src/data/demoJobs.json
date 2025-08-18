@@ -1,0 +1,289 @@
+{
+  "jobs": [
+    {
+      "id": 1,
+      "title": "Senior Frontend Developer",
+      "company": "TechCorp Inc.",
+      "location": "New York, NY",
+      "type": "Full-time",
+      "category": "IT",
+      "salary": "$120,000 - $150,000",
+      "description": "We are looking for an experienced Frontend Developer to join our dynamic team. You will be responsible for developing user-facing web applications using React, TypeScript, and modern CSS frameworks.",
+      "requirements": [
+        "5+ years of experience with React",
+        "Strong knowledge of TypeScript",
+        "Experience with CSS-in-JS libraries",
+        "Familiarity with testing frameworks",
+        "Bachelor's degree in Computer Science or equivalent"
+      ],
+      "benefits": [
+        "Health insurance",
+        "401(k) matching",
+        "Flexible working hours",
+        "Remote work options",
+        "Professional development budget"
+      ],
+      "postedDate": "2025-01-15",
+      "applicationDeadline": "2025-02-15",
+      "isRemote": true,
+      "experienceLevel": "Senior",
+      "companyLogo": "https://via.placeholder.com/100x100/007bff/ffffff?text=TC"
+    },
+    {
+      "id": 2,
+      "title": "Marketing Manager",
+      "company": "BrandBoost Marketing",
+      "location": "Los Angeles, CA",
+      "type": "Full-time",
+      "category": "Marketing",
+      "salary": "$80,000 - $100,000",
+      "description": "Join our creative marketing team as a Marketing Manager. You'll lead campaigns, manage social media strategies, and work with cross-functional teams to drive brand awareness.",
+      "requirements": [
+        "3+ years of marketing experience",
+        "Experience with digital marketing platforms",
+        "Strong analytical skills",
+        "Excellent communication skills",
+        "MBA or Marketing degree preferred"
+      ],
+      "benefits": [
+        "Health and dental insurance",
+        "Paid time off",
+        "Creative workspace",
+        "Team building events",
+        "Performance bonuses"
+      ],
+      "postedDate": "2025-01-10",
+      "applicationDeadline": "2025-02-10",
+      "isRemote": false,
+      "experienceLevel": "Mid-level",
+      "companyLogo": "https://via.placeholder.com/100x100/28a745/ffffff?text=BB"
+    },
+    {
+      "id": 3,
+      "title": "Financial Analyst",
+      "company": "Global Finance Solutions",
+      "location": "Chicago, IL",
+      "type": "Full-time",
+      "category": "Finance",
+      "salary": "$70,000 - $90,000",
+      "description": "We are seeking a detail-oriented Financial Analyst to join our finance team. You will analyze financial data, prepare reports, and support strategic decision-making processes.",
+      "requirements": [
+        "Bachelor's degree in Finance or Accounting",
+        "2+ years of financial analysis experience",
+        "Proficiency in Excel and financial modeling",
+        "CFA or CPA certification preferred",
+        "Strong attention to detail"
+      ],
+      "benefits": [
+        "Comprehensive health coverage",
+        "Retirement savings plan",
+        "Professional certification support",
+        "Flexible schedule",
+        "Annual bonus potential"
+      ],
+      "postedDate": "2025-01-12",
+      "applicationDeadline": "2025-02-12",
+      "isRemote": true,
+      "experienceLevel": "Mid-level",
+      "companyLogo": "https://via.placeholder.com/100x100/ffc107/000000?text=GFS"
+    },
+    {
+      "id": 4,
+      "title": "Data Scientist",
+      "company": "DataDrive Analytics",
+      "location": "San Francisco, CA",
+      "type": "Full-time",
+      "category": "IT",
+      "salary": "$130,000 - $160,000",
+      "description": "Join our data science team to build machine learning models and extract insights from large datasets. You'll work on cutting-edge AI projects and collaborate with product teams.",
+      "requirements": [
+        "PhD or Master's in Data Science, Statistics, or related field",
+        "3+ years of experience with Python/R",
+        "Experience with ML frameworks (TensorFlow, PyTorch)",
+        "Strong SQL skills",
+        "Experience with cloud platforms (AWS, GCP)"
+      ],
+      "benefits": [
+        "Top-tier health insurance",
+        "Stock options",
+        "Unlimited PTO",
+        "Learning and development budget",
+        "State-of-the-art equipment"
+      ],
+      "postedDate": "2025-01-08",
+      "applicationDeadline": "2025-02-08",
+      "isRemote": true,
+      "experienceLevel": "Senior",
+      "companyLogo": "https://via.placeholder.com/100x100/dc3545/ffffff?text=DD"
+    },
+    {
+      "id": 5,
+      "title": "UX/UI Designer",
+      "company": "Creative Studios",
+      "location": "Austin, TX",
+      "type": "Contract",
+      "category": "IT",
+      "salary": "$60 - $80 per hour",
+      "description": "We're looking for a creative UX/UI Designer to design intuitive user experiences for our mobile and web applications. You'll work closely with developers and product managers.",
+      "requirements": [
+        "3+ years of UX/UI design experience",
+        "Proficiency in Figma, Sketch, or Adobe Creative Suite",
+        "Understanding of responsive design principles",
+        "Experience with user research and testing",
+        "Portfolio demonstrating design process"
+      ],
+      "benefits": [
+        "Flexible contract terms",
+        "Remote work friendly",
+        "Creative freedom",
+        "Collaborative environment",
+        "Portfolio building opportunities"
+      ],
+      "postedDate": "2025-01-14",
+      "applicationDeadline": "2025-02-14",
+      "isRemote": true,
+      "experienceLevel": "Mid-level",
+      "companyLogo": "https://via.placeholder.com/100x100/6f42c1/ffffff?text=CS"
+    },
+    {
+      "id": 6,
+      "title": "Backend Developer",
+      "company": "ServerSide Solutions",
+      "location": "Seattle, WA",
+      "type": "Full-time",
+      "category": "IT",
+      "salary": "$100,000 - $130,000",
+      "description": "Join our backend team to build scalable APIs and microservices. You'll work with Node.js, databases, and cloud infrastructure to support our growing platform.",
+      "requirements": [
+        "4+ years of backend development experience",
+        "Strong knowledge of Node.js and Express",
+        "Experience with databases (MongoDB, PostgreSQL)",
+        "Understanding of microservices architecture",
+        "Experience with containerization (Docker, Kubernetes)"
+      ],
+      "benefits": [
+        "Competitive salary",
+        "Health and wellness programs",
+        "Tech equipment allowance",
+        "Conference attendance support",
+        "Collaborative team culture"
+      ],
+      "postedDate": "2025-01-11",
+      "applicationDeadline": "2025-02-11",
+      "isRemote": false,
+      "experienceLevel": "Senior",
+      "companyLogo": "https://via.placeholder.com/100x100/17a2b8/ffffff?text=SS"
+    },
+    {
+      "id": 7,
+      "title": "Product Manager",
+      "company": "InnovateTech",
+      "location": "Boston, MA",
+      "type": "Full-time",
+      "category": "IT",
+      "salary": "$110,000 - $140,000",
+      "description": "Lead product strategy and development for our SaaS platform. You'll work with engineering, design, and marketing teams to deliver features that delight our customers.",
+      "requirements": [
+        "5+ years of product management experience",
+        "Experience with SaaS products",
+        "Strong analytical and problem-solving skills",
+        "Excellent communication skills",
+        "MBA or technical background preferred"
+      ],
+      "benefits": [
+        "Equity participation",
+        "Comprehensive benefits package",
+        "Professional development opportunities",
+        "Flexible work arrangements",
+        "Innovation time allocation"
+      ],
+      "postedDate": "2025-01-09",
+      "applicationDeadline": "2025-02-09",
+      "isRemote": true,
+      "experienceLevel": "Senior",
+      "companyLogo": "https://via.placeholder.com/100x100/fd7e14/ffffff?text=IT"
+    },
+    {
+      "id": 8,
+      "title": "Junior Web Developer",
+      "company": "WebCraft Agency",
+      "location": "Remote",
+      "type": "Full-time",
+      "category": "IT",
+      "salary": "$50,000 - $65,000",
+      "description": "Perfect opportunity for a junior developer to grow their skills. You'll work on client websites using HTML, CSS, JavaScript, and popular frameworks.",
+      "requirements": [
+        "1-2 years of web development experience",
+        "Knowledge of HTML, CSS, JavaScript",
+        "Familiarity with React or Vue.js",
+        "Basic understanding of version control (Git)",
+        "Eagerness to learn and grow"
+      ],
+      "benefits": [
+        "Mentorship program",
+        "Remote work options",
+        "Learning stipend",
+        "Career growth opportunities",
+        "Flexible hours"
+      ],
+      "postedDate": "2025-01-13",
+      "applicationDeadline": "2025-02-13",
+      "isRemote": true,
+      "experienceLevel": "Entry-level",
+      "companyLogo": "https://via.placeholder.com/100x100/20c997/ffffff?text=WC"
+    }
+  ],
+  "companies": [
+    {
+      "id": 1,
+      "name": "TechCorp Inc.",
+      "description": "Leading technology company specializing in enterprise software solutions.",
+      "website": "https://techcorp.example.com",
+      "size": "1000-5000 employees",
+      "industry": "Technology",
+      "location": "New York, NY"
+    },
+    {
+      "id": 2,
+      "name": "BrandBoost Marketing",
+      "description": "Full-service digital marketing agency helping brands grow online.",
+      "website": "https://brandboost.example.com",
+      "size": "50-200 employees",
+      "industry": "Marketing",
+      "location": "Los Angeles, CA"
+    },
+    {
+      "id": 3,
+      "name": "Global Finance Solutions",
+      "description": "Financial services firm providing comprehensive financial planning and analysis.",
+      "website": "https://globalfinance.example.com",
+      "size": "500-1000 employees",
+      "industry": "Finance",
+      "location": "Chicago, IL"
+    }
+  ],
+  "categories": [
+    "IT",
+    "Marketing",
+    "Finance",
+    "Healthcare",
+    "Education",
+    "Sales",
+    "Human Resources",
+    "Operations",
+    "Design",
+    "Engineering"
+  ],
+  "locations": [
+    "New York, NY",
+    "Los Angeles, CA",
+    "Chicago, IL",
+    "San Francisco, CA",
+    "Austin, TX",
+    "Seattle, WA",
+    "Boston, MA",
+    "Remote",
+    "London, UK",
+    "Toronto, Canada"
+  ]
+}

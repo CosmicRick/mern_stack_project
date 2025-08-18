@@ -5,6 +5,7 @@
     "@fortawesome/react-fontawesome": "^0.2.3",
     "framer": "^2.4.1",
     "lucide-react": "^0.539.0",
-    "motion": "^12.23.12"
+    "motion": "^12.23.12",
+    "react-bootstrap": "^2.10.10"
   }
 }
