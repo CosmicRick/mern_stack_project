@@ -46,11 +46,6 @@ const Home = () => {
         <div className="barofcontext">
           <img src={barofcontext} alt="Context Bar" className="context-bar" />
         </div>
-        <div className="element_contanier">
-        <div className="card-container">
-          <JobCard theme={theme} setTheme={setTheme} />
-        </div>
-        </div>
         <Footer theme={theme} setTheme={setTheme} />
       </div>
     </>
