@@ -2,72 +2,61 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  position: relative;
 }
-
 main {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 130rem;
   width: 100%;
 }
-
 .imagecontent {
-  position: relative;
-  height: 60vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  height: 30%;
 }
-
 .imagecontent img {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
+  position: absolute;
+  top: -30%;
+  left: 0;
+  height: 100vh;
   object-fit: cover;
   filter: brightness(0.7);
-  z-index: 1;
+  z-index: -1;
+  height: 60%;
 }
-
 .imagecontent h1 {
   position: relative;
-  z-index: 2;
+  z-index: 1;
+  margin: 0;
+  padding: 1rem;
+  padding-left: 40%;
   font-family: "Gabriola";
   font-size: 4rem;
   text-align: center;
   color: rgb(0, 206, 200);
   font-weight: bold;
   font-style: italic;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.457);
 }
-
 .imagecontent span {
-  position: relative;
-  z-index: 2;
   font-weight: bold;
   font-style: italic;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.457);
+  padding-left: -2rem;
   color: rgb(248, 248, 248);
 }
-
-.card-container {
-  padding: 3rem 2rem;
-  background-color: #f8f9fa;
+.barofcontext {
+  position: fixed;
+  top: 20.1rem;
+  left: 0;
+  right: 0;
+  margin: 2rem auto;
+  width: 100%;
+  height: 10rem;
 }
-
-.card-container h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #333;
-}
-
-.nav-container.light .card-container {
-  background-color: #2c2c2c;
-}
-
-.nav-container.light .card-container h2 {
-  color: #fff;
+.barofcontext img {
+  width: 100%;
+  object-fit: cover;
+  height: 10.5rem;
 }

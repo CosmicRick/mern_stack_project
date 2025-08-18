@@ -231,64 +231,6 @@
       "isRemote": true,
       "experienceLevel": "Entry-level",
       "companyLogo": "https://via.placeholder.com/100x100/20c997/ffffff?text=WC"
-    },
-    {
-      "id": 9,
-      "title": "DevOps Engineer",
-      "company": "CloudTech Solutions",
-      "location": "Austin, TX",
-      "type": "Full-time",
-      "category": "IT",
-      "salary": "$95,000 - $125,000",
-      "description": "Join our infrastructure team to build and maintain scalable cloud solutions. Work with Docker, Kubernetes, and CI/CD pipelines.",
-      "requirements": [
-        "3+ years of DevOps experience",
-        "Experience with AWS/Azure/GCP",
-        "Knowledge of Docker and Kubernetes",
-        "Scripting skills (Python, Bash)",
-        "Understanding of CI/CD tools"
-      ],
-      "benefits": [
-        "Cloud certification training",
-        "Flexible remote work",
-        "Health benefits",
-        "Stock options",
-        "Conference budget"
-      ],
-      "postedDate": "2025-01-16",
-      "applicationDeadline": "2025-02-16",
-      "isRemote": true,
-      "experienceLevel": "Mid-level",
-      "companyLogo": "https://via.placeholder.com/100x100/6c757d/ffffff?text=CT"
-    },
-    {
-      "id": 10,
-      "title": "Mobile App Developer",
-      "company": "AppCraft Studios",
-      "location": "San Diego, CA",
-      "type": "Contract",
-      "category": "IT",
-      "salary": "$70 - $90 per hour",
-      "description": "Develop native mobile applications for iOS and Android platforms. Work with React Native and native development tools.",
-      "requirements": [
-        "4+ years mobile development experience",
-        "React Native expertise",
-        "iOS/Android native development",
-        "App Store deployment experience",
-        "UI/UX design understanding"
-      ],
-      "benefits": [
-        "Flexible contract terms",
-        "Remote collaboration",
-        "Project-based work",
-        "Portfolio enhancement",
-        "Networking opportunities"
-      ],
-      "postedDate": "2025-01-17",
-      "applicationDeadline": "2025-02-17",
-      "isRemote": true,
-      "experienceLevel": "Senior",
-      "companyLogo": "https://via.placeholder.com/100x100/e83e8c/ffffff?text=AS"
     }
   ],
   "companies": [
