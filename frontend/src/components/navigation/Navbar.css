@@ -40,7 +40,7 @@
   border-bottom-right-radius: 1.5rem;
   align-items: center;
   justify-content: space-between;
-  background: #9edf9c;
+  background: #9edf9c6b;
   backdrop-filter: blur(3.13rem); /* 50px /16 */
   padding: 0 0.5rem;
   gap: 0;
@@ -167,7 +167,8 @@ input[type="search"] {
 }
 
 .light .navbar {
-  background: #526e48;
+  background: #526e488d;
+  backdrop-filter: blur(3.13rem); /* 50px /16 */
   color: #fff;
 }
 

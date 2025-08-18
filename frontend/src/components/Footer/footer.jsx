@@ -15,7 +15,7 @@ function Footer() {
           {/* {collumn1} */}
           <div className='col-mid-3 col-sm-6'>
             <h4><FontAwesomeIcon icon={faBriefcase} /> Job Opportunities</h4>
-            <ul className='list-unstyled'>
+            <ul className='list-unstyled' style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <li>Browse Jobs</li>
               <li>Post a Job</li>
               <li>Career Tips</li>
@@ -25,7 +25,7 @@ function Footer() {
           {/* {collumn2} */}
           <div className='col-mid-3 col-sm-6'>
             <h4><FontAwesomeIcon icon={faGlobe} /> Connect with us</h4>
-            <ul className='list-unstyled'>
+            <ul className='list-unstyled' style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <li><FontAwesomeIcon icon={faFacebook} /> FaceBook</li>
               <li><FontAwesomeIcon icon={faTwitter} /> Twitter</li>
               <li><FontAwesomeIcon icon={faInstagram} /> Instagram</li>
@@ -35,7 +35,7 @@ function Footer() {
           {/* {collumn3} */}
           <div className='col-mid-3 col-sm-6'>
             <h4><FontAwesomeIcon icon={faBuilding} /> Company</h4>
-            <ul className='list-unstyled'>
+            <ul className='list-unstyled' style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <li>About Us</li>
               <li>Our Team</li>
               <li>Partners</li>
@@ -45,7 +45,7 @@ function Footer() {
           {/* {collumn4} */}
           <div className='col-mid-3 col-sm-6'>
             <h4><FontAwesomeIcon icon={faUser} /> Job Categories</h4>
-            <ul className='list-unstyled'>
+            <ul className='list-unstyled' style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <li>Telecommunications</li>
               <li>Information Technology</li>
               <li>Healthcare</li>

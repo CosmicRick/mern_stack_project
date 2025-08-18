@@ -1,0 +1,48 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  height: 120rem;
+  width: 100%;
+}
+.imagecontent {
+  display: flex;
+  height: 30%;
+}
+.imagecontent img {
+  width: 100%;
+  position: absolute;
+  top: -30%;
+  left: 0;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  height: 60%;
+  border-radius: 0.4rem;
+}
+.imagecontent h1 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 1rem;
+  padding-left: 40%;
+  font-family: "Gabriola";
+  font-size: 4rem;
+  text-align: center;
+  color: rgb(0, 206, 200);
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.457);
+}
+.imagecontent span {
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.457);
+  padding-left: -2rem;
+  color: rgb(93, 96, 254);
+}
