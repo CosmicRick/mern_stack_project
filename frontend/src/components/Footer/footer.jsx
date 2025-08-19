@@ -54,11 +54,9 @@ function Footer() {
           </div>
         </div>
         {/* Footer Bottom */}
-        <div className='footer-bottom'>
           <p className='text-xs-center'>
             &copy;{new Date().getFullYear()} SmartHire Nexus || All Rights Reserved
           </p>
-        </div>
       </div>
     </div>
   )

@@ -26,29 +26,33 @@ const Home = () => {
     delaySpeed: 1000,
   });
   return (
-    <>
-      <div className={`nav-container ${theme}`}>
-        <Navbar theme={theme} setTheme={setTheme} />
-        <main>
-          <div className="imagecontent">
-            <img src={home} alt="Home" className="home-image" />
-            <h1 style={{ margin: '-4.12rem' }}>
-              Welcome to SmartHire Nexus
-            </h1>
-            <br></br>
-            <span style={{ fontWeight: 'bold', fontSize: '44px' }}>
-              {text}
-            </span>
-            <span style={{ color: 'red', fontSize: '44px' }}><Cursor cursorStyle='|' /></span>
-          </div>
-          <JobSearchBar theme={theme} setTheme={setTheme} />
-        </main>
+    <div className={`nav-container ${theme}`}>
+      <Navbar theme={theme} setTheme={setTheme} />
+      <main>
+        <div className="imagecontent">
+          <img src={home} alt="Home" className="home-image" />
+          <h1 style={{ margin: '-4.12rem' }}>
+            Welcome to SmartHire Nexus
+          </h1>
+          <span style={{ fontWeight: 'bold', fontSize: '44px', left: '73rem' }}>
+            {text}
+          </span>
+          <span style={{ color: 'red', fontSize: '44px', top: '0rem' }}><Cursor cursorStyle='|' />
+          </span>
+        </div>
+        <div className="search">
+        <JobSearchBar theme={theme} setTheme={setTheme} className="job-search-bar" />
+        </div>
         <div className="barofcontext">
           <img src={barofcontext} alt="Context Bar" className="context-bar" />
+            <div className="card-demandedjob">
+            <JobCard theme={theme} setTheme={setTheme} />
+            <JobCard theme={theme} setTheme={setTheme} />
+          </div>
         </div>
-        <Footer theme={theme} setTheme={setTheme} />
-      </div>
-    </>
+          <Footer theme={theme} setTheme={setTheme} />
+      </main>
+    </div>
   );
 };
 

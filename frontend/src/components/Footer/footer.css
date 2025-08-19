@@ -5,11 +5,12 @@
   padding: 40px 0 0 0;
   position: absolute;
   left: 0;
-  bottom: 0;
-  height: 30%;
+  bottom: -5rem;
+  height: 35vh;
   width: 100%;
   z-index: 100;
   box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.1);
+
 }
 .light .main-footer{
   background: #526e48;
@@ -53,19 +54,6 @@
   font-size: 1rem;
 }
 
-.footer-bottom {
-  background: #b1fcae;
-  color: #000000;
-  text-align: center;
-  padding: 15px 0;
-  margin-top: -10px;
-  font-size: 0.95rem;
-
-}
-.light .footer-bottom {
-  background: #526e48;
-  color: #ffffff;
-}
 
 @media (max-width: 768px) {
   .main-footer .row {
