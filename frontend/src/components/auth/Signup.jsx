@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { registerUser } from '../../services/api';
 
 const Signup = ({ onSignup }) => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,8 @@ const Signup = ({ onSignup }) => {
     password: '',
     confirmPassword: ''
   });
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -18,23 +21,32 @@ const Signup = ({ onSignup }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match!');
+      setError('Passwords do not match!');
       return;
     }
 
-    console.log('Signup Data:', formData);
+    setLoading(true);
+    setError(null);
 
-    if (onSignup) onSignup(formData);
+    try {
+      const response = await registerUser(formData);
+      if (response.data && response.data.token) {
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('isLoggedIn', 'true');
+        if (onSignup) onSignup(response.data.user);
+        navigate('/home');
+      } else {
+        setError('Signup failed. Please try again.');
+      }
+    } catch (err) {
+      setError(err.response?.data?.message || 'An error occurred during signup.');
+    }
 
-    // ✅ Save user to localStorage (basic mock, real apps call API here)
-    localStorage.setItem('isLoggedIn', 'true');
-
-    // ✅ Redirect to Home after signup
-    navigate('/home');
+    setLoading(false);
   };
 
   return (

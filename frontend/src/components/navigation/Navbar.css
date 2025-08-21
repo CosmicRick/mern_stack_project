@@ -10,8 +10,9 @@
   top: 0rem; /* -75px / 16px */
   left: 0;
   right: 0;
+  overflow: hidden;
 }
-html body{
+html body {
   padding-bottom: 0px;
   margin-bottom: 0px;
 }
@@ -25,7 +26,7 @@ html body{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  top: -5rem;
+  top: -2rem;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   background: #9edf9c42;
@@ -176,7 +177,7 @@ input[type="search"] {
 }
 
 .navbar .user-icon {
-  position: fixed;
+  position: absolute;
   right: 5.81rem; /* 45px /16 */
   top: 2rem; /* 30px/16 */
   font-size: 2.56rem; /* 34px */

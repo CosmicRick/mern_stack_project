@@ -29,7 +29,7 @@ const Navbar = ({ theme, setTheme }) => {
             <a href="about">About Us</a>
           </li>
           <li>
-            <a href="#">Contact Us</a>
+            <a href="contact">Contact Us</a>
           </li>
           <div className='search-box'>
             <input type="text" placeholder='Search...' className='search-input' />

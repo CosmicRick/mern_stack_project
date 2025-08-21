@@ -101,7 +101,7 @@ html body {
 .nav-container {
   position: relative;
   width: 100vw;
-  height: fit-content;
+  height: max-content;
   /* border: 1px solid #960000; */
   background: #ffffff;
   transition: 0.6s;
