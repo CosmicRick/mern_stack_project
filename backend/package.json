@@ -19,10 +19,12 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.0",
     "express": "^5.1.0",
+    "init": "^0.1.2",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.18.0",
     "mongoose": "^8.16.4",
     "multer": "^2.0.2",
     "nodemon": "^3.1.10"
-  }
+  },
+  "keywords": []
 }

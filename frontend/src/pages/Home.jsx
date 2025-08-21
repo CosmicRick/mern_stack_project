@@ -10,7 +10,7 @@ import searchbar from "../components/searchbar.jsx";
 import barofcontext from '../components/assets/barofcontext.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import JobCard from "../components/card.jsx";
-
+import Button from 'react-bootstrap/Button';
 const Home = () => {
   const current_theme = localStorage.getItem('current_theme')
   const [theme, setTheme] = useState(current_theme ?
@@ -41,16 +41,29 @@ const Home = () => {
           </span>
         </div>
         <div className="search">
-        <JobSearchBar theme={theme} setTheme={setTheme} className="job-search-bar" />
+          <JobSearchBar theme={theme} setTheme={setTheme} className="job-search-bar" />
         </div>
         <div className="barofcontext">
           <img src={barofcontext} alt="Context Bar" className="context-bar" />
-            <div className="card-demandedjob">
-            <JobCard theme={theme} setTheme={setTheme} />
-            <JobCard theme={theme} setTheme={setTheme} />
+          <div className="card-demandedjob">
+            <div className="card-demandedjobfirstrow">
+              <JobCard theme={theme} setTheme={setTheme} />
+              <JobCard theme={theme} setTheme={setTheme} />
+              <JobCard theme={theme} setTheme={setTheme} />
+              <JobCard theme={theme} setTheme={setTheme} />
+            </div>
+            <div className="card-demandedjobsecondrow">
+              <JobCard theme={theme} setTheme={setTheme} />
+              <JobCard theme={theme} setTheme={setTheme} />
+              <JobCard theme={theme} setTheme={setTheme} />
+              <JobCard theme={theme} setTheme={setTheme} />
+            </div>
+            <div className="nextpagebuttion">
+                  <Button as="input" type="submit" value="NextPage" theme={theme} setTheme={setTheme} />
+            </div>
           </div>
         </div>
-          <Footer theme={theme} setTheme={setTheme} />
+        <Footer theme={theme} setTheme={setTheme} />
       </main>
     </div>
   );

@@ -78,12 +78,16 @@ html body{
 
 .navbar ul li a {
   text-decoration: none;
-  color: #222;
+  color: #cfffe6;
   font-size: 1.34rem;
   font-weight: 500;
   line-height: 1;
   transition: color 0.3s;
   margin-top: -3rem;
+}
+.light .navbar ul li a {
+  text-decoration: none;
+  color: #393939;
 }
 
 .navbar ul li a:hover {

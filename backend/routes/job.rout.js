@@ -9,16 +9,16 @@ import {
   smartJobSearch
 } from '../conroller/job.controller.js'; 
 
-import { isAuthenticated, isAdmin } from '../middleware/isAuthenticated.js';
-import upload from '../middlewares/multer.js'; //  multer for file uploads
+import authMiddleware from '../middleware/isAuthenticated.js';
+import upload from '../middleware/multer.js'; //  multer for file uploads
 
 const router = express.Router();
 
 //  POST a job (Admin only) with image uploads
 router.post(
   '/post',
-  isAuthenticated,
-  isAdmin,
+  authMiddleware,
+  
   upload.array('images', 5), //  handles up to 5 images from form-data
   postJob
 );
@@ -30,15 +30,15 @@ router.get('/all', getAllJobs);
 router.get('/:jobId', getJobById);
 
 //  UPDATE job (Admin only)
-router.put('/:jobId', isAuthenticated, isAdmin, updateJob);
+router.put('/:jobId', authMiddleware,  updateJob);
 
 //  DELETE job (Admin only)
-router.delete('/:jobId', isAuthenticated, isAdmin, deleteJob);
+router.delete('/:jobId', authMiddleware,  deleteJob);
 
 //  SEARCH jobs by title or tags
 router.get('/search/keyword', searchJobs);
 
 //  SMART AI Job Search (Protected)
-router.post('/smart-search', isAuthenticated, smartJobSearch);
+router.post('/smart-search', authMiddleware, smartJobSearch);
 
 export default router;
