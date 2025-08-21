@@ -30,8 +30,8 @@ const Login = ({ onLogin }) => {
       navigate('/home');
     } else {
       alert('Invalid login');
-    }
-  };
+    }
+  };
 
   return (
     <div className="card">

@@ -22,10 +22,11 @@ app.use(express.urlencoded({ extended: true }));
 
 // CORS setup
 const corsOptions = {
-  origin: '*', // Replace with frontend URL in production
-  credentials: true,
+  origin: "http://localhost:3000", // frontend dev URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
 };
-app.use(cors(corsOptions));
+
+app.use(cors(corsOptions))
 
 // Routes
 app.use('/api/auth', authRoutes);
@@ -51,8 +52,8 @@ app.get("/", (req, res) => {
 // ✅ Connect DB & Start Server
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
-    app.listen(5000, () =>
-      console.log("✅ Server is running on http://localhost:5000")
+    app.listen(3000, () =>
+      console.log("✅ Server is running on http://localhost:{process.env.PORT || 3000}")
     );
   })
   .catch((err) => console.error("❌ DB connection error:", err));
