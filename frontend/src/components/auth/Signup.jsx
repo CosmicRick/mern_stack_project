@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-=======
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { registerUser } from '../../services/api';
->>>>>>> 108ea5820c441947239f1607e116a5cae18f8612
 
 const Signup = ({ onSignup }) => {
   const [formData, setFormData] = useState({
@@ -31,11 +25,7 @@ const Signup = ({ onSignup }) => {
     e.preventDefault();
 
     if (formData.password !== formData.confirmPassword) {
-<<<<<<< HEAD
-      setError("Passwords do not match!");
-=======
       setError('Passwords do not match!');
->>>>>>> 108ea5820c441947239f1607e116a5cae18f8612
       return;
     }
 
@@ -43,27 +33,6 @@ const Signup = ({ onSignup }) => {
     setError(null);
 
     try {
-<<<<<<< HEAD
-      // direct axios call (no wrapper function)
-      const response = await axios.get("http://localhost:5000", {
-        name: formData.name,
-        email: formData.email,
-        password: formData.password,
-      });
-
-      if (response.data && response.data.token) {
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("isLoggedIn", "true");
-        if (onSignup) onSignup(response.data.user);
-        navigate("/home");
-      } else {
-        setError("Signup failed. Please try again.");
-      }
-    } catch (err) {
-      setError(err.response?.data?.message || "An error occurred during signup.");
-    }
-
-=======
       const response = await registerUser(formData);
       if (response.data && response.data.token) {
         localStorage.setItem('token', response.data.token);
@@ -77,7 +46,6 @@ const Signup = ({ onSignup }) => {
       setError(err.response?.data?.message || 'An error occurred during signup.');
     }
 
->>>>>>> 108ea5820c441947239f1607e116a5cae18f8612
     setLoading(false);
   };
 

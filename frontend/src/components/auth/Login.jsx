@@ -21,22 +21,6 @@ const Login = ({ onLogin }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-<<<<<<< HEAD
-    console.log('Login Data:', formData);
-
-    if (formData.email && formData.password) {
-      if (onLogin) onLogin(formData);
-
-      // ✅ Save login state in localStorage (keeps user logged in)
-      localStorage.setItem('isLoggedIn', 'true');
-
-      // ✅ Redirect to Home
-      navigate('/home');
-    } else {
-      alert('Invalid login');
-    }
-  };
-=======
     setLoading(true);
     setError(null);
     try {
@@ -54,7 +38,6 @@ const Login = ({ onLogin }) => {
     }
     setLoading(false);
   };
->>>>>>> 108ea5820c441947239f1607e116a5cae18f8612
 
   return (
     <div className="card">

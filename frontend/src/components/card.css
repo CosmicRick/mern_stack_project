@@ -1,49 +1,83 @@
 /* Card Container */
 .card {
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(4, 4, 4, 0.12);
   margin: 15px;
-  background-color: #fff;
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
+  position: relative;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 /* Card Image */
 .card-image {
   width: 100%;
-  height: 200px;
+  height: 220px;
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card-image {
+  transform: scale(1.05);
 }
 
 /* Content Below Image */
 .card-content {
-  padding: 16px;
+  padding: 20px;
+  background: inherit;
 }
 
 .card-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 0 0 8px 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .card-description {
-  color: #666;
-  font-size: 0.9rem;
-  line-height: 1.4;
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
 }
 
 /* Card Grid for Home Page */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 25px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+.light .card{
+  background: rgb(40, 40, 40);
+  color: white;
 }
 
 /* Responsive Adjustments */
