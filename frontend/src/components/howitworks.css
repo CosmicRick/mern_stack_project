@@ -1,0 +1,124 @@
+/* How It Works Section Styles */
+
+.how-it-works-section {
+  background-color: #f8f9fa00;
+  /* padding: 0% 50% 0%; */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  margin:-4rem 0rem 0rem 20rem;
+}
+
+.container {
+  margin: 50% auto;
+  padding: 0 20px;
+  width: 100%;
+  align-items: baseline;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.step-card {
+  text-align: center;
+  padding: 40px 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.step-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.icon-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+  padding: 16px;
+  background: rgba(20, 184, 166, 0.1);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+
+.step-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.step-description {
+  font-size: 1rem;
+  color: #6b7280;
+  line-height: 1.6;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .how-it-works-section {
+    padding: 60px 0;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .step-card {
+    padding: 30px 20px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+}

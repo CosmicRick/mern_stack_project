@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.nav-bar {
+  position: relative;
+  height: 215vh;
+  width: 100vw;
+  /* border: 1px solid #960000; */
+  background: #ffffff;
+  transition: 0.6s;
+  z-index: 1;
+}
+.nav-bar.light {
+  background: #313030;
+}
+.contactimage {
+  display: flex;
+  height: 40%;
+  z-index: 1;
+  position: relative;
+}
+.contactimage img {
+  position: absolute;
+  top: -9rem;
+  left: 0;
+  width: 100%;
+  height: 33vw;
+  object-fit: cover;
+  filter: brightness(0.6);
+  z-index: 1; /* This is critical: it puts the image BEHIND the text */
+}
+.content {
+  margin: 24.6rem auto;
+  width: 100%;
+  position: relative;
+  z-index: 1000;
+}
+.contact-content {
+  position: absolute;
+  top: 69.6rem;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 10vh;
+  z-index: 1000;
+}
+.contact-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

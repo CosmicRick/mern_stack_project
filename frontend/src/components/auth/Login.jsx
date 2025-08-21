@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { loginUser } from '../../services/api';
 
 const Login = ({ onLogin }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -16,8 +19,9 @@ const Login = ({ onLogin }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+<<<<<<< HEAD
     console.log('Login Data:', formData);
 
     if (formData.email && formData.password) {
@@ -32,6 +36,25 @@ const Login = ({ onLogin }) => {
       alert('Invalid login');
     }
   };
+=======
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await loginUser(formData);
+      if (response.data && response.data.token) {
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('isLoggedIn', 'true');
+        if (onLogin) onLogin(response.data.user);
+        navigate('/home');
+      } else {
+        setError('Login failed. Please check your credentials.');
+      }
+    } catch (err) {
+      setError(err.response?.data?.message || 'An error occurred during login.');
+    }
+    setLoading(false);
+  };
+>>>>>>> 108ea5820c441947239f1607e116a5cae18f8612
 
   return (
     <div className="card">
