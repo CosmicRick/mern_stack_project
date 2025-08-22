@@ -26,7 +26,7 @@ const Home = () => {
     delaySpeed: 1000,
   });
   return (
-    <div className={`nav-container ${theme}`}>
+    <div className={`nav-contente ${theme}`}>
       <Navbar theme={theme} setTheme={setTheme} />
       <main>
         <div className="imagecontent">

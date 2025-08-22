@@ -188,6 +188,9 @@ input[type="search"] {
 .light .navbar .user-icon {
   color: #074807fd;
 }
+.light .navbar ul li a {
+ color: #bfeed3;
+}
 
 /* Tablet */
 @media (max-width: 992px) {

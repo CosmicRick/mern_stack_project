@@ -62,7 +62,7 @@ html body {
 }
 .barofcontext {
   position: relative;
-  top: 2.10rem; /* This top offset might create white space */
+  top: 2.1rem; /* This top offset might create white space */
   left: 0;
   right: 0;
   margin: 2rem auto;
@@ -81,9 +81,58 @@ html body {
   height: 0px; /* Adjusted to prevent layout issues */
   margin-top: 20rem;
 }
-/* .home-image {
-  transition: filter 0.3s ease;
-} */
+.card-demandedjob {
+  flex: 1 1 calc(25% - 1rem);
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: #5b515152;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e0e0e0;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.5rem;
+  width: 70%;
+}
+.card-demandedjob .nextpagebuttion {
+ padding-left: 47%;
+} 
+.light .card-demandedjob {
+  background: rgba(255, 255, 255, 0.364);
+  box-shadow: 0 4px 12px rgba(244, 243, 243, 0.572);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-demandedjob .card-demandedjobfirstrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.card-demandedjob .card-demandedjobsecondrow {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+.card-demandedjob .card-demandedjobsecondrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.card-demandedjob:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 2rem;
+}
 
 .context-bar {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -98,16 +147,15 @@ html body {
   background: transparent;
 }
 
-.nav-container {
+.nav-contente {
   position: relative;
   width: 100vw;
-  height: max-content;
+  height: 98vw;
   /* border: 1px solid #960000; */
   background: #ffffff;
   transition: 0.6s;
   z-index: 1;
 }
-.nav-container.light {
+.nav-contente.light {
   background: #313030;
 }
-

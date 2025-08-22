@@ -55,6 +55,7 @@ body {
 .nav-container {
   position: relative;
   height: 500vh;
+  width: 100vw;
   /* border: 1px solid #960000; */
   background: #ffffff;
   transition: 0.6s;
