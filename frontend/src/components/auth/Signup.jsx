@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-
+import { registerUser} from '../../services/api';
 const Signup = ({ onSignup }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
     confirmPassword: "",
+    role: "",
   });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -34,17 +34,13 @@ const Signup = ({ onSignup }) => {
 
     try {
       // direct axios call (no wrapper function)
-      const response = await axios.get("http://localhost:5000", {
-        name: formData.name,
-        email: formData.email,
-        password: formData.password,
-      });
+      const response = await registerUser(formData);
 
-      if (response.data && response.data.token) {
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("isLoggedIn", "true");
-        if (onSignup) onSignup(response.data.user);
-        navigate("/home");
+      if (response) {
+        // if (onSignup) onSignup(response.data.user);
+        navigate("/");
+        console.log('/login');
+        
       } else {
         setError("Signup failed. Please try again.");
       }
@@ -102,7 +98,18 @@ const Signup = ({ onSignup }) => {
           onChange={handleChange}
           required
         />
-
+        <label htmlFor="role">Role</label>
+        <select
+          id="role"
+          name="role"
+          value={formData.role}
+          onChange={handleChange}
+          required
+        >
+          <option value="">Select your role</option>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
         <button type="submit" disabled={loading}>
           {loading ? "Signing Up..." : "Sign Up"}
         </button>

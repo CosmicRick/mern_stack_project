@@ -29,6 +29,7 @@ const Login = ({ onLogin }) => {
       if (response.data && response.data.token) {
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('user', JSON.stringify(response.data));
         if (onLogin) onLogin(response.data.user);
         navigate('/home');
       } else {
