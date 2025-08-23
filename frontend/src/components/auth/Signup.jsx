@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { registerUser } from '../../services/api';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Signup = ({ onSignup }) => {
   const [formData, setFormData] = useState({
@@ -25,7 +25,7 @@ const Signup = ({ onSignup }) => {
     e.preventDefault();
 
     if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match!');
+      setError("Passwords do not match!");
       return;
     }
 
@@ -33,17 +33,23 @@ const Signup = ({ onSignup }) => {
     setError(null);
 
     try {
-      const response = await registerUser(formData);
+      // direct axios call (no wrapper function)
+      const response = await axios.get("http://localhost:5000", {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+      });
+
       if (response.data && response.data.token) {
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("isLoggedIn", "true");
         if (onSignup) onSignup(response.data.user);
-        navigate('/home');
+        navigate("/home");
       } else {
-        setError('Signup failed. Please try again.');
+        setError("Signup failed. Please try again.");
       }
     } catch (err) {
-      setError(err.response?.data?.message || 'An error occurred during signup.');
+      setError(err.response?.data?.message || "An error occurred during signup.");
     }
 
     setLoading(false);
