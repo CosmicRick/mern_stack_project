@@ -1,6 +1,6 @@
 import React from 'react';
 import { User, FileText, Briefcase, CheckCircle } from 'lucide-react';
-import './howitworks.css'; 
+import './howitworks.css';
 
 const HowItWorks = () => {
   const steps = [
@@ -32,11 +32,11 @@ const HowItWorks = () => {
         <div className="header">
           <h2 className="title">How it works</h2>
           <p className="subtitle">
-            Discover your dream job in just four simple steps. Our streamlined process makes job hunting 
+            Discover your dream job in just four simple steps. Our streamlined process makes job hunting
             efficient and stress-free, connecting you with the best opportunities in your field.
           </p>
         </div>
-        
+
         <div className="steps-grid">
           {steps.map((step, index) => (
             <div key={index} className="step-card">

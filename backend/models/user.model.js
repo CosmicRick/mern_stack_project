@@ -1,50 +1,25 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
 
-
-// Define the schema for a user
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  email: { type: String, required: true, unique: true, lowercase: true },
+  email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-
-  role: {
-    type: String,
-    enum: ['user', 'admin'],
-    default: 'user'
-  },
-
-  profile: {
-    bio: { type: String, default: "" },
-    profilePicture: { type: String, default: "" },
-    coverPicture: { type: String, default: "" },
-    experience: [{ 
-      title: String, 
-      company: String, 
-      from: Date, 
-      to: Date, 
-      description: String 
-    }],
-    education: [{ 
-      institution: String, 
-      degree: String, 
-      year: String 
-    }],
-    skills: [{ type: String }],
-    company: { type: mongoose.Schema.Types.ObjectId, ref: "Company", default: null }
-  },
-
-  socialLinks: {
-    linkedin: { type: String, default: "" },
-    github: { type: String, default: "" },
-    portfolio: { type: String, default: "" }
-  },
-
-  resume: { type: String, default: "" },
-  resumeFileName: { type: String, default: "" },
-
-  smartTags: [{ type: String }], // e.g., "Top React Dev", "Full Stack", etc.
-  aiSuggestedRoles: [{ type: String }], // AI-generated career recommendations
-
+  role: { type: String, enum: ['user', 'admin'], default: 'user' }
 }, { timestamps: true });
 
-export default mongoose.model("User", userSchema);
+// Hash password before saving
+userSchema.pre('save', async function (next) {
+  if (!this.isModified('password')) return next();
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+  next();
+});
+
+// Compare entered password with hashed password
+userSchema.methods.comparePassword = async function (candidatePassword) {
+  return await bcrypt.compare(candidatePassword, this.password);
+};
+
+const User = mongoose.model('User', userSchema);
+export default User;

@@ -11,6 +11,7 @@ import barofcontext from '../components/assets/barofcontext.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import JobCard from "../components/card.jsx";
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 const Home = () => {
   const current_theme = localStorage.getItem('current_theme')
   const [theme, setTheme] = useState(current_theme ?
@@ -25,6 +26,15 @@ const Home = () => {
     deleteSpeed: 50,
     delaySpeed: 1000,
   });
+  useEffect(() => {
+    axios.get('http://localhost:8000')
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching jobs:", error);
+      });
+  }, []);
   return (
     <div className={`nav-contente ${theme}`}>
       <Navbar theme={theme} setTheme={setTheme} />

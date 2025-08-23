@@ -1,0 +1,647 @@
+/* Modern Signup Component Styles with Green Theme and Icons */
+
+/* Root variables for consistent theming - Green Theme */
+:root {
+  --primary-color: #059669;
+  --primary-hover: #047857;
+  --primary-focus: #065f46;
+  --primary-light: #10b981;
+  --accent-color: #34d399;
+  --secondary-color: #f0fdf4;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --border-color: #e5e7eb;
+  --border-focus: #d1fae5;
+  --background: #ffffff;
+  --error-color: #ef4444;
+  --error-bg: #fef2f2;
+  --success-color: #10b981;
+  --green-gradient: linear-gradient(135deg, #059669, #10b981, #34d399);
+  --shadow-sm: 0 1px 2px 0 rgba(5, 150, 105, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(5, 150, 105, 0.1),
+    0 2px 4px -1px rgba(5, 150, 105, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(5, 150, 105, 0.1),
+    0 4px 6px -2px rgba(5, 150, 105, 0.05);
+  --shadow-green: 0 0 20px rgba(16, 185, 129, 0.15);
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+}
+
+/* Dark mode support */
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1f2937;
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
+    --border-color: #374151;
+    --border-focus: #4b5563;
+    --secondary-color: #374151;
+    --error-bg: rgba(239, 68, 68, 0.1);
+  }
+} */
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: linear-gradient(135deg, #78e485 0%, #92f2a8 50%, #3e644a 100%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 1rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* Card container */
+.card {
+  width: 100%;
+  max-width: 450px;
+  margin: 1rem auto;
+  padding: 2rem;
+  background: var(--background);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Green gradient top border */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--green-gradient);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-green);
+  transform: translateY(-2px);
+}
+
+/* Heading with signup icon */
+.card h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.card h2::before {
+  content: "📝";
+  font-size: 1.5rem;
+  filter: hue-rotate(120deg) brightness(1.2);
+}
+
+.card h2::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4rem;
+  height: 2px;
+  background: var(--green-gradient);
+}
+
+/* Form styling */
+.card form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Label styling with specific icons */
+.card label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.375rem;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  transition: var(--transition);
+}
+
+/* Icon for Full Name */
+.card label[for="name"]::before {
+  content: "👤";
+  font-size: 1rem;
+  filter: hue-rotate(120deg);
+}
+
+/* Icon for Email */
+.card label[for="email"]::before {
+  content: "📧";
+  font-size: 1rem;
+  filter: hue-rotate(120deg);
+}
+
+/* Icon for Password */
+.card label[for="password"]::before {
+  content: "🔒";
+  font-size: 1rem;
+  filter: hue-rotate(120deg);
+}
+
+/* Icon for Confirm Password */
+.card label[for="confirmPassword"]::before {
+  content: "🔐";
+  font-size: 1rem;
+  filter: hue-rotate(120deg);
+}
+
+/* Input styling */
+.card input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background: var(--background);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: var(--transition);
+  font-family: inherit;
+}
+
+.card input::placeholder {
+  color: var(--text-muted);
+  opacity: 1;
+}
+
+.card input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+  background: var(--background);
+}
+
+.card input:hover {
+  border-color: var(--border-focus);
+}
+
+.card input:valid {
+  border-color: var(--success-color);
+}
+
+.card input:invalid:not(:focus):not(:placeholder-shown) {
+  border-color: var(--error-color);
+}
+
+/* Button styling with rocket icon */
+.card button[type="submit"] {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: var(--green-gradient);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  margin-top: 0.5rem;
+  text-transform: none;
+  letter-spacing: 0.025em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: inherit;
+}
+
+.card button[type="submit"]::before {
+  content: "🚀";
+  font-size: 1rem;
+}
+
+.card button[type="submit"]:hover:not(:disabled) {
+  background: linear-gradient(
+    135deg,
+    var(--primary-hover),
+    var(--primary-light)
+  );
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.card button[type="submit"]:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.card button[type="submit"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.3);
+}
+
+.card button[type="submit"]:disabled {
+  background: var(--text-muted);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.7;
+}
+
+/* Loading state */
+.card button[type="submit"]:disabled::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1rem;
+  height: 1rem;
+  margin: -0.5rem 0 0 -0.5rem;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Login link with user icon */
+.read-the-docs {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+}
+
+.read-the-docs::before {
+  content: "🔑";
+  font-size: 1rem;
+  filter: hue-rotate(120deg);
+}
+
+.read-the-docs a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  position: relative;
+}
+
+.read-the-docs a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+.read-the-docs a:focus {
+  outline: none;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+/* Error message styling with icon */
+.error-message {
+  background: var(--error-bg);
+  color: var(--error-color);
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--error-color);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.error-message::before {
+  content: "❌";
+  font-size: 1rem;
+}
+
+/* Success message styling with icon */
+.success-message {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success-color);
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--success-color);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.success-message::before {
+  content: "✅";
+  font-size: 1rem;
+}
+
+/* Password strength indicator */
+.password-strength {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.password-strength.weak {
+  color: var(--error-color);
+}
+
+.password-strength.medium {
+  color: #f59e0b;
+}
+
+.password-strength.strong {
+  color: var(--success-color);
+}
+
+/* Form validation styles */
+.field-wrapper {
+  position: relative;
+}
+
+.validation-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.validation-icon.valid {
+  color: var(--success-color);
+}
+
+.validation-icon.invalid {
+  color: var(--error-color);
+}
+
+/* Responsive Design */
+
+/* Large mobile devices */
+@media (max-width: 480px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  .card {
+    margin: 0.5rem auto;
+    padding: 1.5rem;
+    max-width: none;
+    border-radius: var(--radius-md);
+  }
+
+  .card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .card form {
+    gap: 1rem;
+  }
+
+  .card input {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.9rem;
+  }
+
+  .card button[type="submit"] {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .card label {
+    font-size: 0.8125rem;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 320px) {
+  .card {
+    margin: 0.25rem auto;
+    padding: 1.25rem;
+  }
+
+  .card h2 {
+    font-size: 1.375rem;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .card h2::before {
+    font-size: 1.25rem;
+  }
+
+  .card input,
+  .card button[type="submit"] {
+    font-size: 0.875rem;
+  }
+
+  .card form {
+    gap: 0.875rem;
+  }
+}
+
+/* Tablet and small desktop */
+@media (min-width: 481px) and (max-width: 768px) {
+  .card {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+  }
+
+  .card h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Medium desktop */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card {
+    max-width: 480px;
+    margin: 2.5rem auto;
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1025px) {
+  .card {
+    max-width: 450px;
+    padding: 2.25rem;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+  }
+
+  .card button[type="submit"]:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
+}
+
+/* High resolution displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .card {
+    border-width: 0.5px;
+  }
+
+  .card::before {
+    height: 3px;
+  }
+}
+
+/* Landscape mobile orientation */
+@media (max-height: 600px) and (orientation: landscape) {
+  body {
+    padding: 0.5rem;
+  }
+
+  .card {
+    margin: 0.5rem auto;
+    padding: 1.5rem;
+  }
+
+  .card h2 {
+    margin-bottom: 1rem;
+  }
+
+  .card form {
+    gap: 0.875rem;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card input,
+  .card button,
+  .read-the-docs a {
+    transition: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+  .card button[type="submit"]:hover {
+    transform: none;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+/* Focus visible for better accessibility */
+@media (any-hover: hover) {
+  .card input:focus-visible,
+  .card button:focus-visible,
+  .read-the-docs a:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border-color: #000000;
+    --text-primary: #000000;
+    --background: #ffffff;
+  }
+
+  .card {
+    border-width: 2px;
+  }
+
+  .card input {
+    border-width: 2px;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+  }
+
+  .card {
+    box-shadow: none;
+    border: 1px solid #000;
+    background: white;
+    color: black;
+    max-width: none;
+    margin: 0;
+  }
+
+  .card::before {
+    display: none;
+  }
+
+  .card button[type="submit"] {
+    background: #666 !important;
+    color: white !important;
+  }
+
+  .card h2::before,
+  .card label::before,
+  .card button::before,
+  .read-the-docs::before {
+    display: none;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .card input,
+  .card button[type="submit"] {
+    min-height: 44px; /* Minimum touch target size */
+  }
+
+  .card button[type="submit"] {
+    padding: 1rem 1.5rem;
+  }
+
+  .card:hover {
+    transform: none;
+    box-shadow: var(--shadow-lg);
+  }
+}

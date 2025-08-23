@@ -1,44 +1,16 @@
 import express from 'express';
-import {
-  postJob,
-  getAllJobs,
-  getJobById,
-  updateJob,
-  deleteJob,
-  searchJobs,
-  smartJobSearch
-} from '../conroller/job.controller.js'; 
+import { createJob, updateJob, deleteJob, getJobs, getJobById } from '../conroller/job.controller.js';
+import {auth} from '../middleware/isAuthenticated.js';
 
-import authMiddleware from '../middleware/isAuthenticated.js';
-import upload from '../middleware/multer.js'; //  multer for file uploads
 
 const router = express.Router();
 
-//  POST a job (Admin only) with image uploads
-router.post(
-  '/post',
-  authMiddleware,
-  
-  upload.array('images', 5), //  handles up to 5 images from form-data
-  postJob
-);
 
-//  GET all jobs (Public, with filters)
-router.get('/all', getAllJobs);
+router.get('/', getJobs);
+router.get('/:id', getJobById);
+router.post('/', auth, createJob);
+router.put('/:id', auth, updateJob);
+router.delete('/:id', auth, deleteJob);
 
-//  GET job by ID
-router.get('/:jobId', getJobById);
-
-//  UPDATE job (Admin only)
-router.put('/:jobId', authMiddleware,  updateJob);
-
-//  DELETE job (Admin only)
-router.delete('/:jobId', authMiddleware,  deleteJob);
-
-//  SEARCH jobs by title or tags
-router.get('/search/keyword', searchJobs);
-
-//  SMART AI Job Search (Protected)
-router.post('/smart-search', authMiddleware, smartJobSearch);
 
 export default router;

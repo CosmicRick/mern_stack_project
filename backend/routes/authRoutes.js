@@ -1,16 +1,14 @@
-import express from "express";
-import authController from "../conroller/authController.js";
-import authMiddleware from "../middleware/isAuthenticated.js";
+import express from 'express';
+import { register, login, me } from '../conroller/authController.js';
+import { auth } from '../middleware/isAuthenticated.js';
+
 
 const router = express.Router();
 
-// Register
-router.post("/signup", authController.signup);
 
-// Login
-router.post("/login", authController.login);
+router.post('/signup', register);
+router.post('/login', login);
+router.get('/me', auth, me);
 
-// Protected Dashboard
-router.get("/home", authMiddleware, authController.home);
 
 export default router;

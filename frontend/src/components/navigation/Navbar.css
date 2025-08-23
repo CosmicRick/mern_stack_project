@@ -26,7 +26,7 @@ html body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  top: -2rem;
+  top: -4rem;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   background: #9edf9c42;

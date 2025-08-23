@@ -1,39 +1,45 @@
-// Apply to a job
+import Application from '../models/application.model.js';
+
+
 export const applyToJob = async (req, res) => {
   try {
-    const { jobId } = req.params;
-    const { coverLetter, resume } = req.body;
-    const userId = req.user._id;
-
-    const job = await Job.findById(jobId);
-    if (!job) {
-      return res.status(404).json({ message: "Job not found", success: false });
-    }
-
-    // ✅ Check if user already applied
-    const existingApplication = await Application.findOne({ user: userId, job: jobId });
-    if (existingApplication) {
-      return res.status(400).json({
-        message: "You have already applied for this job",
-        success: false
-      });
-    }
-
-    // ✅ Create new application
     const application = await Application.create({
-      user: userId,
-      job: jobId,
-      coverLetter,
-      resume
+      job: req.params.jobId,
+      applicant: req.user._id,
+      resume: req.file.path
     });
-
-    return res.status(201).json({
-      message: "Job application submitted",
-      success: true,
-      application
-    });
+    res.status(201).json(application);
   } catch (error) {
-    console.error("Error applying to job:", error);
-    return res.status(500).json({ message: "Internal Server Error", success: false });
+    res.status(500).json({ message: error.message });
+  }
+};
+
+
+export const myApplications = async (req, res) => {
+  try {
+    const apps = await Application.find({ applicant: req.user._id }).populate('job');
+    res.json(apps);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+
+export const jobApplications = async (req, res) => {
+  try {
+    const apps = await Application.find({ job: req.params.jobId }).populate('applicant');
+    res.json(apps);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+
+export const updateApplicationStatus = async (req, res) => {
+  try {
+    const app = await Application.findByIdAndUpdate(req.params.appId, { status: req.body.status }, { new: true });
+    res.json(app);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 };

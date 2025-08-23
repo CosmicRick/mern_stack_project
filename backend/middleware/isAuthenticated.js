@@ -1,26 +1,22 @@
-import jwt from "jsonwebtoken";
+import jwt from 'jsonwebtoken';
+import User from '../models/user.model.js';
 
-// Middleware: Check if the user is authenticated
-const authMiddleware = (req, res, next) => {
-  const authHeader = req.headers.authorization;
-  if (!authHeader) return res.status(401).json({ error: "No token provided" });
 
-  const token = authHeader.split(" ")[1];
+export const auth = async (req, res, next) => {
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded; // attach user info
+    const header = req.headers.authorization || '';
+    const token = header.startsWith('Bearer ') ? header.split(' ')[1] : null;
+    if (!token) return res.status(401).json({ success: false, message: 'Unauthorized' });
+
+
+    const payload = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await User.findById(payload.id).select('-password');
+    if (!user) return res.status(401).json({ success: false, message: 'User not found' });
+
+
+    req.user = user;
     next();
   } catch (err) {
-    return res.status(401).json({ error: "Invalid token" });
+    return res.status(401).json({ success: false, message: 'Invalid or expired token' });
   }
 };
-
-export default authMiddleware;
-
-const isAdmin = (req, res, next) => {
-  if (req.user && req.user.role === "admin") {
-    return next();
-  }
-  return res.status(403).json({ error: "Access denied. Admins only." });
-};
-export { authMiddleware, isAdmin };

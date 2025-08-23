@@ -10,6 +10,7 @@ const SMART_AI_API = process.env.SMART_AI_API;
 export const registerUser = async (req, res) => {
   try {
     const { fullname, email, password } = req.body;
+console.log(req.body);
 
     const userExists = await User.findOne({ email });
     if (userExists) return res.status(409).json({ message: "Email already exists" });

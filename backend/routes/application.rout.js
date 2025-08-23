@@ -1,14 +1,16 @@
 import express from 'express';
-import {
-  applyToJob} from '../conroller/application.controller.js';
-import { authMiddleware, isAdmin } from '../middleware/isAuthenticated.js';
+import { applyToJob, myApplications, jobApplications, updateApplicationStatus } from '../conroller/application.controller.js';
+import { auth } from '../middleware/isAuthenticated.js';
+import { upload } from '../middleware/multer.js';
+
 
 const router = express.Router();
 
-// User applies to job
-router.post('/apply/:jobId', authMiddleware, applyToJob);
 
-// User gets their applications
-router.get('/my-applications', authMiddleware, applyToJob);
+router.post('/:jobId', auth, upload.single('resume'), applyToJob);
+router.get('/me', auth, myApplications);
+router.get('/job/:jobId', auth, jobApplications);
+router.put('/:appId', auth, updateApplicationStatus);
+
 
 export default router;

@@ -1,59 +1,54 @@
 import express from 'express';
-import cookieParser from 'cookie-parser';
-import cors from 'cors';
 import dotenv from 'dotenv';
-import mongoose from 'mongoose';
-
+import morgan from 'morgan';
+import helmet from 'helmet';
+import cors from 'cors';
 import connectDB from './utils/db.js';
+
+
+// Routes
+import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/user.rout.js';
 import jobRoutes from './routes/job.rout.js';
 import applicationRoutes from './routes/application.rout.js';
-import companyRoutes from './routes/company.rout.js';
-import authRoutes from './routes/authRoutes.js';
 
+
+// Utils
+// import { notFound, errorHandler } from './src/middleware/error.middleware.js';
+
+
+// Load env
 dotenv.config();
+
+
+// Connect DB
+connectDB();
+
 
 const app = express();
 
-// 🔌 Middleware
+
+// Middlewares
 app.use(express.json());
-app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
+app.use(morgan('dev'));
+app.use(helmet());
+app.use(cors());
 
-// CORS setup
-const corsOptions = {
-  origin: "http://localhost:3000", // frontend dev URL
-  methods: ["GET", "POST", "PUT", "DELETE"],
-};
 
-app.use(cors(corsOptions))
+// File uploads (static)
+app.use('/uploads', express.static('uploads'));
 
-// Routes
+
+// API routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/jobs', jobRoutes);
-app.use('/api/application', applicationRoutes);
-app.use('/api/company', companyRoutes);
+app.use('/api/applications', applicationRoutes);
 
-app.get("/home", (req, res) => {
-  return res.status(200).json({
-    message: "Hello from the backend",
-    success: true
-  });
-});
 
-app.get("/", (req, res) => {
-  return res.status(200).json({
-    message: "My name is Sayandip",
-    success: true
-  });
-});
 
-// ✅ Connect DB & Start Server
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => {
-    app.listen(3000, () =>
-      console.log("✅ Server is running on http://localhost:{process.env.PORT || 3000}")
-    );
-  })
-  .catch((err) => console.error("❌ DB connection error:", err));
+
+// Server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
