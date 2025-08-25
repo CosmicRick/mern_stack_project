@@ -274,7 +274,42 @@
 }
 
 .text-gray-600 {
-  color: #4b5563;
+  color: #000000;
+}
+
+.text-gray-400 {
+  color: #000000;
+}
+
+.text-gray-500 {
+  color: #000000;
+}
+
+.text-gray-700 {
+  color: #000000;
+}
+
+.text-gray-800 {
+  color: #000000;
+}
+
+.text-gray-900 {
+  color: #000000;
+}
+
+/* Ensure these overrides have higher specificity for dark mode */
+.dark .text-gray-400,
+.dark .text-gray-500,
+.dark .text-gray-600,
+.dark .text-gray-700,
+.dark .text-gray-800,
+.dark .text-gray-900 {
+  color: #000000 !important;
+}
+
+/* Additional overrides for commonly used gray text classes */
+[class*="text-gray-"] {
+  color: #000000;
 }
 
 .border-b {

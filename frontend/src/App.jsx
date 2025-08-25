@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import ContactUs from './pages/contactus'; // Fixed capitalization
 import Admin from './pages/Admin';
+import Job from './pages/job';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/jobs" element={<Job />} />
         <Route path="/admin" element={
           <AdminProtectedRoute>
             <Admin />
