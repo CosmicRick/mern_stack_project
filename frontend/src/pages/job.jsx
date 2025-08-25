@@ -46,6 +46,16 @@ const mockJobs = [
     salary: '₹9,00,000 - ₹14,00,000',
     createdAt: new Date(Date.now() - 259200000).toISOString()
   },
+  {
+    _id: '4',
+    title: 'DevOps Engineer',
+    company: 'Cognizant',
+    city: 'Kolkata',
+    description: 'Build and maintain CI/CD pipelines, manage cloud infrastructure, and ensure system reliability and scalability.',
+    requirements: 'Experience with AWS, Docker, Kubernetes, Terraform. Strong scripting skills.',
+    salary: '₹9,00,000 - ₹14,00,000',
+    createdAt: new Date(Date.now() - 259200000).toISOString()
+  },
 ];
 
 const Jobs = () => {
@@ -217,6 +227,9 @@ const Jobs = () => {
             )}
           </div>
         </div>
+      </div>
+      <div className="footer">
+        <Footer />
       </div>
     </>
   );

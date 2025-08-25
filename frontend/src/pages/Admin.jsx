@@ -87,6 +87,17 @@ const JobAdminPanel = () => {
       createdAt: new Date(Date.now() - 172800000).toISOString(),
       createdBy: CURRENT_USER_ID
     },
+    {
+      _id: '3',
+      title: 'UX Designer',
+      company: 'Infosys',
+      city: 'Kolkata',
+      description: 'Create intuitive and beautiful user experiences for our next generation of products. Work with cross-functional teams to bring designs to life.',
+      requirements: 'Bachelor\'s in Design or related field, proficiency in Figma/Sketch, portfolio required.',
+      salary: '₹8,00,000 - ₹12,00,000',
+      createdAt: new Date(Date.now() - 172800000).toISOString(),
+      createdBy: CURRENT_USER_ID
+    },
   ];
   const current_theme = localStorage.getItem('current_theme')
   const [theme, setTheme] = useState(current_theme ?
@@ -530,7 +541,7 @@ const JobAdminPanel = () => {
                   </select>
                 </div>
               </div>
-                <br></br>
+              <br></br>
               <div className="flex flex-wrap gap-6">
                 <button
                   onClick={loadJobs}
@@ -550,8 +561,8 @@ const JobAdminPanel = () => {
             {/* Alert */}
             {alert.show && (
               <div className={`p-4 rounded-lg mb-6 font-medium ${alert.type === 'success' ? 'bg-green-100 text-green-800 border border-green-200' :
-                  alert.type === 'error' ? 'bg-red-100 text-red-800 border border-red-200' :
-                    'bg-blue-100 text-blue-800 border border-blue-200'
+                alert.type === 'error' ? 'bg-red-100 text-red-800 border border-red-200' :
+                  'bg-blue-100 text-blue-800 border border-blue-200'
                 }`}>
                 {alert.message}
               </div>
@@ -730,6 +741,9 @@ const JobAdminPanel = () => {
             </div>
           </div>
         )}
+      </div>
+      <div className="footer">
+        <Footer />
       </div>
     </>
   );

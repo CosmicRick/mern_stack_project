@@ -69,7 +69,7 @@ const Navbar = ({ theme, setTheme }) => {
       </div>
       <div className='aibot'>
         <FontAwesomeIcon icon={faRobot} shake size="xs" style={{color: "#63E6BE",}} className='ai-bot-icon' />
-        <label htmlFor="aibot">AI Bot</label>
+        <label htmlFor="aibot">Ask AI</label>
       </div>
     </div>
   );
