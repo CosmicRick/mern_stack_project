@@ -33,7 +33,7 @@ try {
     const user = await User.findOne({ email });
 
     if (!user) {
-      return res.status(401).json({ message: 'Invalid credentials' });
+      return res.status(404).json({ message: 'User not found' });
     }
 
     const isMatch = await user.comparePassword(password);

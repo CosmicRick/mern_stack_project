@@ -21,6 +21,7 @@ A full-stack, enterprise-grade job portal application built with the MERN stack 
 ## ✨ Features
 
 ### 🔐 User Management & Authentication
+
 - **Secure Authentication:** JWT-based authentication with registration, login, and logout
 - **Role-Based Access Control:** User and admin roles with appropriate permissions
 - **Profile Management:** Complete user profiles with personal details, education, experience, and skills
@@ -28,6 +29,7 @@ A full-stack, enterprise-grade job portal application built with the MERN stack 
 - **Application Dashboard:** Track job applications with status updates (Applied, Interviewing, Offered, Rejected)
 
 ### 💼 Job Management System
+
 - **Job Creation & Management:** Full CRUD operations for job postings with detailed attributes
 - **Advanced Search & Filtering:** Search jobs by title, company, location, type, and tags
 - **Smart Job Recommendations:** AI-powered job matching based on user profiles
@@ -35,18 +37,21 @@ A full-stack, enterprise-grade job portal application built with the MERN stack 
 - **Job Analytics:** Statistics and insights for job postings and applications
 
 ### 🏢 Company Management
+
 - **Company Profiles:** Comprehensive company registration and profile management
 - **Company Directory:** Browse and search companies by name, industry, and size
 - **Employee Management:** Track company employees and job postings
 - **Company Analytics:** Real-time statistics on job postings and applications
 
 ### 🤖 AI-Powered Features
+
 - **Intelligent Job Search:** AI-enhanced job recommendations and contextual search
 - **Resume Analysis:** Automated resume parsing for skill extraction and job matching
 - **Company Discovery:** AI-powered company recommendations based on user preferences
 - **Smart Application Matching:** Intelligent matching between candidates and job requirements
 
 ### 📊 Analytics & Reporting
+
 - **Dashboard Analytics:** Real-time insights on applications, jobs, and user engagement
 - **Performance Metrics:** Track platform usage, success rates, and user behavior
 - **Admin Panel:** Comprehensive admin dashboard for platform management
@@ -56,6 +61,7 @@ A full-stack, enterprise-grade job portal application built with the MERN stack 
 ## 🛠️ Tech Stack
 
 ### Backend Technologies
+
 - **Runtime:** Node.js (v14+)
 - **Framework:** Express.js
 - **Database:** MongoDB with Mongoose ODM
@@ -64,6 +70,7 @@ A full-stack, enterprise-grade job portal application built with the MERN stack 
 - **AI Integration:** Axios for external AI APIs
 
 ### Frontend Technologies
+
 - **Framework:** React 18+ with Hooks
 - **Build Tool:** Vite (ultra-fast development)
 - **Routing:** React Router DOM
@@ -72,6 +79,7 @@ A full-stack, enterprise-grade job portal application built with the MERN stack 
 - **Development:** Hot Module Replacement (HMR)
 
 ### Development Tools
+
 - **Version Control:** Git & GitHub
 - **Package Manager:** npm
 - **Code Organization:** Modular architecture with clear separation of concerns
@@ -172,24 +180,27 @@ mern_stack_project/
 ### 🔧 Backend Setup
 
 2. **📂 Navigate to backend directory:**
+
    ```bash
    cd backend
    ```
 
 3. **📦 Install dependencies:**
+
    ```bash
    npm install
    ```
 
 4. **⚙️ Configure environment variables:**
-   
+
    Create a `.env` file in the `backend/` directory:
+
    ```env
    PORT=8000
    MONGO_URI=your_mongodb_connection_string
    SECRET_KEY=your_jwt_secret_key
    NODE_ENV=development
-   
+
    # Optional AI Integration
    AI_JOB_SEARCH_API=your_ai_api_endpoint
    AI_COMPANY_SEARCH_URL=your_ai_company_search_endpoint
@@ -205,11 +216,13 @@ mern_stack_project/
 ### 🎨 Frontend Setup
 
 6. **📂 Navigate to frontend directory:**
+
    ```bash
    cd ../frontend
    ```
 
 7. **📦 Install frontend dependencies:**
+
    ```bash
    npm install
    ```
@@ -230,7 +243,7 @@ npm run dev:all          # If you have concurrently setup
 # Terminal 1 - Backend
 cd backend && npm start
 
-# Terminal 2 - Frontend  
+# Terminal 2 - Frontend
 cd frontend && npm run dev
 ```
 
@@ -295,6 +308,7 @@ Contributions are highly encouraged! To get involved, please fork this repositor
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
 ### 📜 What this means:
+
 - ✅ **Commercial use** - Use this project for commercial purposes
 - ✅ **Modification** - Modify and adapt the code
 - ✅ **Distribution** - Distribute original or modified versions
@@ -309,12 +323,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 <table>
 <tr>
-<td align="center">
-<a href="https://github.com/GOD-DEBANG">
-<img src="https://github.com/GOD-DEBANG.png" width="100px;" alt="GOD-DEBANG"/><br/>
-<sub><b>GOD-DEBANG</b></sub></a><br/>
-<sub>Full-Stack Developer</sub>
-</td>
 <td align="center">
 <a href="https://github.com/CosmicRick">
 <img src="https://github.com/CosmicRick.png" width="100px;" alt="CosmicRick"/><br/>
@@ -372,7 +380,3 @@ If this project helped you, please consider giving it a **⭐ star** on GitHub!
 [⬆ Back to Top](#-mern-stack-job-portal)
 
 </div>
-
-
-
-
