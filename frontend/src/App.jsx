@@ -28,9 +28,8 @@ function App() {
             <Admin />
           </AdminProtectedRoute>
         } />
-        <Route path="/job/:jobId" element={<JobDetails />} />
-        <Route path="/applications/:jobId" element={ <AdminProtectedRoute><Applications /></AdminProtectedRoute> } />
-        <Route path="*" element={<Navigate to="/" />} />
+        
+      
       </Routes>
     </div>
   );

@@ -2,12 +2,9 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card, Button} from 'react-bootstrap';
 import './card.css';
-
 import { useNavigate } from "react-router-dom";
 const JobCard = ({job, ...props}) => {
    const navigate = useNavigate();
-
-
   return (
     <>
     <div>
