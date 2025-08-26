@@ -37,12 +37,14 @@ const Signup = ({ onSignup }) => {
       const response = await registerUser(formData);
 
       if (response) {
-        // if (onSignup) onSignup(response.data.user);
+     
+         alert("Signup successful! 🎉 Please login.");
         navigate("/");
         console.log('/login');
         
       } else {
         setError("Signup failed. Please try again.");
+         alert("Signup Failed.");
       }
     } catch (err) {
       setError(err.response?.data?.message || "An error occurred during signup.");

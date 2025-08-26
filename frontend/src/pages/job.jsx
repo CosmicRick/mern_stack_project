@@ -5,63 +5,13 @@ import Navbar from "../components/navigation/Navbar";
 import "./Jobs.css";
 import Jobimage from '../components/assets/jobimage.jpg';
 import Footer from "../components/Footer/footer";
-const mockJobs = [
-  {
-    _id: '1',
-    title: 'Senior Software Engineer',
-    company: 'TCS',
-    city: 'Kolkata',
-    description: 'We are looking for a passionate Senior Software Engineer to join our team. You will be responsible for designing and implementing scalable software solutions using modern technologies.',
-    requirements: 'Bachelor\'s degree in Computer Science, 5+ years experience with React, Node.js, and cloud platforms.',
-    salary: '₹12,00,000 - ₹18,00,000',
-    createdAt: new Date().toISOString()
-  },
-  {
-    _id: '2',
-    title: 'Product Manager',
-    company: 'Wipro',
-    city: 'Kolkata',
-    description: 'Lead product development initiatives and work closely with engineering teams to deliver innovative products to market. Drive product strategy and roadmap.',
-    requirements: 'MBA preferred, 3+ years product management experience, strong analytical skills.',
-    salary: '₹10,00,000 - ₹15,00,000',
-    createdAt: new Date(Date.now() - 86400000).toISOString()
-  },
-  {
-    _id: '3',
-    title: 'UX Designer',
-    company: 'Infosys',
-    city: 'Kolkata',
-    description: 'Create intuitive and beautiful user experiences for our next generation of products. Work with cross-functional teams to bring designs to life.',
-    requirements: 'Bachelor\'s in Design or related field, proficiency in Figma/Sketch, portfolio required.',
-    salary: '₹8,00,000 - ₹12,00,000',
-    createdAt: new Date(Date.now() - 172800000).toISOString()
-  },
-  {
-    _id: '4',
-    title: 'DevOps Engineer',
-    company: 'Cognizant',
-    city: 'Kolkata',
-    description: 'Build and maintain CI/CD pipelines, manage cloud infrastructure, and ensure system reliability and scalability.',
-    requirements: 'Experience with AWS, Docker, Kubernetes, Terraform. Strong scripting skills.',
-    salary: '₹9,00,000 - ₹14,00,000',
-    createdAt: new Date(Date.now() - 259200000).toISOString()
-  },
-  {
-    _id: '4',
-    title: 'DevOps Engineer',
-    company: 'Cognizant',
-    city: 'Kolkata',
-    description: 'Build and maintain CI/CD pipelines, manage cloud infrastructure, and ensure system reliability and scalability.',
-    requirements: 'Experience with AWS, Docker, Kubernetes, Terraform. Strong scripting skills.',
-    salary: '₹9,00,000 - ₹14,00,000',
-    createdAt: new Date(Date.now() - 259200000).toISOString()
-  },
-];
+import { getAllJobs } from "../services/job.api"; 
 
 const Jobs = () => {
   // Theme state management - moved from About component to Jobs
   const current_theme = localStorage.getItem('current_theme')
   const [theme, setTheme] = useState(current_theme ? current_theme : 'light');
+  
 
   useEffect(() => {
     localStorage.setItem('current_theme', theme)
@@ -84,40 +34,20 @@ const Jobs = () => {
     setSortOrder(currentSortOrder);
     setLoading(true);
 
-    // Simulate API call with mock data from admin structure
-    setTimeout(() => {
-      let filteredJobs = [...mockJobs];
-
-      // Filter by search term
-      if (search) {
-        filteredJobs = filteredJobs.filter(job =>
-          job.title.toLowerCase().includes(search.toLowerCase()) ||
-          job.company.toLowerCase().includes(search.toLowerCase()) ||
-          job.city.toLowerCase().includes(search.toLowerCase()) ||
-          job.description.toLowerCase().includes(search.toLowerCase())
-        );
-      }
-
-      // Sort jobs
-      filteredJobs.sort((a, b) => {
-        let aValue = a[currentSortBy];
-        let bValue = b[currentSortBy];
-
-        if (currentSortBy === 'createdAt') {
-          aValue = new Date(aValue);
-          bValue = new Date(bValue);
-        }
-
-        if (currentSortOrder === 'asc') {
-          return aValue > bValue ? 1 : -1;
-        } else {
-          return aValue < bValue ? 1 : -1;
-        }
+    
+    getAllJobs({
+      search,
+      sortBy: currentSortBy,
+      sortOrder: currentSortOrder,
+    })
+      .then((response) => {
+        setJobs(response.data.jobs || []);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError("Failed to fetch jobs. Please try again.");
+        setLoading(false);
       });
-
-      setJobs(filteredJobs);
-      setLoading(false);
-    }, 1000);
   }, [location.search]);
 
   const handleSortChange = (field) => {
