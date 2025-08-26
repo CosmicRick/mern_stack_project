@@ -83,7 +83,7 @@ const data=  [
           </div>
         </div>
         <Footer theme={theme} setTheme={setTheme} />
-      </main>
+      </main> 
     </div>
   );
 };
