@@ -7,13 +7,8 @@ import About from './pages/About';
 import ContactUs from './pages/contactus';
 import Admin from './pages/Admin';
 import Job from './pages/job';
-<<<<<<< HEAD
 import JobDetailsPage from "./pages/jobDetailsPage";
 
-=======
-import JobDetails from './pages/JobDetails';
-import Applications from './pages/Applications';
->>>>>>> 0a9d4f187252d409bb24a22fac0736b1eaf3040a
 
 
 function App() {
