@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
 import { faRobot } from '@fortawesome/free-solid-svg-icons';
@@ -12,6 +12,16 @@ import './Navbar.css';
 
 const Navbar = ({ theme, setTheme }) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [username, setUsername] = useState(null); // for logged-in user
+
+  // check if user is logged in
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user"); // assuming user is stored in localStorage
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      setUsername(user.name); // change key based on how you store it (e.g., user.username)
+    }
+  }, []);
 
   const toggle_mode = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light');
@@ -20,7 +30,6 @@ const Navbar = ({ theme, setTheme }) => {
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchTerm.trim()) {
-      // navigate to jobs page with search param
       window.location.href = `/jobs?search=${searchTerm}`;
     }
   };
@@ -59,16 +68,28 @@ const Navbar = ({ theme, setTheme }) => {
           className="day-mode-icon"
         />
       </ul>
+
+      {/* Login / Username */}
       <div className='login-button'>
         <FontAwesomeIcon
           icon={faCircleUser}
           className="user-icon"
-          onClick={() => { window.location.href = '/login'; }}
+          onClick={() => { 
+            if (!username) {
+              window.location.href = '/login'; 
+            }
+          }}
         />
-        <label htmlFor="login">Login</label>
+        {username ? (
+          <label>{username}</label> // show username if logged in
+        ) : (
+          <label htmlFor="login">Login</label>
+        )}
       </div>
+
+      {/* AI Bot */}
       <div className='aibot'>
-        <FontAwesomeIcon icon={faRobot} shake size="xs" style={{color: "#63E6BE",}} className='ai-bot-icon' />
+        <FontAwesomeIcon icon={faRobot} shake size="xs" style={{color: "#63E6BE"}} className='ai-bot-icon' />
         <label htmlFor="aibot">Ask AI</label>
       </div>
     </div>
