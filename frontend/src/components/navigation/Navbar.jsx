@@ -77,6 +77,8 @@ const Navbar = ({ theme, setTheme }) => {
           onClick={() => { 
             if (!username) {
               window.location.href = '/login'; 
+            }else{
+              window.location.href = '/admin';
             }
           }}
         />

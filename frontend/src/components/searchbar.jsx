@@ -1,35 +1,71 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './search.css';
-function JobSearchBar() {
+import { getUniqueCompanies, getUniqueCities } from "../services/api";
+
+function JobSearchBar({ onSearch }) {
+  const [search, setSearch] = useState("");   // job title or keyword
+  const [city, setCity] = useState("");       // selected city
+  const [company, setCompany] = useState(""); // selected company
+  const [companies, setCompanies] = useState([]);
+  const [cities, setCities] = useState([]);
+
+  // Fetch unique companies & cities from API
+  useEffect(() => {
+    getUniqueCompanies()
+      .then((res) => setCompanies(res.data || []))
+      .catch((err) => console.error("Error fetching companies:", err));
+
+    getUniqueCities()
+      .then((res) => setCities(res.data || []))
+      .catch((err) => console.error("Error fetching cities:", err));
+  }, []);
+
+  const handleSearch = () => {
+    // Pass filters to parent (Home.jsx)
+    onSearch({ search, city, company });
+  };
+
   return (
     <div className="searchbar-container">
-      {/* Job Title / Company Input */}
+      {/* Job Title / Keyword Input */}
       <input
         type="text"
-        placeholder="Job Title or Company"
-        className="search-input" />
+        placeholder="Job Title or Keyword"
+        className="search-input"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
 
-      {/* Location Dropdown */}
-      <select className="selectbar">
-        <option value="" disabled selected hidden>Select Location</option>
-        <option value="newyork">New York</option>
-        <option value="london">London</option>
-        <option value="india">India</option>
+      {/* Location Dropdown (Dynamic) */}
+      <select
+        className="selectbar"
+        value={city}
+        onChange={(e) => setCity(e.target.value)}
+      >
+        <option value="">Select Location</option>
+        {cities.map((c, index) => (
+          <option key={index} value={c}>{c}</option>
+        ))}
       </select>
 
-      {/* Category Dropdown */}
-      <select className="selectbar">
-        <option value="" disabled selected hidden>Select Category</option>
-        <option value="it">IT</option>
-        <option value="finance">Finance</option>
-        <option value="marketing">Marketing</option>
+      {/* Company Dropdown (Dynamic) */}
+      <select
+        className="selectbar"
+        value={company}
+        onChange={(e) => setCompany(e.target.value)}
+      >
+        <option value="">Select Company</option>
+        {companies.map((comp, index) => (
+          <option key={index} value={comp}>{comp}</option>
+        ))}
       </select>
 
       {/* Search Button */}
-      <button className="searchbar-button">
+      <button className="searchbar-button" onClick={handleSearch}>
         🔍 Search Job
       </button>
     </div>
   );
 }
+
 export default JobSearchBar;

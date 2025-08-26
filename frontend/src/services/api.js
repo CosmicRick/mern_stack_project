@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 
 const API = axios.create({
@@ -17,7 +16,18 @@ API.interceptors.request.use((config) => {
   return config;
 });
 
+// Auth APIs
 export const loginUser = (data) => API.post('/auth/login', data);
 export const registerUser = (data) => API.post('/auth/signup', data);
+
+// Job APIs
+export const getJobs = (params) => API.get("/jobs", { params }); 
+export const getAdminJobs = () => API.get('/jobs/admin');
+export const getJobById = (id) => API.get(`/jobs/${id}`);
+export const createJob = (data) => API.post('/jobs', data);
+export const updateJob = (id, data) => API.put(`/jobs/${id}`, data);
+export const deleteJob = (id) => API.delete(`/jobs/${id}`);
+export const getUniqueCompanies = () => API.get('/jobs/companies');
+export const getUniqueCities = () => API.get('/jobs/cities');
 
 export default API;

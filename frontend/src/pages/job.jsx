@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
 import Navbar from "../components/navigation/Navbar";
 import "./Jobs.css";
 import Jobimage from '../components/assets/jobimage.jpg';
 import Footer from "../components/Footer/footer";
-import { getAllJobs } from "../services/job.api"; 
+import { getJobs } from "../services/api"; 
 
 const Jobs = () => {
   // Theme state management - moved from About component to Jobs
@@ -35,11 +34,7 @@ const Jobs = () => {
     setLoading(true);
 
     
-    getAllJobs({
-      search,
-      sortBy: currentSortBy,
-      sortOrder: currentSortOrder,
-    })
+    getJobs({ search, sortBy: currentSortBy, sortOrder: currentSortOrder })
       .then((response) => {
         setJobs(response.data.jobs || []);
         setLoading(false);
@@ -96,8 +91,6 @@ const Jobs = () => {
                   >
                     <option value="createdAt">Date Posted</option>
                     <option value="title">Job Title</option>
-                    <option value="company">Company</option>
-                    <option value="city">Location</option>
                   </select>
                 </div>
                 <div className="flex flex-col flex-1 min-w-[200px]">
