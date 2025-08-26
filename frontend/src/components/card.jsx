@@ -2,9 +2,20 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card, Button} from 'react-bootstrap';
 import './card.css';
+<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
 const JobCard = ({job, ...props}) => {
    const navigate = useNavigate();
+=======
+import { useNavigate } from 'react-router-dom';
+const JobCard = ({job}) => {
+  const navigate = useNavigate();
+
+  const handleViewDetails = () => {
+    navigate(`/job/${job._id}`);
+  };
+
+>>>>>>> 0a9d4f187252d409bb24a22fac0736b1eaf3040a
   return (
     <>
     <div>
@@ -15,6 +26,7 @@ const JobCard = ({job, ...props}) => {
         <Card.Text>
           {job?.description}
         </Card.Text>
+<<<<<<< HEAD
           <button
           className="go-somewhere-btn"
           onClick={() => navigate(`/jobs/${job._id}`)}
@@ -22,6 +34,9 @@ const JobCard = ({job, ...props}) => {
         >
           Go somewhere
         </button>
+=======
+        <Button variant="primary" onClick={handleViewDetails}>view details</Button>
+>>>>>>> 0a9d4f187252d409bb24a22fac0736b1eaf3040a
       </Card.Body>
     </Card>
     </div>

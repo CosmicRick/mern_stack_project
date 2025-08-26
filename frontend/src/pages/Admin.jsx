@@ -17,8 +17,10 @@ import {
   deleteJob,
 } from "../services/api"; // ✅ use service file
 import JobModal from "./JobModal";
+import { useNavigate } from "react-router-dom";
 
 const JobAdminPanel = () => {
+  const navigate = useNavigate();
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -95,6 +97,11 @@ const JobAdminPanel = () => {
     setSelectedJobId(null);
   };
 
+  const handleViewApplications = (jobId) => {
+    // Navigate to the applications page for the specific job
+    navigate(`/applications/${jobId}`);
+  };
+
   return (
     <Container className="mt-4">
       <Row>
@@ -103,6 +110,7 @@ const JobAdminPanel = () => {
             <Card.Header className="d-flex justify-content-between align-items-center">
               <h4 className="mb-0">Job Management</h4>
               <Button onClick={handleOpenCreate}>+ Add Job</Button>
+              
             </Card.Header>
 
             <Card.Body>
@@ -149,6 +157,13 @@ const JobAdminPanel = () => {
                               onClick={() => handleDelete(job._id)}
                             >
                               Delete
+                            </Button>
+                            <Button
+                              variant="info"
+                              size="sm"
+                              onClick={() => handleViewApplications(job._id)}
+                            >
+                              View Applications
                             </Button>
                           </td>
                         </tr>
