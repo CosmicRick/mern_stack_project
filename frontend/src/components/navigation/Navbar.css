@@ -88,7 +88,7 @@ html body {
 }
 .light .navbar ul li a {
   text-decoration: none;
-  color: #393939;
+  color: #47c00e;
 }
 
 .navbar ul li a:hover {
@@ -105,7 +105,7 @@ html body {
   display: flex;
   align-items: center;
   gap: 17.1rem; /* keep as is or consider % / vw depending on context */
-  width: 57.5vh; /* 60vh approx same */
+  width: 47.5vh; /* 60vh approx same */
   margin-left: 3.13rem; /* 50px /16 */
   padding: 0.5rem 1.25rem; /* 8px 20px */
   background: #fff8f8;
