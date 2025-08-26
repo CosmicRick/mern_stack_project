@@ -10,6 +10,18 @@ export const createJob = async (req, res) => {
   }
 };
 
+export const getAdminJobs = async (req, res) => {
+  const userId = req.user._id;
+  if (!userId) {
+    return res.status(401).json({ message: 'Unauthorized' });
+  }
+  try {
+    const jobs = await Job.find({ createdBy: userId });
+    res.json(jobs);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
 export const updateJob = async (req, res) => {
   try {
