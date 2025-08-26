@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
+import { faRobot } from '@fortawesome/free-solid-svg-icons';
 import logo_day from '../assets/logo-day.png';
 import logo_night from '../assets/logo-night.png';
 import day from '../assets/day.png';
@@ -58,12 +59,18 @@ const Navbar = ({ theme, setTheme }) => {
           className="day-mode-icon"
         />
       </ul>
-
-      <FontAwesomeIcon
-        icon={faCircleUser}
-        className="user-icon"
-        onClick={() => { window.location.href = '/login'; }}
-      />
+      <div className='login-button'>
+        <FontAwesomeIcon
+          icon={faCircleUser}
+          className="user-icon"
+          onClick={() => { window.location.href = '/login'; }}
+        />
+        <label htmlFor="login">Login</label>
+      </div>
+      <div className='aibot'>
+        <FontAwesomeIcon icon={faRobot} shake size="xs" style={{color: "#63E6BE",}} className='ai-bot-icon' />
+        <label htmlFor="aibot">Ask AI</label>
+      </div>
     </div>
   );
 };
