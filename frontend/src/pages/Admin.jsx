@@ -4,6 +4,8 @@ import Navbar from '../components/navigation/Navbar';
 import Footer from '../components/Footer/footer';
 import Adminimage from '../components/assets/adminimage.jpg';
 
+const API_BASE = '/api';
+
 const JobAdminPanel = () => {
   // State management
   const [jobs, setJobs] = useState([]);
@@ -52,150 +54,66 @@ const JobAdminPanel = () => {
     setTimeout(() => setAlert({ show: false, message: '', type: '' }), 5000);
   };
 
-  // Mock data for demonstration
-  const mockJobs = [
-    {
-      _id: '1',
-      title: 'Senior Software Engineer',
-      company: 'TCS',
-      city: 'Kolkata',
-      description: 'We are looking for a passionate Senior Software Engineer to join our team. You will be responsible for designing and implementing scalable software solutions using modern technologies.',
-      requirements: 'Bachelor\'s degree in Computer Science, 5+ years experience with React, Node.js, and cloud platforms.',
-      salary: '₹12,00,000 - ₹18,00,000',
-      createdAt: new Date().toISOString(),
-      createdBy: CURRENT_USER_ID
-    },
-    {
-      _id: '2',
-      title: 'Product Manager',
-      company: 'Wipro',
-      city: 'Kolkata',
-      description: 'Lead product development initiatives and work closely with engineering teams to deliver innovative products to market. Drive product strategy and roadmap.',
-      requirements: 'MBA preferred, 3+ years product management experience, strong analytical skills.',
-      salary: '₹10,00,000 - ₹15,00,000',
-      createdAt: new Date(Date.now() - 86400000).toISOString(),
-      createdBy: CURRENT_USER_ID
-    },
-    {
-      _id: '3',
-      title: 'UX Designer',
-      company: 'Infosys',
-      city: 'Kolkata',
-      description: 'Create intuitive and beautiful user experiences for our next generation of products. Work with cross-functional teams to bring designs to life.',
-      requirements: 'Bachelor\'s in Design or related field, proficiency in Figma/Sketch, portfolio required.',
-      salary: '₹8,00,000 - ₹12,00,000',
-      createdAt: new Date(Date.now() - 172800000).toISOString(),
-      createdBy: CURRENT_USER_ID
-    },
-    {
-      _id: '3',
-      title: 'UX Designer',
-      company: 'Infosys',
-      city: 'Kolkata',
-      description: 'Create intuitive and beautiful user experiences for our next generation of products. Work with cross-functional teams to bring designs to life.',
-      requirements: 'Bachelor\'s in Design or related field, proficiency in Figma/Sketch, portfolio required.',
-      salary: '₹8,00,000 - ₹12,00,000',
-      createdAt: new Date(Date.now() - 172800000).toISOString(),
-      createdBy: CURRENT_USER_ID
-    },
-  ];
-  const current_theme = localStorage.getItem('current_theme')
-  const [theme, setTheme] = useState(current_theme ?
-    current_theme : 'light');
+  const current_theme = localStorage.getItem('current_theme');
+  const [theme, setTheme] = useState(current_theme ? current_theme : 'light');
   useEffect(() => {
-    localStorage.setItem('current_theme', theme)
-  }, [theme])
-
-  const mockCompanies = ['Google', 'Microsoft', 'Apple', 'Amazon', 'Meta'];
-  const mockCities = ['kolkata', 'Bangalore', 'Mumbai', 'delhi', 'bangalore'];
+    localStorage.setItem('current_theme', theme);
+  }, [theme]);
 
   // Load data functions
   const loadStats = useCallback(async () => {
     try {
-      // In a real app, this would be an API call
-      const filteredJobs = mockJobs.filter(job =>
-        job.title.toLowerCase().includes(filters.search.toLowerCase()) ||
-        job.description.toLowerCase().includes(filters.search.toLowerCase())
-      );
-
-      setStats({
-        totalJobs: filteredJobs.length,
-        totalCompanies: mockCompanies.length,
-        totalCities: mockCities.length,
-        recentJobs: Math.min(filteredJobs.length, 12)
-      });
+      const res = await fetch(`${API_BASE}/jobs/stats`);
+      if (!res.ok) throw new Error('Failed to fetch stats');
+      const data = await res.json();
+      setStats(data);
     } catch (error) {
       showAlert('Error loading stats: ' + error.message, 'error');
     }
-  }, [filters.search]);
+  }, []);
 
   const loadCompanies = useCallback(async () => {
     try {
-      // In a real app: const response = await fetch(`${API_BASE}/jobs/companies`);
-      setCompanies(mockCompanies);
+      const res = await fetch(`${API_BASE}/jobs/companies`);
+      if (!res.ok) throw new Error('Failed to fetch companies');
+      const data = await res.json();
+      setCompanies(data);
     } catch (error) {
       showAlert('Error loading companies: ' + error.message, 'error');
-      setCompanies(mockCompanies);
+      setCompanies([]);
     }
   }, []);
 
   const loadCities = useCallback(async () => {
     try {
-      // In a real app: const response = await fetch(`${API_BASE}/jobs/cities`);
-      setCities(mockCities);
+      const res = await fetch(`${API_BASE}/jobs/cities`);
+      if (!res.ok) throw new Error('Failed to fetch cities');
+      const data = await res.json();
+      setCities(data);
     } catch (error) {
       showAlert('Error loading cities: ' + error.message, 'error');
-      setCities(mockCities);
+      setCities([]);
     }
   }, []);
 
   const loadJobs = useCallback(async () => {
     setLoading(true);
     try {
-      // Simulate API call with filtering and pagination
-      let filteredJobs = [...mockJobs];
-
-      // Apply search filter
-      if (filters.search) {
-        filteredJobs = filteredJobs.filter(job =>
-          job.title.toLowerCase().includes(filters.search.toLowerCase()) ||
-          job.description.toLowerCase().includes(filters.search.toLowerCase())
-        );
-      }
-
-      // Apply company filter
-      if (filters.company) {
-        filteredJobs = filteredJobs.filter(job =>
-          job.company.toLowerCase().includes(filters.company.toLowerCase())
-        );
-      }
-
-      // Apply city filter
-      if (filters.city) {
-        filteredJobs = filteredJobs.filter(job =>
-          job.city.toLowerCase().includes(filters.city.toLowerCase())
-        );
-      }
-
-      // Apply sorting
-      filteredJobs.sort((a, b) => {
-        const aValue = a[filters.sortBy] || '';
-        const bValue = b[filters.sortBy] || '';
-        const comparison = aValue.localeCompare ? aValue.localeCompare(bValue) : aValue - bValue;
-        return filters.sortOrder === 'asc' ? comparison : -comparison;
+      const params = new URLSearchParams({
+        search: filters.search,
+        company: filters.company,
+        city: filters.city,
+        sortBy: filters.sortBy,
+        sortOrder: filters.sortOrder,
+        page: currentPage,
+        limit: 10,
       });
-
-      // Apply pagination
-      const limit = 10;
-      const startIndex = (currentPage - 1) * limit;
-      const paginatedJobs = filteredJobs.slice(startIndex, startIndex + limit);
-      const pages = Math.ceil(filteredJobs.length / limit);
-
-      setJobs(paginatedJobs);
-      setTotalPages(pages);
-
-      setTimeout(() => setLoading(false), 500); // Simulate network delay
-
+      const res = await fetch(`${API_BASE}/jobs?${params.toString()}`);
+      if (!res.ok) throw new Error('Failed to fetch jobs');
+      const data = await res.json();
+      setJobs(data.jobs || []);
+      setTotalPages(data.totalPages || 1);
+      setTimeout(() => setLoading(false), 500);
     } catch (error) {
       showAlert('Error loading jobs: ' + error.message, 'error');
       setLoading(false);
@@ -205,19 +123,15 @@ const JobAdminPanel = () => {
   // CRUD operations
   const createJob = async (jobData) => {
     try {
-      // In a real app: const response = await fetch(`${API_BASE}/jobs`, { method: 'POST', ... });
-      const newJob = {
-        ...jobData,
-        _id: Date.now().toString(),
-        createdAt: new Date().toISOString(),
-        createdBy: CURRENT_USER_ID
-      };
-
-      mockJobs.unshift(newJob);
+      const res = await fetch(`${API_BASE}/jobs`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...jobData, createdBy: CURRENT_USER_ID }),
+      });
+      if (!res.ok) throw new Error('Failed to create job');
       showAlert('Job created successfully!', 'success');
       loadJobs();
       loadStats();
-
     } catch (error) {
       showAlert('Error creating job: ' + error.message, 'error');
     }
@@ -225,15 +139,14 @@ const JobAdminPanel = () => {
 
   const updateJob = async (jobId, jobData) => {
     try {
-      // In a real app: const response = await fetch(`${API_BASE}/jobs/${jobId}`, { method: 'PUT', ... });
-      const jobIndex = mockJobs.findIndex(job => job._id === jobId);
-      if (jobIndex !== -1) {
-        mockJobs[jobIndex] = { ...mockJobs[jobIndex], ...jobData };
-      }
-
+      const res = await fetch(`${API_BASE}/jobs/${jobId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(jobData),
+      });
+      if (!res.ok) throw new Error('Failed to update job');
       showAlert('Job updated successfully!', 'success');
       loadJobs();
-
     } catch (error) {
       showAlert('Error updating job: ' + error.message, 'error');
     }
@@ -241,18 +154,12 @@ const JobAdminPanel = () => {
 
   const deleteJob = async (jobId) => {
     if (!window.confirm('Are you sure you want to delete this job?')) return;
-
     try {
-      // In a real app: await fetch(`${API_BASE}/jobs/${jobId}`, { method: 'DELETE' });
-      const jobIndex = mockJobs.findIndex(job => job._id === jobId);
-      if (jobIndex !== -1) {
-        mockJobs.splice(jobIndex, 1);
-      }
-
+      const res = await fetch(`${API_BASE}/jobs/${jobId}`, { method: 'DELETE' });
+      if (!res.ok) throw new Error('Failed to delete job');
       showAlert('Job deleted successfully!', 'success');
       loadJobs();
       loadStats();
-
     } catch (error) {
       showAlert('Error deleting job: ' + error.message, 'error');
     }
@@ -299,13 +206,11 @@ const JobAdminPanel = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-
     if (editingJob) {
       await updateJob(editingJob._id, formData);
     } else {
       await createJob(formData);
     }
-
     closeJobModal();
   };
 
@@ -541,7 +446,7 @@ const JobAdminPanel = () => {
                   </select>
                 </div>
               </div>
-              <br></br>
+              <br />
               <div className="flex flex-wrap gap-6">
                 <button
                   onClick={loadJobs}
