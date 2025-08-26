@@ -5,3 +5,7 @@ export const getAllJobs = ({ search = "", sortBy = "createdAt", sortOrder = "des
   if (search) url += `&search=${encodeURIComponent(search)}`;
   return axios.get(url);
 };
+
+export const getJobById = (id) => {
+  return axios.get(`/api/jobs/${id}`);
+};
