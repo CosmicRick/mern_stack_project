@@ -10,6 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import JobCard from "../components/card.jsx";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
+import { getAllJobs } from "../services/job.api"; 
 
 const Home = () => {
   const current_theme = localStorage.getItem("current_theme");
@@ -34,20 +35,20 @@ const Home = () => {
     delaySpeed: 1000,
   });
 
-  // Fetch Jobs from API
-  useEffect(() => {
-    axios
-      .get("http://localhost:8000") // adjust endpoint if needed
-      .then((response) => {
-        setJobs(response.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError("Failed to load jobs. Please try again later.");
-        setLoading(false);
-        console.error("Error fetching jobs:", error);
-      });
-  }, []);
+// Fetch Jobs from API
+useEffect(() => {
+  setLoading(true);
+  getAllJobs({})
+    .then((response) => {
+      setJobs(response.data.jobs || []);
+      setLoading(false);
+    })
+    .catch((error) => {
+      setError("Failed to load jobs. Please try again later.");
+      setLoading(false);
+      console.error("Error fetching jobs:", error);
+    });
+}, []);
 
   return (
     <div className={`nav-contente ${theme}`}>
