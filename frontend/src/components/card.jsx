@@ -2,7 +2,14 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card, Button} from 'react-bootstrap';
 import './card.css';
+import { useNavigate } from 'react-router-dom';
 const JobCard = ({job}) => {
+  const navigate = useNavigate();
+
+  const handleViewDetails = () => {
+    navigate(`/job/${job._id}`);
+  };
+
   return (
     <>
     <div>
@@ -13,7 +20,7 @@ const JobCard = ({job}) => {
         <Card.Text>
           {job?.description}
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Button variant="primary" onClick={handleViewDetails}>view details</Button>
       </Card.Body>
     </Card>
     </div>

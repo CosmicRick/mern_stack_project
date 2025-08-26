@@ -4,9 +4,11 @@ import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import Home from './pages/Home';
 import About from './pages/About';
-import ContactUs from './pages/contactus'; // Fixed capitalization
+import ContactUs from './pages/contactus';
 import Admin from './pages/Admin';
 import Job from './pages/job';
+import JobDetails from './pages/JobDetails';
+import Applications from './pages/Applications';
 
 
 function App() {
@@ -25,6 +27,9 @@ function App() {
             <Admin />
           </AdminProtectedRoute>
         } />
+        <Route path="/job/:jobId" element={<JobDetails />} />
+        <Route path="/applications/:jobId" element={ <AdminProtectedRoute><Applications /></AdminProtectedRoute> } />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
   );
