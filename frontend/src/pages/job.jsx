@@ -29,16 +29,12 @@ const Jobs = () => {
   }, [location.search]);
 
   const handleSortChange = (field) => {
-    navigate(
-      `?sortBy=${field}&sortOrder=${sortOrder}`
-    );
+    navigate(`?sortBy=${field}&sortOrder=${sortOrder}`);
   };
 
   const toggleOrder = () => {
     const newOrder = sortOrder === "asc" ? "desc" : "asc";
-    navigate(
-      `?sortBy=${sortBy}&sortOrder=${newOrder}`
-    );
+    navigate(`?sortBy=${sortBy}&sortOrder=${newOrder}`);
   };
 
   return (
@@ -65,7 +61,10 @@ const Jobs = () => {
 
       {/* Job List */}
       {jobs.map((job) => (
-        <div key={job._id} style={{ borderBottom: "1px solid #ddd", padding: "10px" }}>
+        <div
+          key={job._id}
+          style={{ borderBottom: "1px solid #ddd", padding: "10px" }}
+        >
           <h3>{job.title}</h3>
           <p>
             {job.company} - {job.city}

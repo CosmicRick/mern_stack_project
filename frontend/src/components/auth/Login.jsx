@@ -34,9 +34,11 @@ const Login = ({ onLogin }) => {
         navigate('/home');
       } else {
         setError('Login failed. Please check your credentials.');
+         alert("Login failed..  Please login again.");
       }
     } catch (err) {
       setError(err.response?.data?.message || 'An error occurred during login.');
+      alert("Login failed..  Please login again.");
     }
     setLoading(false);
   };
