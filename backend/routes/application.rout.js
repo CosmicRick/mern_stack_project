@@ -7,7 +7,7 @@ import { upload } from '../middleware/multer.js';
 const router = express.Router();
 
 
-router.post('/:jobId', auth, upload.single('resume'), applyToJob);
+router.post('/:jobId', auth, applyToJob);
 router.get('/me', auth, myApplications);
 router.get('/job/:jobId', auth, jobApplications);
 router.put('/:appId', auth, updateApplicationStatus);

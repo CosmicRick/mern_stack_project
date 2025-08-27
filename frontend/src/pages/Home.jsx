@@ -62,53 +62,57 @@ const Home = () => {
   };
 
   return (
-    <div className={`nav-contente ${theme}`}>
-      <Navbar theme={theme} setTheme={setTheme} />
-      <main>
-        <div className="imagecontent">
-          <img src={home} alt="Home" className="home-image" />
-          <h1 style={{ margin: "-4.12rem" }}>Welcome to SmartHire Nexus</h1>
-          <span style={{ fontWeight: "bold", fontSize: "44px", left: "73rem" }}>
-            {text}
-          </span>
-          <span style={{ color: "red", fontSize: "44px", top: "0rem" }}>
-            <Cursor cursorStyle="|" />
-          </span>
-        </div>
+    <>
+      <div className={`nav-contente ${theme}`}>
+        <Navbar theme={theme} setTheme={setTheme} />
+        <main>
+          <div className="imagecontent">
+            <img src={home} alt="Home" className="home-image" />
+            <h1 style={{ margin: "-4.12rem" }}>Welcome to SmartHire Nexus</h1>
+            <span style={{ fontWeight: "bold", fontSize: "44px", left: "73rem" }}>
+              {text}
+            </span>
+            <span style={{ color: "red", fontSize: "44px", top: "0rem" }}>
+              <Cursor cursorStyle="|" />
+            </span>
+          </div>
 
-        {/* Search Bar */}
-        <div className="search">
-          <JobSearchBar onSearch={handleSearch} />
-        </div>
+          {/* Search Bar */}
+          <div className="search">
+            <JobSearchBar onSearch={handleSearch} />
+          </div>
 
-        {/* Jobs Section */}
-        <div className="barofcontext">
-          <img src={barofcontext} alt="Context Bar" className="context-bar" />
-          <div className="card-demandedjob">
-            <div className="card-demandedjobfirstrow">
-              {loading ? (
-                <p>Loading jobs...</p>
-              ) : error ? (
-                <p style={{ color: "red" }}>{error}</p>
-              ) : jobs.length === 0 ? (
-                <p>No jobs found.</p>
-              ) : (
-                jobs.map((job, index) => (
-                  <JobCard
-                    key={index}
-                    job={job}
-                    theme={theme}
-                    setTheme={setTheme}
-                    details={job}
-                  />
-                ))
-              )}
+          {/* Jobs Section */}
+          <div className="barofcontext">
+            <img src={barofcontext} alt="Context Bar" className="context-bar" />
+            <div className="card-demandedjob">
+              <div className="card-demandedjobfirstrow">
+                {loading ? (
+                  <p>Loading jobs...</p>
+                ) : error ? (
+                  <p style={{ color: "red" }}>{error}</p>
+                ) : jobs.length === 0 ? (
+                  <p>No jobs found.</p>
+                ) : (
+                  jobs.map((job, index) => (
+                    <JobCard
+                      key={index}
+                      job={job}
+                      theme={theme}
+                      setTheme={setTheme}
+                      details={job}
+                    />
+                  ))
+                )}
+              </div>
             </div>
           </div>
-        </div>
-        <Footer theme={theme} setTheme={setTheme} />
-      </main>
-    </div>
+        </main>
+      </div>
+      <div className="footer">
+        <Footer theme/>
+      </div>
+    </>
   );
 };
 

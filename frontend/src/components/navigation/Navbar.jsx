@@ -12,15 +12,14 @@ import AiModal from '../../pages/aibotModal.jsx';
 
 const Navbar = ({ theme, setTheme }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [username, setUsername] = useState(null); 
-  const [showAIModal, setShowAIModal] = useState(false);
+  const [user, setUser] = useState(null); // for logged-in user
 
   // check if user is logged in
   useEffect(() => {
     const storedUser = localStorage.getItem("user"); 
     if (storedUser) {
       const user = JSON.parse(storedUser);
-      setUsername(user.name);
+      setUser(user); // change key based on how you store it (e.g., user.username)
     }
   }, []);
 
@@ -71,25 +70,37 @@ const Navbar = ({ theme, setTheme }) => {
       </ul>
 
       {/* Login / Username */}
-    <div 
-  className='login-button'
-  onClick={() => { 
-    if (!username) {
-      window.location.href = '/login'; 
-    } else {
-      window.location.href = '/admin';
-    }
-  }}
-  style={{ cursor: "pointer" }} // makes it obvious it's clickable
->
-  <FontAwesomeIcon icon={faCircleUser} className="user-icon" />
-  {username ? (
-    <label>{username}</label>
-  ) : (
-    <label htmlFor="login">Login</label>
-  )}
-</div>
-
+      <div className='login-button'>
+        <FontAwesomeIcon
+          icon={faCircleUser}
+          className="user-icon"
+          onClick={() => { 
+            if (!user) {
+              window.location.href = '/login'; 
+            }else if(user.role==='admin'){
+              window.location.href = '/admin';
+            }else{
+              window.location.href = '/my-applications';
+            }
+          }}
+        />
+        
+      </div>
+<div className='user-info'>
+        <FontAwesomeIcon
+          icon={faCircleUser}
+          className="user-icon"
+          onClick={() => {
+            if (!user) {
+              window.location.href = '/login';
+            } else if (user.role === 'admin') {
+              window.location.href = '/admin';
+            } else {
+              window.location.href = '/my-applications';
+            }
+          }}
+        />
+      </div>
       {/* AI Bot */}
     <div 
   className="aibot" 

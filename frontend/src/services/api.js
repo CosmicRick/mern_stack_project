@@ -29,5 +29,8 @@ export const updateJob = (id, data) => API.put(`/jobs/${id}`, data);
 export const deleteJob = (id) => API.delete(`/jobs/${id}`);
 export const getUniqueCompanies = () => API.get('/jobs/companies');
 export const getUniqueCities = () => API.get('/jobs/cities');
-
+export const applyToJob = (jobId, data) => API.post(`/applications/${jobId}`);
+export const getMyApplications = () => API.get('/applications/me');
+export const getJobApplications = (jobId) => API.get(`/applications/job/${jobId}`);
+export const updateApplicationStatus = (appId, data) => API.put(`/applications/${appId}`, data);
 export default API;
