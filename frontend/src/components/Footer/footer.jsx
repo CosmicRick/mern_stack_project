@@ -16,27 +16,27 @@ function Footer() {
           <div className='col-mid-3 col-sm-6'>
             <h4><FontAwesomeIcon icon={faBriefcase} /> Job Opportunities</h4>
             <ul className='list-unstyled' style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <li>Browse Jobs</li>
-              <li>Post a Job</li>
-              <li>Career Tips</li>
-              <li>Apply Now</li>
+              <li><a href="/jobs" >Browse Jobs</a></li>
+              <li><a href="/admin" >Post a Job</a></li>
+              <li><a href="/contact" >Career Tips</a></li>
+              <li><a href="/jobs" >Apply Now</a></li>
             </ul>
           </div>
           {/* {collumn2} */}
           <div className='col-mid-3 col-sm-6'>
             <h4><FontAwesomeIcon icon={faGlobe} /> Connect with us</h4>
             <ul className='list-unstyled' style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <li><FontAwesomeIcon icon={faFacebook} /> FaceBook</li>
-              <li><FontAwesomeIcon icon={faTwitter} /> Twitter</li>
-              <li><FontAwesomeIcon icon={faInstagram} /> Instagram</li>
-              <li><FontAwesomeIcon icon={faLinkedin} /> LinkedIn</li>
+              <li><a href="https://www.facebook.com/sayandip.naskar.16" ><FontAwesomeIcon icon={faFacebook} /> FaceBook</a></li>
+              <li><a href="https://x.com/sdvians17" ><FontAwesomeIcon icon={faTwitter} /> Twitter</a></li>
+              <li><a href="https://www.instagram.com/sayandip_naskar18/" ><FontAwesomeIcon icon={faInstagram} /> Instagram</a></li>
+              <li><a href="https://www.linkedin.com/in/sayandip-naskar-9a4031375/" ><FontAwesomeIcon icon={faLinkedin} /> LinkedIn</a></li>
             </ul>
           </div>
           {/* {collumn3} */}
           <div className='col-mid-3 col-sm-6'>
             <h4><FontAwesomeIcon icon={faBuilding} /> Company</h4>
             <ul className='list-unstyled' style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <li>About Us</li>
+              <li><a href="/about" >About Us</a></li>
               <li>Our Team</li>
               <li>Partners</li>
               <li>For Employers</li>

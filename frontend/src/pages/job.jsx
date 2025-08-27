@@ -67,7 +67,7 @@ const Jobs = () => {
     return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   };
 // Applied state
-const [applied, setApplied] = useState(false);
+
 
   return (
      < >
@@ -199,16 +199,7 @@ const [applied, setApplied] = useState(false);
                         </div>
                       </div>
                       <div>
-                         <button
-    onClick={() => setApplied((prev) => !prev)}
-    className={`px-4 py-2 rounded-lg font-semibold transition-all shadow-md ${
-      applied
-        ? "bg-green-500 text-white hover:bg-green-600"
-        : "bg-gradient-to-r from-green-600 to-green-800 text-black hover:from-green-800 hover:to-green-900"
-    }`}
-  >
-    {applied ? "Applied" : "Apply Now"}
-  </button>
+                         
                           <Link
     to={`/jobs/${job._id}`}
     className="bg-gradient-to-r from-green-600 to-green-800 text-black px-4 py-2 rounded-lg font-semibold hover:from-green-800 hover:to-green-900 transition-all shadow-md ml-3 inline-block"
