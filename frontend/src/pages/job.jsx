@@ -197,9 +197,7 @@ const Jobs = () => {
                         </div>
                       </div>
                       <div>
-                        <button className="bg-gradient-to-r from-green-600 to-green-800 text-black px-4 py-2 rounded-lg font-semibold hover:from-green-800 hover:to-green-900 transition-all shadow-md">
-                          Apply Now
-                        </button>
+                       
                           <Link
     to={`/jobs/${job._id}`}
     className="bg-gradient-to-r from-green-600 to-green-800 text-black px-4 py-2 rounded-lg font-semibold hover:from-green-800 hover:to-green-900 transition-all shadow-md ml-3 inline-block"
