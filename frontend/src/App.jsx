@@ -7,7 +7,7 @@ import About from './pages/About';
 import ContactUs from './pages/contactus';
 import Admin from './pages/Admin';
 import Job from './pages/job';
-import JobDetailsPage from "./pages/jobDetailsPage";
+import JobDetailsPage from "./pages/jobDetailsPage"; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
