@@ -4,6 +4,7 @@ import "./Jobs.css";
 import Jobimage from "../components/assets/jobimage.jpg";
 import Footer from "../components/Footer/footer";
 import { getJobs, getUniqueCities, getUniqueCompanies } from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 const Jobs = () => {
   const current_theme = localStorage.getItem("current_theme");
@@ -65,6 +66,12 @@ const Jobs = () => {
     const diffTime = Math.abs(now - posted);
     return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   };
+    const navigate = useNavigate();
+
+    const viewJobDetails = (jobId) => {
+      navigate(`/job/${jobId}`);
+    };
+  
 
   return (
     <>
@@ -196,8 +203,8 @@ const Jobs = () => {
                         </div>
                       </div>
                       <div>
-                        <button className="bg-gradient-to-r from-green-600 to-green-800 text-black px-4 py-2 rounded-lg font-semibold hover:from-green-800 hover:to-green-900 transition-all shadow-md">
-                          Apply Now
+                        <button onClick={() => viewJobDetails(job._id)} className="bg-gradient-to-r from-green-600 to-green-800 text-black px-4 py-2 rounded-lg font-semibold hover:from-green-800 hover:to-green-900 transition-all shadow-md">
+                          View Details
                         </button>
                       </div>
                     </div>

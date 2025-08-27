@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { getJobById } from '../services/api';
+import { useNavigate, useParams } from 'react-router-dom';
+import { getJobById ,applyToJob } from '../services/api';
 import './JobDetails.css';
 
 const JobDetails = () => {
@@ -8,7 +8,7 @@ const JobDetails = () => {
   const [job, setJob] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchJobDetails = async () => {
       try {
@@ -26,7 +26,23 @@ const JobDetails = () => {
 
   if (loading) return <div className="job-details-loading">Loading...</div>;
   if (error) return <div className="job-details-error">{error}</div>;
-
+  const applyJob = async (id) => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!user) {
+      alert('Please log in to apply for jobs');
+      navigate('/login');
+      return;
+    } else if (user.role === 'admin') {
+      alert('Admins cannot apply for jobs');
+      return;
+    }
+    try {
+      const response = await applyToJob(id);
+      alert(response.data.message);
+    } catch (err) {
+      alert('Failed to apply for job');
+    }
+  };
   return (
     <div className="job-details-container">
       {job && (
@@ -69,7 +85,7 @@ const JobDetails = () => {
             <p><strong>Updated At:</strong> {new Date(job.updatedAt).toLocaleString()}</p>
           </div>
           <div className="job-footer">
-            <button className="apply-button">Apply Now</button>
+            <button className="apply-button" onClick={() => applyJob(job._id)}>Apply Now</button>
           </div>
         </>
       )}

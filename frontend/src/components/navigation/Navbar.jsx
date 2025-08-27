@@ -12,14 +12,14 @@ import './Navbar.css';
 
 const Navbar = ({ theme, setTheme }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [username, setUsername] = useState(null); // for logged-in user
+  const [user, setUser] = useState(null); // for logged-in user
 
   // check if user is logged in
   useEffect(() => {
     const storedUser = localStorage.getItem("user"); // assuming user is stored in localStorage
     if (storedUser) {
       const user = JSON.parse(storedUser);
-      setUsername(user.name); // change key based on how you store it (e.g., user.username)
+      setUser(user); // change key based on how you store it (e.g., user.username)
     }
   }, []);
 
@@ -75,20 +75,32 @@ const Navbar = ({ theme, setTheme }) => {
           icon={faCircleUser}
           className="user-icon"
           onClick={() => { 
-            if (!username) {
+            if (!user) {
               window.location.href = '/login'; 
-            }else{
+            }else if(user.role==='admin'){
               window.location.href = '/admin';
+            }else{
+              window.location.href = '/my-applications';
             }
           }}
         />
-        {username ? (
-          <label>{username}</label> // show username if logged in
-        ) : (
-          <label htmlFor="login">Login</label>
-        )}
+        
       </div>
-
+<div className='user-info'>
+        <FontAwesomeIcon
+          icon={faCircleUser}
+          className="user-icon"
+          onClick={() => {
+            if (!user) {
+              window.location.href = '/login';
+            } else if (user.role === 'admin') {
+              window.location.href = '/admin';
+            } else {
+              window.location.href = '/my-applications';
+            }
+          }}
+        />
+      </div>
       {/* AI Bot */}
       <div className='aibot'>
         <FontAwesomeIcon icon={faRobot} shake size="xs" style={{color: "#63E6BE"}} className='ai-bot-icon' />

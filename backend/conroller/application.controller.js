@@ -3,10 +3,13 @@ import Application from '../models/application.model.js';
 
 export const applyToJob = async (req, res) => {
   try {
+    const alreadyApplied = await Application.findOne({ job: req.params.jobId, applicant: req.user._id });
+    if (alreadyApplied) {
+      return res.status(200).json({ message: 'You have already applied for this job' });
+    }
     const application = await Application.create({
       job: req.params.jobId,
       applicant: req.user._id,
-      resume: req.file.path
     });
     res.status(201).json(application);
   } catch (error) {

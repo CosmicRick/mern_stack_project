@@ -9,6 +9,7 @@ import Admin from './pages/Admin';
 import Job from './pages/job';
 import JobDetails from './pages/JobDetails';
 import Applications from './pages/Applications';
+import MyApplications from './pages/MyApplications';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           </AdminProtectedRoute>
         } />
         <Route path="/job/:jobId" element={<JobDetails />} />
+        <Route path="/my-applications" element={<MyApplications />} />
         <Route path="/applications/:jobId" element={ <AdminProtectedRoute><Applications /></AdminProtectedRoute> } />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
