@@ -24,7 +24,7 @@
     "@fortawesome/free-solid-svg-icons": "^7.0.0",
     "@fortawesome/react-fontawesome": "^0.2.3",
     "axios": "^1.11.0",
-    "bootstrap": "^5.3.7",
+    "bootstrap": "^5.3.8",
     "lucide-react": "^0.541.0",
     "react": "^19.1.1",
     "react-bootstrap": "^2.10.10",

@@ -65,3 +65,10 @@ button {
 ::-webkit-scrollbar-track {
   background-color: #e3f2fd;
 }
+.modal {
+  z-index: 2000 !important;
+}
+.modal-backdrop {
+  z-index: 1990 !important;
+}
+

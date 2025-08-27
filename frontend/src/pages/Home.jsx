@@ -104,9 +104,6 @@ const Home = () => {
                 ))
               )}
             </div>
-
-            {/* Pagination */}
-      
           </div>
         </div>
         <Footer theme={theme} setTheme={setTheme} />

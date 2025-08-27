@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
-import { faRobot } from '@fortawesome/free-solid-svg-icons';
+import { faCircleUser, faRobot } from '@fortawesome/free-solid-svg-icons';
 import logo_day from '../assets/logo-day.png';
 import logo_night from '../assets/logo-night.png';
 import day from '../assets/day.png';
@@ -9,17 +8,19 @@ import night from '../assets/night.png';
 import search_w_dark from '../assets/search-w.png';
 import search_b_light from '../assets/search-b.png';
 import './Navbar.css';
+import AiModal from '../../pages/aibotModal.jsx';
 
 const Navbar = ({ theme, setTheme }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [username, setUsername] = useState(null); // for logged-in user
+  const [username, setUsername] = useState(null); 
+  const [showAIModal, setShowAIModal] = useState(false);
 
   // check if user is logged in
   useEffect(() => {
-    const storedUser = localStorage.getItem("user"); // assuming user is stored in localStorage
+    const storedUser = localStorage.getItem("user"); 
     if (storedUser) {
       const user = JSON.parse(storedUser);
-      setUsername(user.name); // change key based on how you store it (e.g., user.username)
+      setUsername(user.name);
     }
   }, []);
 
@@ -70,30 +71,42 @@ const Navbar = ({ theme, setTheme }) => {
       </ul>
 
       {/* Login / Username */}
-      <div className='login-button'>
-        <FontAwesomeIcon
-          icon={faCircleUser}
-          className="user-icon"
-          onClick={() => { 
-            if (!username) {
-              window.location.href = '/login'; 
-            }else{
-              window.location.href = '/admin';
-            }
-          }}
-        />
-        {username ? (
-          <label>{username}</label> // show username if logged in
-        ) : (
-          <label htmlFor="login">Login</label>
-        )}
-      </div>
+    <div 
+  className='login-button'
+  onClick={() => { 
+    if (!username) {
+      window.location.href = '/login'; 
+    } else {
+      window.location.href = '/admin';
+    }
+  }}
+  style={{ cursor: "pointer" }} // makes it obvious it's clickable
+>
+  <FontAwesomeIcon icon={faCircleUser} className="user-icon" />
+  {username ? (
+    <label>{username}</label>
+  ) : (
+    <label htmlFor="login">Login</label>
+  )}
+</div>
 
       {/* AI Bot */}
-      <div className='aibot'>
-        <FontAwesomeIcon icon={faRobot} shake size="xs" style={{color: "#63E6BE"}} className='ai-bot-icon' />
-        <label htmlFor="aibot">Ask AI</label>
-      </div>
+    <div 
+  className="aibot" 
+  onClick={() => setShowAIModal(true)}   // <-- click anywhere opens modal
+>
+  <FontAwesomeIcon 
+    icon={faRobot} 
+    shake 
+    size="xs" 
+    style={{ color: "#63E6BE" }} 
+    className='ai-bot-icon' 
+  />
+  <span className="ask-ai">Ask AI</span>
+
+ 
+</div>
+ <AiModal show={showAIModal} handleClose={() => setShowAIModal(false)} />
     </div>
   );
 };
