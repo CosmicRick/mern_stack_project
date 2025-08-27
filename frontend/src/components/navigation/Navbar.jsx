@@ -117,7 +117,7 @@ const Navbar = ({ theme, setTheme }) => {
 
  
 </div>
- <AiModal show={showAIModal} handleClose={() => setShowAIModal(false)} />
+ {/* <AiModal show={showAIModal} handleClose={() => setShowAIModal(false)} /> */}
     </div>
   );
 };

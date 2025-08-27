@@ -13,6 +13,7 @@ const MyApplications = () => {
       try {
         const response = await getMyApplications();
         setApplications(response.data);
+        console.log(response.data);
       } catch (err) {
         setError('Failed to fetch applications');
       } finally {

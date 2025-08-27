@@ -17,7 +17,7 @@ const JobCard = ({job, ...props}) => {
         </Card.Text>
           <button
           className="go-somewhere-btn"
-          onClick={() => navigate(`/jobs/${job._id}`)}
+          onClick={() => navigate(`/job/${job._id}`)}
           style={{ marginTop: "10px" }}
         >
           Go somewhere

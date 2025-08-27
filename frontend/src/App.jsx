@@ -8,7 +8,6 @@ import ContactUs from './pages/contactus';
 import Admin from './pages/Admin';
 import Job from './pages/job';
 import JobDetails from './pages/JobDetails';
-import JobDetailsPage from './pages/jobDetailsPage';
 import Applications from './pages/Applications';
 import MyApplications from './pages/MyApplications';
 import JobDetailsPage from './pages/JobDetails';
