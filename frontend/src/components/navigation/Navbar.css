@@ -286,9 +286,14 @@ input[type="search"] {
   cursor: pointer;
   font-weight: inherit;
   color: inherit;
-  pointer-events: none;
-  font-size: 14px;
+   font-size: 14px;
 }
+.ask-ai {
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 6px;
+}
+
 
 /* Alternative color schemes */
 .aibot.secondary {

@@ -44,7 +44,7 @@ const ContactSection = () => {
                 </div>
                 <div className="contact-details">
                   <h3>Call for inquiry</h3>
-                  <p>+257 388-6895</p>
+                  <p>+91 7439550276</p>
                 </div>
               </div>
 
@@ -54,7 +54,7 @@ const ContactSection = () => {
                 </div>
                 <div className="contact-details">
                   <h3>Send us email</h3>
-                  <p>kramulous@sbcglobal.net</p>
+                  <p>sayandipnskrar@gmail.com</p>
                 </div>
               </div>
 
@@ -64,7 +64,7 @@ const ContactSection = () => {
                 </div>
                 <div className="contact-details">
                   <h3>Opening hours</h3>
-                  <p>Mon - Fri: 10AM - 10PM</p>
+                  <p>Mon - Fri: 12AM - 2AM</p>
                 </div>
               </div>
 
@@ -74,7 +74,7 @@ const ContactSection = () => {
                 </div>
                 <div className="contact-details">
                   <h3>Office</h3>
-                  <p>19 North Road Piscataway, NY 08854</p>
+                  <p>DN-37, Street No. 13, DN Block, Sector V, Bidhannagar, Kolkata, West Bengal 700091</p>
                 </div>
               </div>
             </div>
@@ -139,6 +139,7 @@ const ContactSection = () => {
                 <button onClick={handleSubmit} className="submit-btn">
                   Send Message
                 </button>
+                
               </div>
             </div>
           </div>

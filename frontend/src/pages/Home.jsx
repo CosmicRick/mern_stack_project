@@ -11,6 +11,7 @@ import JobCard from "../components/card.jsx";
 import Button from "react-bootstrap/Button";
 import { getJobs } from "../services/api";
 
+
 const Home = () => {
   const current_theme = localStorage.getItem("current_theme");
   const [theme, setTheme] = useState(current_theme ? current_theme : "light");
@@ -21,7 +22,7 @@ const Home = () => {
 
   // pagination state
   const [page, setPage] = useState(1);
-  const [limit] = useState(6); // jobs per page
+  const [limit] = useState(4); // jobs per page
   const [totalPages, setTotalPages] = useState(1);
 
   // filters
@@ -102,27 +103,6 @@ const Home = () => {
                   />
                 ))
               )}
-            </div>
-
-            {/* Pagination */}
-            <div className="d-flex justify-content-center gap-3 my-3">
-              <Button
-                variant="secondary"
-                disabled={page === 1}
-                onClick={() => setPage((prev) => prev - 1)}
-              >
-                ◀ Prev
-              </Button>
-              <span style={{ alignSelf: "center" }}>
-                Page {page} of {totalPages}
-              </span>
-              <Button
-                variant="primary"
-                disabled={page === totalPages}
-                onClick={() => setPage((prev) => prev + 1)}
-              >
-                Next ▶
-              </Button>
             </div>
           </div>
         </div>

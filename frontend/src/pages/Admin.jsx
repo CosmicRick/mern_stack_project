@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import "./admin.css"
+
 import {
   Container,
   Row,
@@ -9,6 +11,7 @@ import {
   Spinner,
   Alert,
 } from "react-bootstrap";
+
 
 import {
   getAdminJobs,

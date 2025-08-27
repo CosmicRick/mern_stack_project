@@ -74,7 +74,7 @@ const Jobs = () => {
   
 
   return (
-    <>
+     < >
       <div className={`nav ${theme}`}>
         <Navbar theme={theme} setTheme={setTheme} />
         <div className="imagecontent">
