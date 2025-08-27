@@ -1,24 +1,12 @@
 import React, { useState, useEffect } from "react";
-import "./admin.css"
-
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  Table,
-  Button,
-  Spinner,
-  Alert,
-} from "react-bootstrap";
-
-
+import "./admin.css";
+import { Card, Button, Spinner, Alert } from "react-bootstrap";
 import {
   getAdminJobs,
   createJob,
   updateJob,
   deleteJob,
-} from "../services/api"; // ✅ use service file
+} from "../services/api";
 import JobModal from "./JobModal";
 import { useNavigate } from "react-router-dom";
 
@@ -77,14 +65,12 @@ const JobAdminPanel = () => {
     }
   };
 
-  // Open modal for create
   const handleOpenCreate = () => {
     setFormData({});
     setIsEditing(false);
     setShowModal(true);
   };
 
-  // Open modal for edit
   const handleOpenEdit = (job) => {
     setFormData(job);
     setIsEditing(true);
@@ -92,7 +78,6 @@ const JobAdminPanel = () => {
     setShowModal(true);
   };
 
-  // Close modal
   const handleCloseModal = () => {
     setShowModal(false);
     setFormData({});
@@ -101,92 +86,93 @@ const JobAdminPanel = () => {
   };
 
   const handleViewApplications = (jobId) => {
-    // Navigate to the applications page for the specific job
     navigate(`/applications/${jobId}`);
   };
 
   return (
-    <Container className="mt-4">
-      <Row>
-        <Col>
-          <Card className="shadow-lg">
-            <Card.Header className="d-flex justify-content-between align-items-center">
-              <h4 className="mb-0">Job Management</h4>
-              <Button onClick={handleOpenCreate}>+ Add Job</Button>
-              
-            </Card.Header>
+    <div className="mt-4 custom-container">
+      <div className="panel shadow-lg rounded-2xl p-6 bg-white">
+        <div className="panel-header flex justify-between items-center mb-4">
+          <h4 className="mb-0">Job Management</h4>
+          <Button onClick={handleOpenCreate}>+ Add Job</Button>
+        </div>
 
-            <Card.Body>
-              {error && <Alert variant="danger">{error}</Alert>}
-              {loading ? (
-                <div className="d-flex justify-content-center my-5">
-                  <Spinner animation="border" />
+        {error && <Alert variant="danger">{error}</Alert>}
+        {loading ? (
+          <div className="d-flex justify-content-center my-5">
+            <Spinner animation="border" />
+          </div>
+        ) : jobs?.length > 0 ? (
+          <div className="job-list">
+            {jobs.map((job) => (
+              <div
+                key={job._id}
+                className="job-card shadow-md rounded-xl p-4 flex items-start gap-4"
+              >
+                {/* Job Image */}
+                {job.image ? (
+                  <img
+                    src={job.image}
+                    alt={job.title}
+                    className="job-card-image w-24 h-24 object-cover rounded-lg"
+                  />
+                ) : (
+                  <div className="job-card-placeholder w-24 h-24 bg-gray-200 flex items-center justify-center rounded-lg text-gray-500">
+                    No Image
+                  </div>
+                )}
+
+                {/* Job Info */}
+                <div className="flex flex-col justify-between flex-1">
+                  <div>
+                    <h5 className="mb-2">{job.title}</h5>
+                    <p className="mb-1 text-gray-600">
+                      <strong>Company:</strong> {job.company}
+                    </p>
+                    <p className="mb-1 text-gray-600">
+                      <strong>City:</strong> {job.city}
+                    </p>
+                    <p className="mb-1 text-gray-600">
+                      <strong>Type:</strong> {job.type}
+                    </p>
+                    <p className="mb-1 text-gray-600">
+                      <strong>Salary:</strong> {job.salaryMin} - {job.salaryMax}
+                    </p>
+                  </div>
+
+                  <div className="d-flex flex-wrap gap-2 mt-3">
+                    <Button
+                      variant="warning"
+                      size="sm"
+                      onClick={() => handleOpenEdit(job)}
+                    >
+                      Edit
+                    </Button>
+                    <Button
+                      variant="danger"
+                      size="sm"
+                      onClick={() => handleDelete(job._id)}
+                    >
+                      Delete
+                    </Button>
+                    <Button
+                      variant="info"
+                      size="sm"
+                      onClick={() => handleViewApplications(job._id)}
+                    >
+                      View Applications
+                    </Button>
+                  </div>
                 </div>
-              ) : (
-                <Table striped bordered hover responsive>
-                  <thead>
-                    <tr>
-                      <th>Title</th>
-                      <th>Company</th>
-                      <th>City</th>
-                      <th>Type</th>
-                      <th>Salary</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {jobs?.length > 0 ? (
-                      jobs.map((job) => (
-                        <tr key={job._id}>
-                          <td>{job.title}</td>
-                          <td>{job.company}</td>
-                          <td>{job.city}</td>
-                          <td>{job.type}</td>
-                          <td>
-                            {job.salaryMin} - {job.salaryMax}
-                          </td>
-                          <td>
-                            <Button
-                              variant="warning"
-                              size="sm"
-                              className="me-2"
-                              onClick={() => handleOpenEdit(job)}
-                            >
-                              Edit
-                            </Button>
-                            <Button
-                              variant="danger"
-                              size="sm"
-                              onClick={() => handleDelete(job._id)}
-                            >
-                              Delete
-                            </Button>
-                            <Button
-                              variant="info"
-                              size="sm"
-                              onClick={() => handleViewApplications(job._id)}
-                            >
-                              View Applications
-                            </Button>
-                          </td>
-                        </tr>
-                      ))
-                    ) : (
-                      <tr>
-                        <td colSpan="6" className="text-center">
-                          No jobs available
-                        </td>
-                      </tr>
-                    )}
-                  </tbody>
-                </Table>
-              )}
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-center">No jobs available</p>
+        )}
+      </div>
 
-      {/* Modal for Create / Update */}
+      {/* Modal */}
       <JobModal
         show={showModal}
         handleClose={handleCloseModal}
@@ -195,7 +181,7 @@ const JobAdminPanel = () => {
         setFormData={setFormData}
         isEditing={isEditing}
       />
-    </Container>
+    </div>
   );
 };
 

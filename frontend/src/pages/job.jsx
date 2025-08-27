@@ -71,7 +71,7 @@ const Jobs = () => {
     const viewJobDetails = (jobId) => {
       navigate(`/job/${jobId}`);
     };
-  
+
 
   return (
      < >
@@ -102,7 +102,7 @@ const Jobs = () => {
                     setPage(1);
                   }}
                   placeholder="Search job title, company, city..."
-                  className="flex-1 px-4 py-3 border-2 border-green-200 rounded-lg focus:border-green-600 focus:outline-none min-w-[200px]"
+                  className="flex-1 px-4 py-3 border-2 border-green-200 rounded-lg focus:border-green-600 focus:outline-none min-w-[150px]"
                 />
 
                 {/* City Filter */}
@@ -156,7 +156,7 @@ const Jobs = () => {
                 {/* Order */}
                 <button
                   onClick={toggleOrder}
-                  className="px-4 py-3 border-2 border-green-200 rounded-lg bg-gray-50 hover:bg-gray-100"
+                  className="px-4 py-3 border-2 border-green-200 rounded-lg "
                 >
                   {sortOrder === "asc" ? "⬆ Asc" : "⬇ Desc"}
                 </button>

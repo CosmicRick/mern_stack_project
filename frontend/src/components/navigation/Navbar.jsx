@@ -12,14 +12,15 @@ import AiModal from '../../pages/aibotModal.jsx';
 
 const Navbar = ({ theme, setTheme }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [user, setUser] = useState(null); // for logged-in user
+  const [user, setUser] = useState(null); 
+  const [showAIModal, setShowAIModal] = useState(false); // <-- added this
 
   // check if user is logged in
   useEffect(() => {
     const storedUser = localStorage.getItem("user"); 
     if (storedUser) {
-      const user = JSON.parse(storedUser);
-      setUser(user); // change key based on how you store it (e.g., user.username)
+      const parsed = JSON.parse(storedUser);
+      setUser(parsed.user ? parsed.user : parsed);
     }
   }, []);
 
@@ -31,6 +32,16 @@ const Navbar = ({ theme, setTheme }) => {
     e.preventDefault();
     if (searchTerm.trim()) {
       window.location.href = `/jobs?search=${searchTerm}`;
+    }
+  };
+
+  const handleLoginClick = () => {
+    if (!user) {
+      window.location.href = '/login'; 
+    } else if (user.role === 'admin') {
+      window.location.href = '/admin';
+    } else {
+      window.location.href = '/my-applications';
     }
   };
 
@@ -70,54 +81,28 @@ const Navbar = ({ theme, setTheme }) => {
       </ul>
 
       {/* Login / Username */}
-      <div className='login-button'>
-        <FontAwesomeIcon
-          icon={faCircleUser}
-          className="user-icon"
-          onClick={() => { 
-            if (!user) {
-              window.location.href = '/login'; 
-            }else if(user.role==='admin'){
-              window.location.href = '/admin';
-            }else{
-              window.location.href = '/my-applications';
-            }
-          }}
-        />
-        
+      <div className='login-button' onClick={handleLoginClick}>
+        <FontAwesomeIcon icon={faCircleUser} className="user-icon" />
+        {user && <span className="username">Hi, {user.name}</span>}
       </div>
-<div className='user-info'>
-        <FontAwesomeIcon
-          icon={faCircleUser}
-          className="user-icon"
-          onClick={() => {
-            if (!user) {
-              window.location.href = '/login';
-            } else if (user.role === 'admin') {
-              window.location.href = '/admin';
-            } else {
-              window.location.href = '/my-applications';
-            }
-          }}
-        />
-      </div>
-      {/* AI Bot */}
-    <div 
-  className="aibot" 
-  onClick={() => setShowAIModal(true)}   // <-- click anywhere opens modal
->
-  <FontAwesomeIcon 
-    icon={faRobot} 
-    shake 
-    size="xs" 
-    style={{ color: "#63E6BE" }} 
-    className='ai-bot-icon' 
-  />
-  <span className="ask-ai">Ask AI</span>
 
- 
-</div>
- {/* <AiModal show={showAIModal} handleClose={() => setShowAIModal(false)} /> */}
+      {/* AI Bot */}
+      <div 
+        className="aibot" 
+        onClick={() => setShowAIModal(true)}   // whole div clickable
+      >
+        <FontAwesomeIcon 
+          icon={faRobot} 
+          shake 
+          size="xs" 
+          style={{ color: "#63E6BE" }} 
+          className='ai-bot-icon' 
+        />
+        <span className="ask-ai">Ask AI</span>
+      </div>
+
+      {/* AI Modal */}
+      <AiModal show={showAIModal} handleClose={() => setShowAIModal(false)} />
     </div>
   );
 };
