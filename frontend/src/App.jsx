@@ -10,7 +10,7 @@ import Job from './pages/job';
 import JobDetails from './pages/JobDetails';
 import Applications from './pages/Applications';
 import MyApplications from './pages/MyApplications';
-
+import JobDetailsPage from './pages/JobDetails';
 
 function App() {
   return (
