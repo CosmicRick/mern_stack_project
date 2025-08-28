@@ -1,6 +1,24 @@
-/* Target Bootstrap modal close button */
+/* AiModal.css */
+
+/* Make modal background black and text white */
+.modal-content {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+/* Gray modal close button */
 .modal-header .btn-close {
-  filter: invert(60%) grayscale(100%); /* gray */
+  --bs-close-color: rgb(6, 85, 138);  /* gray color for close button */
   opacity: 1;
 }
 
+/* Remove modal borders for a clean look */
+.modal-header,
+.modal-body {
+  border: none;
+}
+
+/* Remove modal body padding to make iframe fit perfectly */
+.modal-body {
+  padding: 0;
+}
