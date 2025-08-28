@@ -1,0 +1,6 @@
+/* Target Bootstrap modal close button */
+.modal-header .btn-close {
+  filter: invert(60%) grayscale(100%); /* gray */
+  opacity: 1;
+}
+
