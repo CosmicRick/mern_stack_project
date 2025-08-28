@@ -1,7 +1,6 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./AiModal.css"; // custom styles
 
 const AiModal = ({ show, handleClose }) => (
   <Modal
@@ -18,8 +17,8 @@ const AiModal = ({ show, handleClose }) => (
 
     <Modal.Body style={{ padding: 0 }}>
       <iframe
-        title="ThinkStack AI Bot"
-        src="https://app.thinkstack.ai/bot/previews/iframeview.html?bot=aHR0cHM6Ly9hcHAudGhpbmtzdGFjay5haS9ib3QvaW5kZXguaHRtbD9jaGF0Ym90X2lkPTY4YWY5ZTFhZjk0ZmVkZGVkMzI4ZTI1OCZ0eXBlPWlubGluZQ=="
+        title="Botpress Webchat"
+        src="https://cdn.botpress.cloud/webchat/v3.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/08/28/02/20250828021207-KNIVPRG8.json"
         style={{ width: "100%", height: "80vh", border: "none" }}
         sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
       />
