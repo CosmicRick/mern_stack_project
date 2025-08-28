@@ -7,7 +7,6 @@
   position: relative;
   height: 218vh;
   width: 105vw;
-  /* border: 1px solid #960000; */
   background: #ffffff;
   transition: 0.6s;
   z-index: 1;
@@ -29,7 +28,7 @@
   height: 33vw;
   object-fit: cover;
   filter: brightness(0.6);
-  z-index: 1; /* This is critical: it puts the image BEHIND the text */
+  z-index: 1; 
 }
 .content {
   margin: 24.6rem auto;

@@ -9,6 +9,8 @@ import {
 } from "../services/api";
 import JobModal from "./JobModal";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/navigation/Navbar";
+import Footer from "../components/Footer/footer";
 
 const JobAdminPanel = () => {
   const navigate = useNavigate();
@@ -19,6 +21,8 @@ const JobAdminPanel = () => {
   const [formData, setFormData] = useState({});
   const [isEditing, setIsEditing] = useState(false);
   const [selectedJobId, setSelectedJobId] = useState(null);
+  const current_theme = localStorage.getItem("current_theme");
+  const [theme, setTheme] = useState(current_theme ? current_theme : "light");
 
   // Fetch Jobs
   const fetchJobs = async () => {
@@ -33,9 +37,11 @@ const JobAdminPanel = () => {
     setLoading(false);
   };
 
+
   useEffect(() => {
     fetchJobs();
   }, []);
+
 
   // Handle Create or Update
   const handleSubmit = async (e) => {
@@ -53,6 +59,7 @@ const JobAdminPanel = () => {
     }
   };
 
+
   // Delete Job
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this job?")) {
@@ -65,11 +72,13 @@ const JobAdminPanel = () => {
     }
   };
 
+
   const handleOpenCreate = () => {
     setFormData({});
     setIsEditing(false);
     setShowModal(true);
   };
+
 
   const handleOpenEdit = (job) => {
     setFormData(job);
@@ -78,6 +87,7 @@ const JobAdminPanel = () => {
     setShowModal(true);
   };
 
+
   const handleCloseModal = () => {
     setShowModal(false);
     setFormData({});
@@ -85,91 +95,97 @@ const JobAdminPanel = () => {
     setSelectedJobId(null);
   };
 
+
   const handleViewApplications = (jobId) => {
     navigate(`/applications/${jobId}`);
   };
 
+
   return (
-    <div className="mt-4 custom-container">
-      <div className="panel shadow-lg rounded-2xl p-6 bg-white">
-        <div className="panel-header flex justify-between items-center mb-4">
-          <h4 className="mb-0">Job Management</h4>
-          <Button onClick={handleOpenCreate}>+ Add Job</Button>
-        </div>
+    <div className={`nav-contente ${theme}`}>
+      <Navbar theme={theme} setTheme={setTheme} />
+      <div className="mt-4 custom-container">
+        <div className="panel shadow-lg rounded-2xl p-6">
 
-        {error && <Alert variant="danger">{error}</Alert>}
-        {loading ? (
-          <div className="d-flex justify-content-center my-5">
-            <Spinner animation="border" />
+          <div className="panel-header flex justify-between items-center mb-4">
+            <h4 className="mb-0">Job Management</h4>
+            <Button onClick={handleOpenCreate}>+ Add Job</Button>
           </div>
-        ) : jobs?.length > 0 ? (
-          <div className="job-list">
-            {jobs.map((job) => (
-              <div
-                key={job._id}
-                className="job-card shadow-md rounded-xl p-4 flex items-start gap-4"
-              >
-                {/* Job Image */}
-                {job.image ? (
-                  <img
-                    src={job.image}
-                    alt={job.title}
-                    className="job-card-image w-24 h-24 object-cover rounded-lg"
-                  />
-                ) : (
-                  <div className="job-card-placeholder w-24 h-24 bg-gray-200 flex items-center justify-center rounded-lg text-gray-500">
-                    No Image
-                  </div>
-                )}
 
-                {/* Job Info */}
-                <div className="flex flex-col justify-between flex-1">
-                  <div>
-                    <h5 className="mb-2">{job.title}</h5>
-                    <p className="mb-1 text-gray-600">
-                      <strong>Company:</strong> {job.company}
-                    </p>
-                    <p className="mb-1 text-gray-600">
-                      <strong>City:</strong> {job.city}
-                    </p>
-                    <p className="mb-1 text-gray-600">
-                      <strong>Type:</strong> {job.type}
-                    </p>
-                    <p className="mb-1 text-gray-600">
-                      <strong>Salary:</strong> {job.salaryMin} - {job.salaryMax}
-                    </p>
-                  </div>
 
-                  <div className="d-flex flex-wrap gap-2 mt-3">
-                    <Button
-                      variant="warning"
-                      size="sm"
-                      onClick={() => handleOpenEdit(job)}
-                    >
-                      Edit
-                    </Button>
-                    <Button
-                      variant="danger"
-                      size="sm"
-                      onClick={() => handleDelete(job._id)}
-                    >
-                      Delete
-                    </Button>
-                    <Button
-                      variant="info"
-                      size="sm"
-                      onClick={() => handleViewApplications(job._id)}
-                    >
-                      View Applications
-                    </Button>
+          {error && <Alert>{error}</Alert>}
+          {loading ? (
+            <div className="d-flex justify-content-center my-5">
+              <Spinner animation="border" />
+            </div>
+          ) : jobs?.length > 0 ? (
+            <div className="job-list">
+              {jobs.map((job) => (
+                <div
+                  key={job._id}
+                  className="job-card shadow-md rounded-xl p-4 flex items-start gap-4"
+                >
+                  {/* Job Image */}
+                  {job.image ? (
+                    <img
+                      src={job.image}
+                      alt={job.title}
+                      className="job-card-image w-24 h-24 object-cover rounded-lg"
+                    />
+                  ) : (
+                    <div className="job-card-placeholder w-24 h-24 flex items-center justify-center rounded-lg">
+                      No Image
+                    </div>
+                  )}
+
+
+                  {/* Job Info */}
+                  <div className="flex flex-col justify-between flex-1">
+                    <div>
+                      <h5 className="mb-2">{job.title}</h5>
+                      <p className="mb-1">
+                        <strong>Company:</strong> {job.company}
+                      </p>
+                      <p className="mb-1">
+                        <strong>City:</strong> {job.city}
+                      </p>
+                      <p className="mb-1">
+                        <strong>Type:</strong> {job.type}
+                      </p>
+                      <p className="mb-1">
+                        <strong>Salary:</strong> {job.salaryMin} - {job.salaryMax}
+                      </p>
+                    </div>
+
+
+                    <div className="d-flex flex-wrap gap-2 mt-3">
+                      <Button
+                        size="sm"
+                        onClick={() => handleOpenEdit(job)}
+                      >
+                        Edit
+                      </Button>
+                      <Button
+                        size="sm"
+                        onClick={() => handleDelete(job._id)}
+                      >
+                        Delete
+                      </Button>
+                      <Button
+                        size="sm"
+                        onClick={() => handleViewApplications(job._id)}
+                      >
+                        View Applications
+                      </Button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <p className="text-center">No jobs available</p>
-        )}
+              ))}
+            </div>
+          ) : (
+            <p className="text-center">No jobs available</p>
+          )}
+        </div>
       </div>
 
       {/* Modal */}
@@ -184,5 +200,6 @@ const JobAdminPanel = () => {
     </div>
   );
 };
+
 
 export default JobAdminPanel;

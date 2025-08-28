@@ -22,7 +22,7 @@ const Home = () => {
 
   // pagination state
   const [page, setPage] = useState(1);
-  const [limit] = useState(4); // jobs per page
+  const [limit] = useState(8);
   const [totalPages, setTotalPages] = useState(1);
 
   // filters
@@ -86,31 +86,44 @@ const Home = () => {
           <div className="barofcontext">
             <img src={barofcontext} alt="Context Bar" className="context-bar" />
             <div className="card-demandedjob">
-              <div className="card-demandedjobfirstrow">
-                {loading ? (
-                  <p>Loading jobs...</p>
-                ) : error ? (
-                  <p style={{ color: "red" }}>{error}</p>
-                ) : jobs.length === 0 ? (
-                  <p>No jobs found.</p>
-                ) : (
-                  jobs.map((job, index) => (
-                    <JobCard
-                      key={index}
-                      job={job}
-                      theme={theme}
-                      setTheme={setTheme}
-                      details={job}
-                    />
-                  ))
-                )}
-              </div>
+              {loading ? (
+                <p>Loading jobs...</p>
+              ) : error ? (
+                <p style={{ color: "red" }}>{error}</p>
+              ) : jobs.length === 0 ? (
+                <p>No jobs found.</p>
+              ) : (
+                <>
+                  <div className="card-demandedjobfirstrow">
+                    {jobs.slice(0, 4).map((job, index) => (
+                      <JobCard
+                        key={index}
+                        job={job}
+                        theme={theme}
+                        setTheme={setTheme}
+                        details={job}
+                      />
+                    ))}
+                  </div>
+                  <div className="card-demandedjobsecondrow">
+                    {jobs.slice(4, 8).map((job, index) => (
+                      <JobCard
+                        key={index + 4}
+                        job={job}
+                        theme={theme}
+                        setTheme={setTheme}
+                        details={job}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </main>
       </div>
       <div className="footer">
-        <Footer theme/>
+        <Footer theme />
       </div>
     </>
   );

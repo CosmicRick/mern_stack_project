@@ -9,13 +9,15 @@
 }
 
 .glass-panel {
-  background: rgba(255, 255, 255, 0.372); /* More transparent */
+  background: rgba(255, 255, 255, 0); /* More transparent */
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-   margin-bottom: 1.3rem;
+  margin-bottom: 1.9rem;
+  width: 100%;
+  height: 10rem;
+  padding: 1rem 3rem 1rem 3rem ;
 }
-
 .glass-panel.dark {
   background: rgba(36, 36, 36, 0.4);
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -26,6 +28,8 @@
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 80%;
+  margin-left: 10%;
 }
 
 .glass-card.dark {

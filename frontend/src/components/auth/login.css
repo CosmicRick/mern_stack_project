@@ -266,6 +266,74 @@ body {
   box-shadow: none;
   opacity: 0.7;
 }
+  /* Select styled to match inputs (mobile tweaks inside max-width:480px) */
+  .card label[for="role"]::before {
+    content: "👥";
+    font-size: 1rem;
+    filter: hue-rotate(120deg);
+  }
+
+  /* Native select look removed and replaced with custom caret */
+  .card select {
+    width: 100%;
+    padding: 0.65rem 1.25rem 0.65rem 0.9rem;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    background-color: var(--background);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: inherit;
+    /* add a compact SVG caret matching the green theme */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%23059669' d='M7 8l3 3 3-3z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 0.9rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem; /* leave room for caret */
+  }
+
+  /* Hover / focus / validation states */
+  .card select:hover {
+    border-color: var(--border-focus);
+  }
+
+  .card select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(5,150,105,0.1);
+    background-color: var(--background);
+  }
+
+  .card select:invalid:not(:focus):not([value=""]) {
+    border-color: var(--success-color);
+  }
+
+  .card select:valid {
+    border-color: var(--success-color);
+  }
+
+  /* Validation icon placement support for selects */
+  .card .validation-icon.select {
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  /* Smaller adjustments for very small screens (keeps parity with inputs) */
+  .card select {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Provide a larger tap target on touch devices in this mobile block */
+  .card select {
+    min-height: 44px;
+    line-height: 1.2;
+  }
 
 /* Loading state */
 .card button[type="submit"]:disabled::after {
@@ -423,7 +491,6 @@ body {
     max-width: none;
     border-radius: var(--radius-md);
   }
-
   .card h2 {
     font-size: 1.5rem;
     margin-bottom: 1.25rem;

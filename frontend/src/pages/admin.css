@@ -1,103 +1,310 @@
-/* ========== Container & Layout ========== */
+/* admin.css - Transparent Design */
+
+/* Container Styles */
 .custom-container {
-  max-width: 1400px;       /* panel can grow, but cards are fixed */
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1.5rem;
-  min-height: 600px;       /* always at least 600px tall */
+  min-height: 100vh;
+  padding: 20px;
+  margin-left: 25%;
+  background: transparent;
 }
 
-/* ========== Panel ========== */
+
 .panel {
-  background: #fff;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-              0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  width: 80%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) !important;
+  border-radius: 20px !important;
+  padding: 30px !important;
+  margin: 20px 0;
 }
 
-/* ========== Panel Header ========== */
+/* Panel Header */
 .panel-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* ========== Job List Grid ========== */
+.panel-header h4 {
+  color: #333;
+  font-weight: 600;
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Job List Container */
 .job-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 600px); /* fixed width for each card */
-  gap: 1.5rem;
-  justify-content: center; /* keep grid centered */
-}
-
-/* ========== Job Card Styling ========== */
-.job-card {
-  background: #fff;
-  border: 2px solid #bbf7d0;
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  width: 600px;      /* fixed width */
-  height: 600px;     /* fixed height */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  transition: all 0.3s ease-in-out;
+  gap: 20px;
+}
+
+/* Individual Job Cards - Glass Effect */
+.job-card {
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px !important;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.2) !important;
+  position: relative;
+  overflow: hidden;
+}
+.light .job-card {
+  background: rgba(198, 192, 192, 0.144) !important;
+  ;
 }
 
 .job-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.4) !important;
+  background: rgba(255, 255, 255, 0.2) !important;
 }
 
-/* ========== Typography ========== */
-h4 {
-  margin: 0;
-  font-size: 1.25rem;
-  font-weight: 600;
+/* Job Card Image */
+.job-card-image {
+  width: 15rem !important;
+  height: 10rem !important;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-h5 {
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-  font-weight: 500;
-}
-
-.text-gray-600 {
-  color: #444;
-}
-
-/* ========== Utility Helpers ========== */
-.mt-4 {
-  margin-top: 1rem;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.d-flex {
+/* Image Placeholder */
+.job-card-placeholder {
+  width: 96px !important;
+  height: 96px !important;
+  background: rgba(200, 200, 200, 0.3) !important;
   display: flex;
-}
-
-.flex-wrap {
-  flex-wrap: wrap;
-}
-
-.gap-2 {
-  gap: 0.5rem;
-}
-
-.justify-center {
+  align-items: center;
   justify-content: center;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: rgba(100, 100, 100, 0.8) !important;
+  font-size: 12px;
+  text-align: center;
+  backdrop-filter: blur(10px);
 }
 
-.justify-between {
+/* Job Info Section */
+.job-card .flex-1 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
-.align-items-center,
-.items-center {
-  align-items: center;
+.job-card h5 {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 15px !important;
+  font-size: 1.25rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.job-card p {
+  color: rgba(60, 60, 60, 0.9) !important;
+  margin-bottom: 8px !important;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.job-card strong {
+  color: #34495e;
+  font-weight: 600;
+}
+
+/* Buttons Container */
+.job-card .d-flex {
+  margin-top: 20px !important;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Custom Button Styles for Glass Effect */
+.btn {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  text-transform: none;
+  border-radius: 8px;
+  padding: 6px 16px;
+}
+
+.btn-warning {
+  background: rgba(255, 193, 7, 0.8) !important;
+  color: #000 !important;
+}
+
+.btn-warning:hover {
+  background: rgba(255, 193, 7, 1) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
+}
+
+.btn-danger {
+  background: rgba(220, 53, 69, 0.8) !important;
+  color: white !important;
+}
+
+.btn-danger:hover {
+  background: rgba(220, 53, 69, 1) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+}
+
+.btn-info {
+  background: rgba(23, 162, 184, 0.8) !important;
+  color: white !important;
+}
+
+.btn-info:hover {
+  background: rgba(23, 162, 184, 1) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(23, 162, 184, 0.4);
+}
+
+.btn-primary {
+  background: rgba(0, 123, 255, 0.8) !important;
+  color: white !important;
+}
+
+.btn-primary:hover {
+  background: rgba(0, 123, 255, 1) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+}
+
+/* Alert Styling */
+.alert {
+  background: rgba(248, 215, 218, 0.9) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(220, 53, 69, 0.3) !important;
+  border-radius: 12px;
+  color: #721c24 !important;
+}
+
+.alert-danger {
+  background: rgba(248, 215, 218, 0.9) !important;
+}
+
+/* Spinner Container */
+.d-flex.justify-content-center {
+  padding: 40px 0;
+}
+
+.spinner-border {
+  color: rgba(0, 123, 255, 0.8) !important;
+}
+
+/* No Jobs Message */
+.text-center {
+  color: rgba(60, 60, 60, 0.8) !important;
+  font-size: 16px;
+  padding: 40px 0;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .custom-container {
+    padding: 10px;
+  }
+
+  .panel {
+    padding: 20px !important;
+    margin: 10px 0;
+  }
+
+  .job-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px !important;
+  }
+
+  .job-card-image,
+  .job-card-placeholder {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  .panel-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .job-card .d-flex {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .btn {
+    font-size: 12px;
+    padding: 4px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .job-card {
+    padding: 15px !important;
+  }
+
+  .panel {
+    padding: 15px !important;
+  }
+
+  .job-card h5 {
+    font-size: 1.1rem;
+  }
+
+  .job-card p {
+    font-size: 13px;
+  }
+}
+
+/* Add subtle animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.job-card {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.job-card:nth-child(2) { animation-delay: 0.1s; }
+.job-card:nth-child(3) { animation-delay: 0.2s; }
+.job-card:nth-child(4) { animation-delay: 0.3s; }
+
+/* Improve text readability on transparent backgrounds */
+.job-card *,
+.panel * {
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Override Bootstrap white backgrounds */
+.bg-white {
+  background: transparent !important;
 }

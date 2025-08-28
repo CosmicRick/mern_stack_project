@@ -1,6 +1,9 @@
 import React from 'react';
 import './bestwork.css';
-
+import { CloudMoonRain } from 'lucide-react';
+import home from "../components/assets/aboutus1.jpg";
+import home1 from "../components/assets/aboutus2.jpg";
+import home2 from "../components/assets/aboutus3.jpg";
 const BestSection = () => (
   <div className="best-section">
     <div className="best-section-left">
@@ -10,28 +13,24 @@ const BestSection = () => (
         <div className="small-card card-blur" />
       </div>
     </div>
-    <div className="best-section-right">
-      <h1>We’re Only Working <br />With The Best</h1>
-      <p>
+    <div className="best-section-right">  
+      <h1 style={{ color: '#1a9761ff' }}>We’re Only Working <br />With The Best</h1>
+      <p style={{ color: '#11633fa5' }}>
         Ultricies purus dolor viverra mi laoreet at cursus justo. 
         Ultrices purus diam egestas amet faucibus tempor blandit.
       </p>
       <div className="features">
         <div className="feature-item">
-          <span className="icon">🏅</span>
-          <span>Quality Job</span>
+          <span style={{ color: '#c8911cff'}}>🏅Quality Job</span>
         </div>
         <div className="feature-item">
-          <span className="icon">📄</span>
-          <span>Resume builder</span>
+          <span style={{ color: '#dc931dff' }}>📄Resume builder</span>
         </div>
         <div className="feature-item">
-          <span className="icon">🏆</span>
-          <span>Top Companies</span>
+          <span style={{ color: '#dc931dff' }}>🏆Top Companies</span>
         </div>
         <div className="feature-item">
-          <span className="icon">⭐</span>
-          <span>Top Talents</span>
+          <span style={{ color: '#dc931dff'}}>⭐Top Talents</span>
         </div>
       </div>
     </div>

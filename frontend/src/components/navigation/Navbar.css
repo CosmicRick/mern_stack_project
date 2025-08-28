@@ -1,3 +1,5 @@
+/* Remove underline from all links in navbar */
+
 * {
   margin: 0;
   padding: 0;
@@ -93,12 +95,10 @@ html body {
 
 .navbar ul li a:hover {
   color: #018601fd;
-  border-bottom: 0.125rem solid #225237; /* 2px /16 */
 }
 
 .light .navbar ul li a:hover {
   color: #b7f9a8fd;
-  border-bottom: 0.125rem solid #0ccc5f;
 }
 
 .search-box {

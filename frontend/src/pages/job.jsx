@@ -83,7 +83,10 @@ const Jobs = () => {
 
         <div className="min-h-screen bg-transparent backdrop-blur-md" style={{ paddingTop: "1rem" }}>
           <div className="max-w-7xl mx-auto p-5">
-            <div className="bg-gradient-to-r from-green-800 to-green-600 text-white p-8 rounded-2xl mb-8 shadow-lg">
+            <div 
+              className="bg-gradient-to-r from-green-800 to-green-600 text-white p-8 rounded-9xl mb-8 shadow-lg"
+              style={{ background: 'linear-gradient(to right, #166534, #16a34a)', borderRadius: '1rem', width: '100%', height: '20%', padding: '1rem 3rem 1rem 3rem', marginBottom: '2rem' }}
+            >
               <h1 className="text-4xl font-bold mb-3">Job Listings</h1>
               <p className="text-xl opacity-90">Discover your next career opportunity</p>
             </div>

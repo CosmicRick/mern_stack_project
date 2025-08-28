@@ -30,8 +30,8 @@ const HowItWorks = () => {
     <div className="how-it-works-section">
       <div className="container">
         <div className="header">
-          <h2 className="title">How it works</h2>
-          <p className="subtitle">
+          <h2 className="title" style={{ color: '#22d685ff' }}>How it works</h2>
+          <p className="subtitle" style={{ color: '#219461ff' }}>
             Discover your dream job in just four simple steps. Our streamlined process makes job hunting
             efficient and stress-free, connecting you with the best opportunities in your field.
           </p>
