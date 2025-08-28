@@ -11,9 +11,35 @@ const AiModal = ({ show, handleClose }) => (
     dialogClassName="modal-90w"
     contentClassName="bg-black text-white"
   >
-    <Modal.Header closeButton className="border-0">
-      <Modal.Title className="text-white">Chat with AI-Bot</Modal.Title>
-    </Modal.Header>
+ <Modal.Header
+  style={{
+    backgroundColor: "#000",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    borderBottom: "none", // removes the default border
+    padding: "1rem 1.5rem" // optional: adjust spacing if needed
+  }}
+>
+  <Modal.Title className="text-white">Chat with AI-Bot</Modal.Title>
+  <button
+    type="button"
+    onClick={handleClose}
+    aria-label="Close"
+    style={{
+      background: "transparent",
+      border: "none",
+      color: "gray",
+      fontSize: "2rem", // bigger cross
+      cursor: "pointer",
+      lineHeight: 1
+    }}
+  >
+    &times;
+  </button>
+</Modal.Header>
+
+
 
     <Modal.Body style={{ padding: 0 }}>
       <iframe
