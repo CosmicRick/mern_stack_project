@@ -81,7 +81,7 @@ html body {
 
 .navbar ul li a {
   text-decoration: none;
-  color: #cfffe6;
+  color: #268554;
   font-size: 1.34rem;
   font-weight: 500;
   line-height: 1;
@@ -90,7 +90,7 @@ html body {
 }
 .light .navbar ul li a {
   text-decoration: none;
-  color: #47c00e;
+  color: #173d05;
 }
 
 .navbar ul li a:hover {
@@ -136,7 +136,9 @@ html body {
   color: #000000;
 }
 
-.search-box { position: relative; }
+.search-box {
+  position: relative;
+}
 
 .search-icon {
   width: 1rem;
@@ -145,7 +147,7 @@ html body {
   cursor: pointer;
   position: absolute;
   top: 0.8rem; /* move above the search box */
-  right: 1rem;   /* adjust horizontal placement as needed */
+  right: 1rem; /* adjust horizontal placement as needed */
   z-index: 2000;
 }
 
@@ -292,14 +294,13 @@ input[type="search"] {
   cursor: pointer;
   font-weight: inherit;
   color: inherit;
-   font-size: 14px;
+  font-size: 14px;
 }
 .ask-ai {
   cursor: pointer;
   font-size: 14px;
   margin-left: 6px;
 }
-
 
 /* Alternative color schemes */
 .aibot.secondary {
