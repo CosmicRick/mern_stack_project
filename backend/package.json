@@ -22,7 +22,7 @@
     "helmet": "^8.1.0",
     "init": "^0.1.2",
     "jsonwebtoken": "^9.0.2",
-    "mongodb": "^6.18.0",
+    "mongodb": "^6.19.0",
     "mongoose": "^8.16.4",
     "morgan": "^1.10.1",
     "multer": "^2.0.2",
