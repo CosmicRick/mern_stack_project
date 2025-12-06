@@ -39,7 +39,6 @@ const Home = () => {
     deleteSpeed: 50,
     delaySpeed: 1000,
   });
-
   // Fetch jobs whenever filters or page changes
   useEffect(() => {
     setLoading(true);

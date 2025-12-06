@@ -66,15 +66,15 @@ const Jobs = () => {
     const diffTime = Math.abs(now - posted);
     return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   };
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const viewJobDetails = (jobId) => {
-      navigate(`/job/${jobId}`);
-    };
+  const viewJobDetails = (jobId) => {
+    navigate(`/job/${jobId}`);
+  };
 
 
   return (
-     < >
+    < >
       <div className={`nav ${theme}`}>
         <Navbar theme={theme} setTheme={setTheme} />
         <div className="imagecontent">
@@ -83,7 +83,7 @@ const Jobs = () => {
 
         <div className="min-h-screen bg-transparent backdrop-blur-md" style={{ paddingTop: "1rem" }}>
           <div className="max-w-7xl mx-auto p-5">
-            <div 
+            <div
               className="bg-gradient-to-r from-green-800 to-green-600 text-white p-8 rounded-9xl mb-8 shadow-lg"
               style={{ background: 'linear-gradient(to right, #166534, #16a34a)', borderRadius: '1rem', width: '100%', height: '20%', padding: '1rem 3rem 1rem 3rem', marginBottom: '2rem' }}
             >
@@ -188,17 +188,17 @@ const Jobs = () => {
                     key={job._id}
                     className="glass-card border-2 border-green-200 rounded-xl p-6 hover:border-green-600 hover:shadow-lg hover:-translate-y-1 transition-all"
                   >
-                    <div className="flex flex-col lg:flex-row justify-between items-start gap-4">
+                    <div className="my-box flex flex-col lg:flex-row justify-between items-start gap-4">
                       <div className="flex-1">
-                        <div className="text-2xl font-bold text-green-800 mb-1">{job.title}</div>
+                        <div className="text-2xl font-bold text-green-600 mb-1">{job.title}</div>
                         <div className="text-xl text-green-600 font-semibold mb-1">{job.company}</div>
-                        <div className="text-gray-600 mb-3">{job.city}</div>
-                        <div className="text-gray-700 leading-relaxed mb-4">
+                        <div className="text-green-600 mb-3">{job.city}</div>
+                        <div className="leading-relaxed mb-4">
                           {job.description && job.description.length > 200
                             ? `${job.description.substring(0, 200)}...`
                             : job.description || "No description available"}
                         </div>
-                        <div className="flex flex-wrap gap-6 text-sm text-gray-600">
+                        <div className="flex flex-wrap gap-6 text-sm">
                           <span className="font-medium">Salary: {job.salaryMin} - {job.salaryMax}</span>
                           <span className="font-medium">
                             Posted: {getDaysSincePosted(job.createdAt)} days ago
@@ -242,7 +242,7 @@ const Jobs = () => {
         </div>
       </div>
       <div className="footer">
-        <Footer />
+        <Footer theme />
       </div>
     </>
   );
