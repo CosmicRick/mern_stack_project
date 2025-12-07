@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  overflow-x: visible;
 }
 main {
   display: flex;
@@ -23,6 +24,7 @@ html body {
 .imagecontent {
   display: flex;
   height: 30%;
+  width: 100%;
   z-index: 1;
   position: relative;
 }
@@ -141,7 +143,7 @@ html body {
 
 .nav-contente {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 105vw;
   /* border: 1px solid #960000; */
   background: #ffffff;

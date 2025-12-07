@@ -1,7 +1,6 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
 }
 
 body {
@@ -12,11 +11,15 @@ body {
 .imagecontentarss {
   display: flex;
   height: 50vh;
+  width: 100vw; 
   position: relative;
-  top: -6rem;
+  top: -7rem;
   overflow: hidden;
   align-items: center;
   justify-content: center;
+  padding: 0;
+  margin: 0vw 0vw 0vw -1.3vw;
+  border-radius: 0vh 0vh 4vh 4vh;
 }
 .how-it-works-section{
   padding: 4rem 0;
@@ -27,7 +30,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   object-fit: cover;
   filter: brightness(0.4) contrast(1.2);
@@ -55,7 +58,7 @@ body {
 .nav-container {
   position: relative;
   height: 500vh;
-  width: 110vw;
+  width: 100vw;
   /* border: 1px solid #960000; */
   background: #ffffff;
   transition: 0.6s;

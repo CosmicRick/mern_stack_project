@@ -6,7 +6,7 @@
 .nav-bar {
   position: relative;
   height: 218vh;
-  width: 105vw;
+  width: 100vw;
   background: #ffffff;
   transition: 0.6s;
   z-index: 1;
@@ -17,6 +17,7 @@
 .contactimage {
   display: flex;
   height: 40%;
+  width: 100%;
   z-index: 1;
   position: relative;
 }
@@ -24,11 +25,12 @@
   position: absolute;
   top: -9rem;
   left: 0;
-  width: 100%;
+  width: 100.7vw;
   height: 33vw;
   object-fit: cover;
   filter: brightness(0.6);
   z-index: 1; 
+  margin-left: -2vw;
 }
 .content {
   margin: 24.6rem auto;
