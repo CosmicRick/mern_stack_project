@@ -4,13 +4,15 @@
   box-sizing: border-box;
   overflow-x: visible;
 }
+:root{
+  width: 100%;
+}
 main {
   display: flex;
   flex-direction: column;
-  width: 100%;
   height: auto;
   min-height: 200vh;
-  overflow-y: visible;
+  overflow-x: visible;
   z-index: 1;
 }
 html {
@@ -43,7 +45,7 @@ html body {
   z-index: 1000;
   /* top: 15rem; */
   margin: 0;
-  padding: 3rem 45rem;
+  padding: 3rem 40rem;
   font-family: "Gabriola";
   font-size: 4rem;
   text-align: center;
@@ -51,6 +53,7 @@ html body {
   font-weight: bold;
   font-style: italic;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.457);
+  width: 100%;
 }
 .imagecontent span {
   font-weight: bold;

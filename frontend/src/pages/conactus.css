@@ -40,12 +40,12 @@
 }
 .contact-content {
   position: absolute;
-  top: 69.6rem;
+  top: 71rem;
   left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: 10vh;
   z-index: 1000;
 }
