@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleUser, faRobot } from '@fortawesome/free-solid-svg-icons';
+import { faCircleUser, faRobot, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import logo_day from '../assets/logo-day.png';
 import logo_night from '../assets/logo-night.png';
 import day from '../assets/day.png';
@@ -12,12 +12,12 @@ import AiModal from '../../pages/aibotModal.jsx';
 
 const Navbar = ({ theme, setTheme }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [user, setUser] = useState(null); 
+  const [user, setUser] = useState(null);
   const [showAIModal, setShowAIModal] = useState(false); // <-- added this
 
   // check if user is logged in
   useEffect(() => {
-    const storedUser = localStorage.getItem("user"); 
+    const storedUser = localStorage.getItem("user");
     if (storedUser) {
       const parsed = JSON.parse(storedUser);
       setUser(parsed.user ? parsed.user : parsed);
@@ -37,14 +37,18 @@ const Navbar = ({ theme, setTheme }) => {
 
   const handleLoginClick = () => {
     if (!user) {
-      window.location.href = '/login'; 
+      window.location.href = '/login';
     } else if (user.role === 'admin') {
       window.location.href = '/admin';
     } else {
       window.location.href = '/my-applications';
     }
   };
-
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+    window.location.href = '/login';
+  };
   return (
     <div className="navbar">
       <img src={theme === 'light' ? logo_day : logo_night} alt="Logo" className="logo" />
@@ -87,24 +91,29 @@ const Navbar = ({ theme, setTheme }) => {
       </div>
 
       {/* AI Bot */}
-      <div 
-        className="aibot" 
+      <div
+        className="aibot"
         onClick={() => setShowAIModal(true)}   // whole div clickable
       >
-        <FontAwesomeIcon 
-          icon={faRobot} 
-          shake 
-          size="xs" 
-          style={{ color: "#63E6BE" }} 
-          className='ai-bot-icon' 
+        <FontAwesomeIcon
+          icon={faRobot}
+          shake
+          size="xs"
+          style={{ color: "#63E6BE" }}
+          className='ai-bot-icon'
         />
         <span className="ask-ai">Ask AI</span>
       </div>
-
       {/* AI Modal */}
       <AiModal show={showAIModal} handleClose={() => setShowAIModal(false)} />
+      {/* Logout Button */}
+        <div className="Logout" onClick={handleLogout}>
+          <FontAwesomeIcon icon={faArrowRightFromBracket} size="lg" style={{color: "#ffffff",}} />
+        <span className="logout-text">Logout</span>
+        </div>
+
     </div>
-  );
+  );  
 };
 
 export default Navbar;
