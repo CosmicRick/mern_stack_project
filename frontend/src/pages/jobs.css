@@ -71,12 +71,10 @@ body {
   filter: brightness(0.9);
   z-index: -1; /* Place image behind the text content */
 }
-
 /* Dark theme for imagecontent */
 .dark .nav .imagecontent img {
   filter: brightness(0.6) contrast(1.1);
 }
-
 /* Completely remove opaque backgrounds */
 .bg-white {
   background-color: transparent !important;
@@ -335,7 +333,7 @@ body {
   background-color: rgba(51, 65, 85, 0.3);
   border: 2px solid rgba(255, 255, 255, 0.1);
 }
-.my-box{
+.my-box {
   color: rgba(65, 144, 86, 0.735);
 }
 .job-highlight-item {
@@ -628,6 +626,12 @@ body {
 .loading-spinner.dark {
   border: 4px solid #475569;
   border-top: 4px solid #3b82f6;
+}
+.nav .footerr {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-top: 20vw;
 }
 
 @keyframes spin {

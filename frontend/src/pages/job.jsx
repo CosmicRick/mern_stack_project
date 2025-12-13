@@ -240,9 +240,9 @@ const Jobs = () => {
             )}
           </div>
         </div>
-      </div>
-      <div className="footer">
-        <Footer theme />
+        <div className="footerr">
+        <Footer theme={theme} setTheme={setTheme} />
+        </div>  
       </div>
     </>
   );

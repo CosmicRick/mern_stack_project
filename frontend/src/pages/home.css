@@ -4,7 +4,7 @@
   box-sizing: border-box;
   overflow-x: visible;
 }
-:root{
+:root {
   width: 100%;
 }
 main {
@@ -21,6 +21,8 @@ html {
 html body {
   padding-bottom: 0px;
   margin-bottom: 0px;
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 .imagecontent {
@@ -93,7 +95,7 @@ html body {
   background: #5b515152;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #beb0b0d0;
   margin-top: 2%;
   margin-left: auto;
   margin-right: auto;
@@ -147,7 +149,7 @@ html body {
 .nav-contente {
   position: relative;
   width: 100%;
-  height: 105vw;
+  height: auto;
   /* border: 1px solid #960000; */
   background: #ffffff;
   transition: 0.6s;
@@ -156,14 +158,8 @@ html body {
 .nav-contente.light {
   background: #0c0c0c;
 }
-.footer {
+.nav-contente .footer {
   position: relative;
   width: 100%;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 2rem 1rem;
-  margin-top: 7rem;
-  min-height: 80px;
+  margin-top: 1%;
 }

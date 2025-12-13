@@ -120,9 +120,9 @@ const Home = () => {
             </div>
           </div>
         </main>
-      </div>
-      <div className="footer">
-        <Footer theme />
+        <div className="footer">
+          <Footer theme={theme} setTheme={setTheme} />
+        </div>
       </div>
     </>
   );
