@@ -77,10 +77,22 @@ html body {
   height: 10rem;
   z-index: 1;
 }
-.barofcontext img {
+.barofcontext .marqueebar {
   width: 100%;
   object-fit: cover;
   height: 9.5rem;
+  background-color: #0c0c0c;
+}
+.barofcontext .marqueebar .logo-m {
+  height: 15rem;
+  margin-top: -3rem;
+  padding-left: 5rem;
+}
+.barofcontext .marqueebar .logo-w {
+  height: 10rem;
+  margin-top: -3rem;
+  padding: 1%;
+  padding-left: 10rem;
 }
 .search job-search-bar {
   position: relative;

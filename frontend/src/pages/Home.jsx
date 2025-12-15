@@ -5,7 +5,13 @@ import JobSearchBar from "../components/searchbar.jsx";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import "./Home.css";
 import home from "../components/assets/homeimag1.jpg";
-import barofcontext from "../components/assets/barofcontext.png";
+import SpotifyLogo from "../components/assets/spotify.png";
+import AmazoneLogo from "../components/assets/amazon.png";
+import TcsLogo from "../components/assets/tcs.png";
+import FacebookLogo from "../components/assets/facebook.png";
+import wiproLogo from "../components/assets/wipro.png";
+import deloitteLogo from "../components/assets/deloitte.png";
+import AirbnbLogo from "../components/assets/airbnb.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import JobCard from "../components/card.jsx";
 import Button from "react-bootstrap/Button";
@@ -83,7 +89,17 @@ const Home = () => {
 
           {/* Jobs Section */}
           <div className="barofcontext">
-            <img src={barofcontext} alt="Context Bar" className="context-bar" />
+            <div className="marqueebar">
+              <marquee behavior="alternate" direction="Left" scrollamount="10" >
+                <img src={SpotifyLogo} alt="Spotify" className="logo-m" />
+                <img src={AmazoneLogo} alt="Amazon" className="logo-m" />
+                <img src={TcsLogo} alt="TCS" className="logo-m" />
+                <img src={FacebookLogo} alt="Facebook" className="logo-m" />
+                <img src={wiproLogo} alt="Wipro" className="logo-m"/>
+                <img src={deloitteLogo} alt="Deloitte" className="logo-w" />
+                <img src={AirbnbLogo} alt="Airbnb" className="logo-w" />
+              </marquee>
+            </div>
             <div className="card-demandedjob">
               {loading ? (
                 <p>Loading jobs...</p>
