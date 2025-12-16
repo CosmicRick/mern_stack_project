@@ -2,16 +2,16 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  overflow-x: visible;
 }
 :root {
   width: 100%;
+  height: auto;
 }
 main {
   display: flex;
   flex-direction: column;
   height: auto;
-  min-height: 200vh;
+  min-height: 100vh;
   overflow-x: visible;
   z-index: 1;
 }
@@ -21,8 +21,7 @@ html {
 html body {
   padding-bottom: 0px;
   margin-bottom: 0px;
-  background-attachment: fixed;
-  min-height: 100vh;
+  margin: 0;
 }
 
 .imagecontent {
@@ -40,12 +39,11 @@ html body {
   height: 23vw;
   object-fit: cover;
   filter: brightness(0.6);
-  z-index: 1; /* This is critical: it puts the image BEHIND the text */
+  z-index: 1  ; /* This is critical: it puts the image BEHIND the text */
 }
 .imagecontent h1 {
   position: absolute;
   z-index: 1000;
-  /* top: 15rem; */
   margin: 0;
   padding: 3rem 40rem;
   font-family: "Gabriola";
@@ -64,8 +62,8 @@ html body {
   position: relative;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.457);
   left: 36.5rem;
-  z-index: 1000;
-  color: rgb(221, 253, 221);
+  z-index: 1;
+  color: rgb(252, 254, 252);
 }
 .barofcontext {
   position: relative;
@@ -74,7 +72,7 @@ html body {
   right: 0;
   margin: 2rem auto;
   width: 100%;
-  height: 10rem;
+  height: 100%;
   z-index: 1;
 }
 .barofcontext .marqueebar {
@@ -113,24 +111,14 @@ html body {
   margin-right: auto;
   margin-bottom: 0.5rem;
   width: 70%;
+  height: auto;
 }
 
 .light .card-demandedjob {
+  height: auto;
   background: rgba(255, 255, 255, 0.364);
   box-shadow: 0 4px 12px rgba(244, 243, 243, 0.572);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card-demandedjob .card-demandedjobfirstrow {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 100%;
-}
-.card-demandedjob .card-demandedjobsecondrow {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
 }
 .card-demandedjob:hover {
   transform: translateY(-5px);
@@ -159,19 +147,21 @@ html body {
 }
 
 .nav-contente {
-  position: relative;
+  position: fixed;
   width: 100%;
-  height: auto;
-  /* border: 1px solid #960000; */
   background: #ffffff;
   transition: 0.6s;
   z-index: 1;
+  height: auto;
+  overflow: visible;   
 }
 .nav-contente.light {
   background: #0c0c0c;
 }
 .nav-contente .footer {
   position: relative;
-  width: 100%;
+  width: auto;
+  height: auto;
   margin-top: 1%;
+  margin-top: 15rem;
 }

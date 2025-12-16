@@ -792,7 +792,7 @@ body {
 .nav {
   position: relative;
   width: 100vw;
-  min-height: 105vw;
+  min-height: auto;
   /* border: 1px solid #960000; */
   background: #ffffff;
   transition: 0.6s;

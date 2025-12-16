@@ -109,8 +109,7 @@ const Home = () => {
                 <p>No jobs found.</p>
               ) : (
                 <>
-                  <div className="card-demandedjobfirstrow">
-                    {jobs.slice(0, 4).map((job, index) => (
+                    {jobs.slice(0, 8).map((job, index) => (
                       <JobCard
                         key={index}
                         job={job}
@@ -119,18 +118,6 @@ const Home = () => {
                         details={job}
                       />
                     ))}
-                  </div>
-                  <div className="card-demandedjobsecondrow">
-                    {jobs.slice(4, 8).map((job, index) => (
-                      <JobCard
-                        key={index + 4}
-                        job={job}
-                        theme={theme}
-                        setTheme={setTheme}
-                        details={job}
-                      />
-                    ))}
-                  </div>
                 </>
               )}
             </div>
