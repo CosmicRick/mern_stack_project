@@ -1,13 +1,17 @@
 /* Card Container */
+.jobcard{
+  display: inline;
+  width: 100%;
+  background-color: #1e40af;
+}
 .card {
   border-radius: 12px;
-  overflow: hidden;
+  overflow: absolute;
   box-shadow: 0 8px 25px rgba(4, 4, 4, 0.12);
   margin: 15px;
   background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  position: relative;
+  height: auto;
+  width: 150vw;
 }
 
 .card::before {

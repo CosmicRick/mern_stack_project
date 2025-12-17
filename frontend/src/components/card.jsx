@@ -1,20 +1,24 @@
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, Button } from 'react-bootstrap';
 import './card.css';
 import { useNavigate } from "react-router-dom";
+
 const JobCard = ({ job, ...props }) => {
   const navigate = useNavigate();
+  
   return (
     <>
-      <div>
-        <Card>
-          <Card.Img variant="top" src={`${job?.image}`} style={{ objectFit: 'cover', maxHeight: '10rem' }} />
-          <Card.Body style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-            <Card.Title>{job?.title}</Card.Title>
-            <Card.Text style={{ overflow: 'auto', flex: '1' }}>
+      <div className='cardvalue'>
+        <div className='card'>
+          <img 
+            className="card-image" 
+            src={`${job?.image}`} 
+            alt={job?.title || "Job image"}
+          />
+          <div className='card-content'>
+            <h3 className='card-title'>{job?.title}</h3>
+            <p className='card-description'>
               {job?.description}
-            </Card.Text>
+            </p>
             <div>
               <button
                 className="go-somewhere-btn"
@@ -24,8 +28,8 @@ const JobCard = ({ job, ...props }) => {
                 Details
               </button>
             </div>
-          </Card.Body>
-        </Card>
+          </div>
+        </div>
       </div>
     </>
   );

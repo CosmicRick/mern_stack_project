@@ -109,6 +109,7 @@ const ContactSection = () => {
                       placeholder="Your last name"
                       value={formData.lastName}
                       onChange={handleInputChange}
+                      style={{ width: "13rem" }}
                     />
                   </div>
                 </div>
@@ -140,7 +141,7 @@ const ContactSection = () => {
                 <button onClick={handleSubmit} className="submit-btn">
                   Send Message
                 </button>
-                
+
               </div>
             </div>
           </div>
