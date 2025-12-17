@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getJobById, applyToJob } from '../services/api';
 import './JobDetails.css';
-import background from "../components/assets/gradiant.jpg";
 import Navbar from "../components/navigation/Navbar";
+import Footer from "../components/Footer/footer";
+
 
 const JobDetails = () => {
   const current_theme = localStorage.getItem("current_theme");
@@ -48,10 +49,9 @@ const JobDetails = () => {
     }
   };
   return (
-    <div className={`nav-contente ${theme}`}>
+    <div className={`nav-contenter ${theme}`}>
       <Navbar theme={theme} setTheme={setTheme} />
       <div className="job-details-background">
-        <img src={background} alt="Background" className="background-image" />
         <div className="job-details-container">
           {job && (
             <>
@@ -98,6 +98,9 @@ const JobDetails = () => {
             </>
           )}
         </div>
+      </div>
+      <div className="footers">
+      <Footer theme={theme} setTheme={setTheme} />
       </div>
     </div>
   );
