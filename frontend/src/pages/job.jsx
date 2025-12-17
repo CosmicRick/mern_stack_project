@@ -36,7 +36,7 @@ const Jobs = () => {
     getJobs({ search, sortBy, sortOrder, page, limit: 5, city, company })
       .then((response) => {
         setJobs(response.data.jobs || []);
-        setTotalPages(response.data.totalPages || 1);
+        setTotalPages(response.data.totalPages || 5);
         setLoading(false);
       })
       .catch(() => {

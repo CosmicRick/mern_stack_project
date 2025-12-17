@@ -30,7 +30,7 @@ const Home = () => {
 
   // pagination state
   const [page, setPage] = useState(1);
-  const [limit] = useState(8);
+  const [limit] = useState(10);
   const [totalPages, setTotalPages] = useState(1);
 
   // filters
@@ -103,30 +103,30 @@ const Home = () => {
               </marquee>
             </div>
             <div className="contents">
-            <div className="sidebar" style={{width : '20rem'}}>
-              <Sidebar></Sidebar>
-            </div>
-            <div className="card-demandedjob">
-              {loading ? (
-                <p>Loading jobs...</p>
-              ) : error ? (
-                <p style={{ color: "red" }}>{error}</p>
-              ) : jobs.length === 0 ? (
-                <p>No jobs found.</p>
-              ) : (
-                <>
-                  {jobs.slice(0, 8).map((job, index) => (
-                    <JobCard
-                      key={index}
-                      job={job}
-                      theme={theme}
-                      setTheme={setTheme}
-                      details={job}
-                    />
-                  ))}
-                </>
-              )}
-            </div>
+              <div className="sidebar" style={{ width: '20rem' }}>
+                <Sidebar></Sidebar>
+              </div>
+              <div className="card-demandedjob">
+                {loading ? (
+                  <p>Loading jobs...</p>
+                ) : error ? (
+                  <p style={{ color: "red" }}>{error}</p>
+                ) : jobs.length === 0 ? (
+                  <p>No jobs found.</p>
+                ) : (
+                  <>
+                    {jobs.slice(0, 10).map((job, index) => (
+                      <JobCard
+                        key={index}
+                        job={job}
+                        theme={theme}
+                        setTheme={setTheme}
+                        details={job}
+                      />
+                    ))}
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </main>

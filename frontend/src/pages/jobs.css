@@ -102,6 +102,7 @@ body {
 /* Update the jobs container */
 .jobs-container {
   min-height: 100vh;
+  height: auto;
   background: rgba(255, 255, 255, 0);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
