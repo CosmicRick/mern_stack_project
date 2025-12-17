@@ -40,7 +40,7 @@
 }
 .contact-content {
   position: absolute;
-  top: 71rem;
+  top: 70.5rem;
   left: 0;
   display: flex;
   justify-content: center;
@@ -54,9 +54,9 @@
   height: 100%;
   object-fit: cover;
 }
-.footer {
+.footerr {
   position: absolute;
-  bottom: -2rem;
+  bottom: -4.4rem;
   width: 100%;
   z-index: 1000;
 }

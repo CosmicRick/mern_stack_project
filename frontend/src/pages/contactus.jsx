@@ -26,7 +26,7 @@ function Contactus() {
           </div>
         </div>
       </main>
-      <div className="footer">
+      <div className="footerr">
         <Footer theme={theme} setTheme={setTheme} />
       </div>
     </div>
