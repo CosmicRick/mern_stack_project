@@ -8,15 +8,15 @@ const JobCard = ({ job, ...props }) => {
   return (
     <>
       <div className='cardvalue'>
-        <div className='card'>
+        <div className='car'>
           <img 
-            className="card-image" 
+            className="car-image" 
             src={`${job?.image}`} 
             alt={job?.title || "Job image"}
           />
-          <div className='card-content'>
-            <h3 className='card-title'>{job?.title}</h3>
-            <p className='card-description'>
+          <div className='car-content'>
+            <h3 className='car-title'>{job?.title}</h3>
+            <p className='car-description'>
               {job?.description}
             </p>
             <div>

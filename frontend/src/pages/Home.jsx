@@ -16,6 +16,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import JobCard from "../components/card.jsx";
 import Button from "react-bootstrap/Button";
 import { getJobs } from "../services/api";
+import sidebar from "../components/sidebar.jsx";
+import Sidebar from "../components/sidebar.jsx";
 
 
 const Home = () => {
@@ -90,15 +92,19 @@ const Home = () => {
           {/* Jobs Section */}
           <div className="barofcontext">
             <div className="marqueebar">
-              <marquee behavior="alternate" direction="Left" scrollamount="10" >
+              <marquee behavior="alternate" direction="Left" scrollamount="13" >
                 <img src={SpotifyLogo} alt="Spotify" className="logo-m" />
                 <img src={AmazoneLogo} alt="Amazon" className="logo-m" />
                 <img src={TcsLogo} alt="TCS" className="logo-m" />
                 <img src={FacebookLogo} alt="Facebook" className="logo-m" />
-                <img src={wiproLogo} alt="Wipro" className="logo-m"/>
+                <img src={wiproLogo} alt="Wipro" className="logo-m" />
                 <img src={deloitteLogo} alt="Deloitte" className="logo-w" />
                 <img src={AirbnbLogo} alt="Airbnb" className="logo-w" />
               </marquee>
+            </div>
+            <div className="contents">
+            <div className="sidebar" style={{width : '20rem'}}>
+              <Sidebar></Sidebar>
             </div>
             <div className="card-demandedjob">
               {loading ? (
@@ -109,17 +115,18 @@ const Home = () => {
                 <p>No jobs found.</p>
               ) : (
                 <>
-                    {jobs.slice(0, 8).map((job, index) => (
-                      <JobCard
-                        key={index}
-                        job={job}
-                        theme={theme}
-                        setTheme={setTheme}
-                        details={job}
-                      />
-                    ))}
+                  {jobs.slice(0, 8).map((job, index) => (
+                    <JobCard
+                      key={index}
+                      job={job}
+                      theme={theme}
+                      setTheme={setTheme}
+                      details={job}
+                    />
+                  ))}
                 </>
               )}
+            </div>
             </div>
           </div>
         </main>

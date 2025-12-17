@@ -39,7 +39,7 @@ html body {
   height: 23vw;
   object-fit: cover;
   filter: brightness(0.6);
-  z-index: 1  ; /* This is critical: it puts the image BEHIND the text */
+  z-index: 1; /* This is critical: it puts the image BEHIND the text */
 }
 .imagecontent h1 {
   position: absolute;
@@ -98,24 +98,32 @@ html body {
   height: 0px; /* Adjusted to prevent layout issues */
   margin-top: 20rem;
 }
+.contents {
+  display: flex;
+  margin: 2rem;
+  padding: 2rem;
+  gap: 3%;
+}
+.sidebar {
+  flex: 1;
+  height: auto;
+  margin-top: 2%;
+}
 .card-demandedjob {
   padding: 1.5rem;
   border-radius: 12px;
-  background: #5b515152;
+  background: #2d2b2b69;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid #beb0b0d0;
   margin-top: 2%;
-  margin-left: auto;
-  margin-right: 2rem;
   margin-bottom: 1.9rem;
-  width: 80%;
+  width: 100%;
   height: auto;
 }
 
 .light .card-demandedjob {
   height: auto;
-
   background: rgba(255, 255, 255, 0.364);
   box-shadow: 0 4px 12px rgba(244, 243, 243, 0.572);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -125,27 +133,6 @@ html body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 2rem;
-}
-
-.context-bar {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.page-wrapper {
-  overflow-x: hidden;
-}
-
-.content-spacer {
-  height: 2rem;
-  background: transparent;
-}
-
 .nav-contente {
   position: relative;
   width: 100vw;
@@ -153,7 +140,7 @@ html body {
   transition: 0.6s;
   z-index: 1;
   height: auto;
-  overflow: visible;   
+  overflow: visible;
 }
 .nav-contente.light {
   background: #2e2e2e;
