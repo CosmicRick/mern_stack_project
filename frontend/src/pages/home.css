@@ -102,7 +102,8 @@ html body {
   display: flex;
   margin: 2rem;
   padding: 2rem;
-  gap: 3%;
+  gap: 1%;
+  border-radius: 1%;
 }
 .sidebar {
   flex: 1;
@@ -118,7 +119,7 @@ html body {
   border: 1px solid #beb0b0d0;
   margin-top: 2%;
   margin-bottom: 1.9rem;
-  width: 100%;
+  width: 90%;
   height: auto;
 }
 

@@ -60,6 +60,9 @@
   box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.2) !important;
   position: relative;
   overflow: hidden;
+  height: auto;
+  width: auto;
+
 }
 .light .job-card {
   background: rgba(198, 192, 192, 0.144) !important;

@@ -54,6 +54,7 @@
     flex: 1;
     font-size: 14px;
     color: #303030;
+    border-radius: none;
   }
 
   .search-input input::placeholder {

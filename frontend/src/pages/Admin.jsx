@@ -7,7 +7,7 @@ import {
   updateJob,
   deleteJob,
 } from "../services/api";
-import JobModal from "./JobModal";
+import JobModal from "./jobModal";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/navigation/Navbar";
 import Footer from "../components/Footer/footer";
@@ -197,6 +197,9 @@ const JobAdminPanel = () => {
         setFormData={setFormData}
         isEditing={isEditing}
       />
+      <div className="footers" style={{padding : '2rem'}}>
+      <Footer theme={theme} setTheme={setTheme} />
+      </div>
     </div>
   );
 };
