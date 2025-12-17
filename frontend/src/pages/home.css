@@ -124,8 +124,9 @@ html body {
 }
 
 .light .card-demandedjob {
+  backdrop-filter: blur(6px);
   height: auto;
-  background: rgba(255, 255, 255, 0.364);
+  background: rgba(255, 255, 255, 0.222);
   box-shadow: 0 4px 12px rgba(244, 243, 243, 0.572);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
