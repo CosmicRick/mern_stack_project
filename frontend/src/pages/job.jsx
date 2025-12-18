@@ -222,7 +222,7 @@ const Jobs = () => {
                 <button
                   disabled={page === 1}
                   onClick={() => setPage(page - 1)}
-                  className="px-4 py-2 border rounded-lg disabled:opacity-50 bg-gray-100 hover:bg-gray-200"
+                  className="px-4 py-2 border rounded-lg disabled:opacity-100 bg-green-100 hover:bg-gray-200"
                 >
                   ⬅ Prev
                 </button>
@@ -232,7 +232,7 @@ const Jobs = () => {
                 <button
                   disabled={page === totalPages}
                   onClick={() => setPage(page + 1)}
-                  className="px-4 py-2 border rounded-lg disabled:opacity-50 bg-gray-100 hover:bg-gray-200"
+                  className="px-4 py-2 border rounded-lg disabled:opacity-100 bg-green-100 hover:bg-gray-200"
                 >
                   Next ➡
                 </button>
