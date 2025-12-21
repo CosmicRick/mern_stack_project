@@ -218,7 +218,7 @@ const Jobs = () => {
 
             {/* Pagination */}
             {!loading && totalPages > 1 && (
-              <div className="flex justify-center items-center gap-3 mt-8">
+              <div className="flex justify-center items-center gap-3 mt-8" style={{marginTop : '5%' , marginLeft : '3%'}}>
                 <button
                   disabled={page === 1}
                   onClick={() => setPage(page - 1)}

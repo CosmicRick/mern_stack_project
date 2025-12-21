@@ -47,7 +47,7 @@ function Sidebar() {
 
   return (
     <div className="filter-container">
-      <div className="filter-section">
+      <div className="filter-section"style={{paddingLeft : '20%'}}>
         <h2 className="section-title">Search by Job Title</h2>
         <div className="search-input">
           <svg className="search-iconf" width="20" height="20" viewBox="0 0 20 20" fill="none">
