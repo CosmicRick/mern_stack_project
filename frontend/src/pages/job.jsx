@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+    import React, { useEffect, useState } from "react";
 import Navbar from "../components/navigation/Navbar";
 import "./Jobs.css";
 import Jobimage from "../components/assets/jobimage.jpg";
@@ -218,7 +218,7 @@ const Jobs = () => {
 
             {/* Pagination */}
             {!loading && totalPages > 1 && (
-              <div className="flex justify-center items-center gap-3 mt-8" style={{marginTop : '5%' , marginLeft : '3%'}}>
+              <div className="flex justify-center items-center gap-3 mt-8" style={{marginTop : '5%' , marginLeft : '40%'}}>
                 <button
                   disabled={page === 1}
                   onClick={() => setPage(page - 1)}
