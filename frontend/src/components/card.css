@@ -4,6 +4,7 @@
   width: 100%;
 }
 .car {
+  position: relative;
   overflow: scroll;
   box-shadow: 0 8px 25px rgba(4, 4, 4, 0.12);
   margin: 15px;
