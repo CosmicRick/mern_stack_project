@@ -5,12 +5,10 @@
   padding: 12px 0 0 0;
   position: absolute;
   left: 0;
-  bottom: -4.4rem;
-  height: 30.3vh;
+  bottom: -2rem;
   width: 100%;
   z-index: 100;
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
-
 }
 .light .main-footer{
   background: #526e48;

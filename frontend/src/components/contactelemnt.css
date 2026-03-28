@@ -5,7 +5,8 @@
   display: flex;
   align-items: center;
   position: relative;
-  width: 100%;
+  width: 100.7vw;
+  margin-left: -2vw;
 }
 
 .contact-section::before {

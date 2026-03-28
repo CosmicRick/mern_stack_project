@@ -45,7 +45,9 @@ const About = () => {
           <Bestwork />
         </div>
       </main>
+      <div className="footerr">
       <Footer theme={theme} setTheme={setTheme} />
+      </div>
     </div>
   );
 };

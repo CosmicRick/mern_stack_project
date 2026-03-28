@@ -6,7 +6,7 @@
   padding: 8px 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   width: fit-content;
-  margin: 5rem auto 0; 
+  margin: 5rem auto 0;
   top: 0rem;
   gap: 4px;
   position: relative;
@@ -29,6 +29,7 @@
   background: transparent;
   color: #064109;
   border-right: 1px solid black;
+  border-radius: 0;
 }
 .light .searchbar-container input {
   border-right: 1px solid #ffffff;

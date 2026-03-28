@@ -2,15 +2,17 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-
+}
+:root {
+  width: 100%;
+  height: auto;
 }
 main {
   display: flex;
   flex-direction: column;
-  width: 100%;
   height: auto;
-  min-height: 200vh;
-  overflow-y: visible;
+  min-height: 100vh;
+  overflow-x: visible;
   z-index: 1;
 }
 html {
@@ -19,11 +21,13 @@ html {
 html body {
   padding-bottom: 0px;
   margin-bottom: 0px;
+  margin: 0;
 }
 
 .imagecontent {
   display: flex;
   height: 30%;
+  width: 100%;
   z-index: 1;
   position: relative;
 }
@@ -40,9 +44,8 @@ html body {
 .imagecontent h1 {
   position: absolute;
   z-index: 1000;
-  /* top: 15rem; */
   margin: 0;
-  padding: 3rem 45rem;
+  padding: 3rem 40rem;
   font-family: "Gabriola";
   font-size: 4rem;
   text-align: center;
@@ -50,6 +53,7 @@ html body {
   font-weight: bold;
   font-style: italic;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.457);
+  width: 100%;
 }
 .imagecontent span {
   font-weight: bold;
@@ -58,23 +62,35 @@ html body {
   position: relative;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.457);
   left: 36.5rem;
-  z-index: 1000;
-  color: rgb(221, 253, 221);
+  z-index: 1;
+  color: rgb(252, 254, 252);
 }
 .barofcontext {
   position: relative;
-  top: 2.1rem; 
+  top: 2.1rem;
   left: 0;
   right: 0;
   margin: 2rem auto;
   width: 100%;
-  height: 10rem;
-  z-index: 1; 
+  height: 100%;
+  z-index: 1;
 }
-.barofcontext img {
+.barofcontext .marqueebar {
   width: 100%;
   object-fit: cover;
   height: 9.5rem;
+  background-color: #0c0c0c;
+}
+.barofcontext .marqueebar .logo-m {
+  height: 15rem;
+  margin-top: -3rem;
+  padding-left: 5rem;
+}
+.barofcontext .marqueebar .logo-w {
+  height: 10rem;
+  margin-top: -3rem;
+  padding: 1%;
+  padding-left: 10rem;
 }
 .search job-search-bar {
   position: relative;
@@ -82,84 +98,58 @@ html body {
   height: 0px; /* Adjusted to prevent layout issues */
   margin-top: 20rem;
 }
+.contents {
+  display: flex;
+  margin: 2rem;
+  padding: 2rem;
+  gap: 1%;
+  border-radius: 1%;
+}
+.sidebar {
+  flex: 1;
+  height: auto;
+  margin-top: 2%;
+}
 .card-demandedjob {
-  flex: 1 1 calc(25% - 1rem);
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 12px;
-  background: #5b515152;
+  background: #2d2b2b69;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #beb0b0d0;
   margin-top: 2%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 0.5rem;
-  width: 70%;
+  margin-bottom: 1.9rem;
+  width: 80%;
+  height: auto;
 }
 
 .light .card-demandedjob {
-  background: rgba(255, 255, 255, 0.364);
+  backdrop-filter: blur(6px);
+  height: auto;
+  background: rgba(255, 255, 255, 0.222);
   box-shadow: 0 4px 12px rgba(244, 243, 243, 0.572);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card-demandedjob .card-demandedjobfirstrow {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 100%;
-}
-.card-demandedjob .card-demandedjobsecondrow {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
 }
 .card-demandedjob:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 2rem;
-}
-
-.context-bar {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.page-wrapper {
-  overflow-x: hidden;
-}
-
-.content-spacer {
-  height: 2rem;
-  background: transparent;
-}
-
 .nav-contente {
   position: relative;
   width: 100vw;
-  height: 105vw;
-  /* border: 1px solid #960000; */
   background: #ffffff;
   transition: 0.6s;
   z-index: 1;
+  height: auto;
+  overflow: visible;
 }
 .nav-contente.light {
-  background: #313030;
+  background: #2e2e2e;
 }
-.footer {
+.nav-contente .footer {
   position: relative;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 2rem 1rem;
-  margin-top: 7rem;
-  min-height: 80px;
+  width: auto;
+  height: auto;
+  margin-top: 15rem;
 }

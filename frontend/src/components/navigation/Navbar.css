@@ -1,5 +1,3 @@
-/* Remove underline from all links in navbar */
-
 * {
   margin: 0;
   padding: 0;
@@ -29,10 +27,10 @@ html body {
   align-items: center;
   justify-content: space-between;
   top: -4rem;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   background: #9edf9c42;
-  backdrop-filter: blur(3.13rem); /* 50px /16 */
+  backdrop-filter: blur(2.13rem); /* 50px /16 */
   padding: 0 0.5rem;
   gap: 0;
   box-sizing: border-box;
@@ -65,7 +63,7 @@ html body {
   align-items: center;
   gap: 0.5rem;
   margin: 0;
-  padding-left: 5.63rem; /* 90px/16 */
+  padding-left: 0.54rem; /* 90px/16 */
   font-size: medium;
   margin-top: -4rem;
 }
@@ -76,7 +74,11 @@ html body {
   font-size: 1.75rem; /* 28px/16 */
   cursor: pointer;
   gap: 0.4rem;
-  margin-left: 2rem;
+  margin-left: 1.4rem;
+}
+.navbar ul li:hover {
+    border-bottom: 1px solid black;
+    transition: 1000ms;
 }
 
 .navbar ul li a {
@@ -153,7 +155,7 @@ html body {
 
 input[type="text"],
 input[type="search"] {
-  caret-color: rgb(219, 121, 243);
+  caret-color: rgb(115, 49, 238);
 }
 
 .day-mode-icon {
@@ -188,12 +190,11 @@ input[type="search"] {
   align-items: center;
   gap: 2px;
   margin-top: -4rem;
-  margin-right: 8.5rem;
+  margin-right: 7.5rem;
   padding: 10px 16px;
   background-color: #36aa68;
   color: white;
   border: none;
-  border-radius: 6px;
   cursor: pointer;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 14px;
@@ -256,12 +257,81 @@ input[type="search"] {
   background-color: #007bff;
   color: white;
 }
-.aibot {
+.Logout {
   display: flex;
   align-items: center;
-  margin-right: 0.7rem;
+  gap: 2px;
   margin-top: -4rem;
-  margin-left: -8rem;
+  margin-left: -4rem;
+  margin-right: 1rem;
+  padding: 10px 16px;
+  background-color: #36aa68;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  user-select: none;
+  border-radius: 25px;
+}
+.Logout:hover {
+  background-color: #0b8946;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 255, 68, 0.3);
+}
+
+.Logout:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(0, 123, 255, 0.2);
+}
+
+.Logout label {
+  margin: 0;
+  cursor: pointer;
+  font-weight: inherit;
+  color: inherit;
+  pointer-events: none;
+  font-size: 14px;
+}
+
+/* Alternative color schemes */
+.Logout.secondary {
+  background-color: #6c757d;
+}
+
+.Logout.secondary:hover {
+  background-color: #545b62;
+}
+
+.Logout.success {
+  background-color: #28a745;
+}
+
+.Logout.success:hover {
+  background-color: #1e7e34;
+}
+
+.Logout.outline {
+  background-color: transparent;
+  color: #066f35;
+  border: 2px solid #a3ecca;
+}
+
+.Logout.outline:hover {
+  background-color: #007bff;
+  color: white;
+}
+.aibot {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  margin-right: 5rem;
+  margin-top: -4rem;
+  margin-left: -6.7rem;
   padding: 10px 16px;
   background-color: #36aa68;
   color: white;

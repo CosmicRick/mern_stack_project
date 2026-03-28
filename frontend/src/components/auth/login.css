@@ -27,8 +27,7 @@
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
-  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  width: 100%;
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);  
 }
 
 /* Dark mode support */
@@ -350,14 +349,14 @@ body {
   animation: spin 1s linear infinite;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
 /* Login link with user icon */
 .read-the-docs {

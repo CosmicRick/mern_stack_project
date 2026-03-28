@@ -1,5 +1,14 @@
-/* Jobs.css updated with glass morphism effects and dark theme */
+/* Theme-specific navigation styles */
+.nav.light {
+  background-color: #ffffff;
+  color: #000000;
+}
 
+.nav.dark {
+  background-color: #000000;
+  color: #ffffff;
+}
+/* Jobs.css updated with glass morphism effects and dark theme */
 /* Glass morphism effects */
 .backdrop-blur-md {
   backdrop-filter: blur(15px);
@@ -16,7 +25,7 @@
   margin-bottom: 1.9rem;
   width: 100%;
   height: 10rem;
-  padding: 1rem 3rem 1rem 3rem ;
+  padding: 1rem 3rem 1rem 3rem;
 }
 .glass-panel.dark {
   background: rgba(36, 36, 36, 0.4);
@@ -36,21 +45,6 @@
   background: rgb(0, 0, 0);
   border: 1px solid rgba(3, 3, 3, 0.491);
 }
-
-/* Theme support */
-.nav.light {
-  background-color: rgba(255, 255, 255, 0.511); /* More transparent */
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  color: #000;
-}
-.nav.dark {
-  background-color: rgb(0, 0, 0); /* More transparent */
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  color: #fff;
-}
-
 /* Dark theme body background */
 body.dark {
   background: black;
@@ -67,14 +61,13 @@ body {
 
 .nav .imagecontent {
   top: -5rem;
-  left: -20rem;
   right: 0rem;
   bottom: 0rem;
   display: flex;
   height: 50vh;
+  width: 100vw;
   z-index: -1;
   position: absolute;
-  width: 129vw;
   height: 30%;
   overflow: hidden;
 }
@@ -82,18 +75,16 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 65%;
   object-fit: cover;
   filter: brightness(0.9);
   z-index: -1; /* Place image behind the text content */
 }
-
 /* Dark theme for imagecontent */
 .dark .nav .imagecontent img {
   filter: brightness(0.6) contrast(1.1);
 }
-
 /* Completely remove opaque backgrounds */
 .bg-white {
   background-color: transparent !important;
@@ -121,6 +112,7 @@ body {
 /* Update the jobs container */
 .jobs-container {
   min-height: 100vh;
+  height: auto;
   background: rgba(255, 255, 255, 0);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
@@ -154,6 +146,7 @@ body {
 .dark .jobs-title {
   background: linear-gradient(45deg, #60a5fa, #3b82f6);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -247,7 +240,7 @@ body {
 }
 
 .job-card-header.dark {
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid rgba(246, 244, 244, 0);
 }
 
 .job-header-left {
@@ -351,7 +344,9 @@ body {
   background-color: rgba(51, 65, 85, 0.3);
   border: 2px solid rgba(255, 255, 255, 0.1);
 }
-
+.my-box {
+  color: rgba(65, 144, 86, 0.735);
+}
 .job-highlight-item {
   display: flex;
   flex-direction: column;
@@ -643,6 +638,12 @@ body {
   border: 4px solid #475569;
   border-top: 4px solid #3b82f6;
 }
+.nav .footerr {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-top: 20vw;
+}
 
 @keyframes spin {
   0% {
@@ -798,7 +799,19 @@ body {
   background-attachment: fixed;
   min-height: 100vh;
 }
-
+/* darktheme fix  */
+.nav {
+  position: relative;
+  width: 100vw;
+  min-height: auto;
+  /* border: 1px solid #960000; */
+  background: #ffffff;
+  transition: 0.6s;
+  z-index: 1;
+}
+.nav.light {
+  background: #000000;
+}
 /* Rest of the CSS remains the same... */
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -1262,4 +1275,3 @@ body {
 .main-content {
   flex: 1;
 }
-
