@@ -107,10 +107,12 @@ const Navbar = ({ theme, setTheme }) => {
       {/* AI Modal */}
       <AiModal show={showAIModal} handleClose={() => setShowAIModal(false)} />
       {/* Logout Button */}
+      {user && (
         <div className="Logout" onClick={handleLogout}>
-          <FontAwesomeIcon icon={faArrowRightFromBracket} size="lg" style={{color: "#ffffff",}} />
-        <span className="logout-text">Logout</span>
+          <FontAwesomeIcon icon={faArrowRightFromBracket} size="lg" style={{ color: "#ffffff" }} />
+          <span className="logout-text">Logout</span>
         </div>
+      )}
 
     </div>
   );  
