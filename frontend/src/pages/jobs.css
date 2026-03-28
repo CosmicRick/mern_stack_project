@@ -1,3 +1,13 @@
+/* Theme-specific navigation styles */
+.nav.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.nav.dark {
+  background-color: #000000;
+  color: #ffffff;
+}
 /* Jobs.css updated with glass morphism effects and dark theme */
 /* Glass morphism effects */
 .backdrop-blur-md {
