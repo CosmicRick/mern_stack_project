@@ -335,12 +335,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 <sub><b>Sayandip Naskar</b></sub></a><br/>
 <sub>Full-Stack Developer</sub>
 </td>
-<td align="center">
-<a href="https://github.com/Sourish-Mallick">
-<img src="https://github.com/Sourish-Mallick.png" width="100px;" alt="Sourish Mallick"/><br/>
-<sub><b>Sourish Mallick</b></sub></a><br/>
-<sub>Full-Stack Developer</sub>
-</td>
 </tr>
 </table>
 
